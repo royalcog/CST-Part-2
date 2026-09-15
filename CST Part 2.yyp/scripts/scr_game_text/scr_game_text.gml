@@ -18,25 +18,27 @@ function scr_game_text(_text_id)
 		break;
 		
 		case "self_2":
-			scr_text("* What did you guys talk about?", "lancer", 2);
-				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_left, false);
-				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right, false);
-			scr_text("* Uh", "queen", 9);
-			scr_text("* Taxes", "queen", 20);
-			scr_text("* I love taxes!", "lancer", 3);
-			scr_text("* ...", "queen", 4);
-			scr_text("* Okay", "queen", 28);
-			scr_text("* Anyways", "queen", 1);
-			scr_text("* I'm Gonna Go: Do Something", "queen", 2);
-			scr_text("* Make Sure Your Dad Doesn't Leave", "queen", 3);
-			scr_text("* Okay!", "lancer", 2);
-			scr_text("* Sick", "queen", 10);
-				scr_obj_sprite_after_textbox_delayed(obj_lancer, spr_lancer_left, false, 20);
-				scr_queue_movement_group_after_textbox([
-				   { obj: obj_queen, sprite: spr_queen_walk_down, loop: true, dx: 0, dy: 4, speed: .3, duration: 75 },
-				   { obj: obj_queen, sprite: spr_queen_walk_left, loop: true, dx: -5, dy: 0, speed: .3, duration: 90 },
-				   { obj: obj_queen, sprite: spr_queen_walk_down, loop: true, dx: 0, dy: 4, speed: .3, duration: 75 },
-				]);
+		    scr_text("* What did you guys talk about?", "lancer", 2);
+		        scr_obj_sprite_on_page(obj_queen, spr_queen_walk_left, false);
+		        scr_obj_sprite_on_page(obj_lancer, spr_lancer_right, false);
+		    scr_text("* Uh", "queen", 9);
+		    scr_text("* Taxes", "queen", 20);
+		    scr_text("* I love taxes!", "lancer", 3);
+		    scr_text("* ...", "queen", 4);
+		    scr_text("* Okay", "queen", 28);
+		    scr_text("* Anyways", "queen", 1);
+		    scr_text("* I'm Gonna Go: Do Something", "queen", 2);
+		    scr_text("* Make Sure Your Dad Doesn't Leave", "queen", 3);
+		    scr_text("* Okay!", "lancer", 2);
+		    scr_text("* Sick", "queen", 10);
+		        scr_obj_sprite_after_textbox_delayed(obj_lancer, spr_lancer_left, false, 20);
+		        scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, .9, 20);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_left, true, -5, 0, .9, 60);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, .9, 60);
+		break;
+		
+		case "self_3":
+			scr_fade_warp_with_music(rm_one, 240, sng_empty);
 		break;
 /*
 Lancer: What did you guys talk about?
