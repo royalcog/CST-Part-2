@@ -1,1 +1,0 @@
-if (instance_exists(obj_friend)) { obj_friend.visible = true; }

@@ -1,4 +1,4 @@
-if room == rm_two && instance_exists(obj_desscircle)
+if room == rm_one && instance_exists(obj_desscircle)
 {
     var _sw = 512;
     var _sh = 512;
@@ -28,7 +28,7 @@ if room == rm_two && instance_exists(obj_desscircle)
     draw_surface(_surf, _sx, _sy);
     surface_free(_surf);
 }
-else if room == rm_two
+else if room == rm_one
 {
     draw_sprite_ext(sprite_index, image_index,
         x, y, image_xscale, -image_yscale,
