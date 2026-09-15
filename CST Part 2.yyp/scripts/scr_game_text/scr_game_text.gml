@@ -31,6 +31,12 @@ function scr_game_text(_text_id)
 			scr_text("* Make Sure Your Dad Doesn't Leave", "queen", 3);
 			scr_text("* Okay!", "lancer", 2);
 			scr_text("* Sick", "queen", 10);
+				scr_obj_sprite_after_textbox_delayed(obj_lancer, spr_lancer_left, false, 20);
+				scr_queue_movement_group_after_textbox([
+				   { obj: obj_queen, sprite: spr_queen_walk_down, loop: true, dx: 0, dy: 4, speed: .3, duration: 75 },
+				   { obj: obj_queen, sprite: spr_queen_walk_left, loop: true, dx: -5, dy: 0, speed: .3, duration: 90 },
+				   { obj: obj_queen, sprite: spr_queen_walk_down, loop: true, dx: 0, dy: 4, speed: .3, duration: 75 },
+				]);
 		break;
 /*
 Lancer: What did you guys talk about?
