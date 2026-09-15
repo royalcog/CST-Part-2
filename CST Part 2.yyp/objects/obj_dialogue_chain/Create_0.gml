@@ -1,0 +1,63 @@
+entries       = [];
+index         = 0;
+curr_box      = noone;
+default_wrap  = 200;
+default_cps   = 0.4;
+offx = [];
+offy = [];
+offx[CharID.Capn] = -20;
+offy[CharID.Capn] = -8;
+offx[CharID.Susie] = 65;
+offy[CharID.Susie] = -20;
+offx[CharID.Ralsei] = 60;
+offy[CharID.Ralsei] = -20;
+offx[CharID.Noelle] = 65;
+offy[CharID.Noelle] = -20;
+offx[CharID.Battat] = 103;
+offy[CharID.Battat] = -50;
+offx[CharID.Jongler] = -70;
+offy[CharID.Jongler] = -90;
+offx[CharID.Pluey] = -30;
+offy[CharID.Pluey] = -68;
+offx[CharID.Tenna] = -60;
+offy[CharID.Tenna] = -90;
+offx[CharID.Pink] = 60;
+offy[CharID.Pink] = -10;
+offx[CharID.Gerson] = 70;
+offy[CharID.Gerson] = -10;
+offx[CharID.Spamton] = 60;
+offy[CharID.Spamton] = -10;
+offx[CharID.Jevil] = 62;
+offy[CharID.Jevil] = -8;
+offx[CharID.Friend] = -49;
+offy[CharID.Friend] = 35;
+
+if (!variable_global_exists("dbg_friend_offx")) { global.dbg_friend_offx = offx[CharID.Friend]; }
+if (!variable_global_exists("dbg_friend_offy")) { global.dbg_friend_offy = offy[CharID.Friend]; }
+
+if (global.DEBUG_BARRAGE)
+{
+    offx[CharID.Friend] = global.dbg_friend_offx;
+    offy[CharID.Friend] = global.dbg_friend_offy;
+}
+flip = [];
+flip[CharID.Capn] = false;
+flip[CharID.Susie] = true;
+flip[CharID.Ralsei] = true;
+flip[CharID.Noelle] = true;
+flip[CharID.Tenna] = false;
+flip[CharID.Battat] = true;
+flip[CharID.Jongler] = false;
+flip[CharID.Pluey] = false;
+flip[CharID.Pink] = true;
+flip[CharID.Gerson] = true;
+flip[CharID.Friend] = false;
+flip[CharID.Spamton] = true;
+flip[CharID.Jevil] = true;
+next_delay = 0;
+dim_timer = 0;
+dim_phase = 1;
+target_alpha = 0.4;
+dim_speed = 0.02;
+batches = [];
+batch_index = 0;

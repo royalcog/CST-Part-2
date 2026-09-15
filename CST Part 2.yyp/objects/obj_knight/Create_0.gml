@@ -1,0 +1,14 @@
+image_xscale = 2;
+image_yscale = 2;
+depth = -1003;
+bob_angle = 0;
+start_y = y;
+ball_phase = 0;
+ball_target_x = 500;
+anim_loop = true;
+shadow_timer = 0;
+reverse_phase = 0;
+reverse_frame = 0;
+turn_sword_sound_played = false;
+hit_offset_x = 58;
+hit_offset_y = 30;
