@@ -11,11 +11,11 @@ y = _camy + _camh - 10;
 offscreen_x = x; // <-- remember this starting position so we can send it back later
 onscreen_x = target_x; // remember the real onscreen position so we can return to it later
 
-if room = rm_one
+if room = rm_two
 {
     sprite_index = spr_UI_SCP;
 }
-if room = rm_two
+if room = rm_zero
 {
     sprite_index = spr_UI_SCP;
 }

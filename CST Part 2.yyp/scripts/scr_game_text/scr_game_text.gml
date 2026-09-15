@@ -13,7 +13,17 @@ function scr_game_text(_text_id)
 	switch (_text_id)
 	{
 		case "self_1":
-			
+			scr_text("* What did you guys talk about?", "lancer", 2);
+			scr_text("* Uh", "queen", 9);
+			scr_text("* Taxes", "queen", 20);
+			scr_text("* I love taxes!", "lancer", 3);
+			scr_text("* ...", "queen", 4);
+			scr_text("* Okay", "queen", 28);
+			scr_text("* Anyways", "queen", 1);
+			scr_text("* I'm Gonna Go: Do Something", "queen", 2);
+			scr_text("* Make Sure Your Dad Doesn't Leave", "queen", 3);
+			scr_text("* Okay!", "lancer", 2);
+			scr_text("* Sick", "queen", 10);
 		break;
 /*
 Lancer: What did you guys talk about?
