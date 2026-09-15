@@ -40,19 +40,49 @@ function scr_game_text(_text_id)
 		case "self_3":
 			scr_fade_warp_with_music(rm_one, 240, sng_empty);
 		break;
+		
+		case "self_4":
+			scr_char_move_after_textbox(obj_susie, spr_susie_walk_up, true, 0, -6, .5, 50);
+		break;
+		
+		case "self_5":
+			 scr_text("* Hey, dude!", "susie", 7);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_walk_down, false);
+			scr_text("* Hi, Susie!", "ralsei", 2);
+			scr_text("* Listen, we, uh...", "susie", 13);
+			scr_text("* Really need to talk about this.", "susie", 3);
+			scr_text("* I know, I've just been very busy, and...", "ralsei", 39);
+			scr_text("* But we will have a chance to talk!|* Just give it some time!", "ralsei", 40);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_happyhands, false);
+			scr_text("* ...Why do I feel like you're stalling the conversation?", "susie", 11);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_surprisedhands, false);
+			scr_text("* I...", "ralsei", 36);
+			scr_text("* ...", "ralsei", 37);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_down_lookdown, false);
+			scr_text("* You really want to discuss this, Susie?", "ralsei", 8);
+			scr_text("* Yeah, dude. I dropped this on you like the second I came down here.", "susie", 10);
+			scr_text("* I know, it's just that we went through some pretty heavy stuff a little bit ago", "ralsei", 40);
+				scr_text_cutoff_skip(81);
+			scr_text("* I know. I was there.", "susie", 12);
+			scr_text("* And this conversation still needs to happen.", "susie", 13);
+			scr_text("* So... come outside soon, okay?", "susie", 8);
+			scr_text("* I'll grab a table.", "susie", 9);
+			scr_text("* ...Okay, Susie.|* If you insist.", "ralsei", 0);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_walk_down, false);
+			scr_text("* Alright.", "susie", 2);
+				scr_char_move_after_textbox(obj_susie, spr_susie_walk_down, true, 0, 6, .5, 50);
+		break;
+		
+		case "self_6":
+			scr_text("* ...", "ralsei", 41);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_down_lookdown, false);
+		break;
+		
+		case "self_7":
+			scr_fade_warp_with_music(rm_two, 240, sng_empty);
+		break;
 /*
-Lancer: What did you guys talk about?
-Queen: Uh
-Queen: Taxes
-Lancer: I love taxes!
-Queen: ...
-Queen: Okay
-Queen: Anyways
-Queen: I'm Gonna Go: Do Something
-Queen: Make Sure Your Dad Doesn't Leave
-Lancer: Okay!
-Queen: Sick
-(Queen leaves)
+
 */
 
 		/*array_push(obj_cutscenehandler_midfightattacks.after_textbox_queue, {
