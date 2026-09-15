@@ -13,7 +13,14 @@ function scr_game_text(_text_id)
 	switch (_text_id)
 	{
 		case "self_1":
+			scr_obj_spawn_after_textbox(obj_queen, 660, 300, "Instances");
+			scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, 1, 15);
+		break;
+		
+		case "self_2":
 			scr_text("* What did you guys talk about?", "lancer", 2);
+				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_left, false);
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right, false);
 			scr_text("* Uh", "queen", 9);
 			scr_text("* Taxes", "queen", 20);
 			scr_text("* I love taxes!", "lancer", 3);
