@@ -82,8 +82,65 @@ function scr_game_text(_text_id)
 		case "self_7":
 			scr_fade_warp_with_music(rm_two, 240, sng_empty);
 		break;
+		
+		case "self_8":
+			scr_text("* Okay. Here's how I think this should go.", "susie");
+			scr_text("* I'm gonna lay all the facts out on the table, and when I'm done, you can go.", "susie");
+			scr_text("* Then you can say whatever you want, and it'll be kind of a back and forth thing?", "susie");
+			scr_text("* Very civilized, Susie.", "ralsei");
+			scr_text("* Yeah, well...", "susie");
+			scr_text("* Maybe Noelle's rubbing off on me.", "susie");
+			scr_text("* ...", "ralsei");
+			scr_text("* Okay so first thing's first:", "susie");
+			scr_text("* We're about to get into some serious $#&*.", "susie");
+			scr_text("* Noelle is really smart, and we could use someone with her brains on our team.", "susie");
+			scr_text("* She's also really brave, and I know she'll stand with us regardless of any danger.", "susie");
+			scr_text("* And uh...", "susie");
+			scr_text("* Kris knows her... really well.|* So that could help too.", "susie");
+			scr_text("* Second (or third) point, she could really bring a lot to Castle Town.", "susie");
+			scr_text("* She's a very friendly person. I bet she'd love to be friends with everyone.", "susie");
+			scr_text("* ...As far as I'm concerned.", "susie");
+			scr_text("* I mean, even you got a taste of how nice she is a few days ago!", "susie");
+			scr_text("* That should definitely help push the decision.", "susie");
+			scr_text("* Anyways, final point for now:", "susie");
+			scr_text("* I really, really like her.", "susie");
+			scr_text("* And I really, really want her here.", "susie");
+			scr_text("* If you're really my friend...", "susie");
+			scr_text("* And you want to see me as happy as I can possibly be...", "susie");
+			scr_text("* Just let her come here.", "susie");
+			scr_text("* There's no harm in a trial attempt, at least.", "susie");
+			scr_text("* Plus, the Prophecy doesn't say anything about this, right?", "susie");
+		break;
 /*
-
+Susie: That should definitely help push the decision.
+Susie: Anyways, final point for now:
+Susie: I really, really like her.
+Susie: And I really, really want her here.
+Susie: If you're really my friend...
+Susie: And you want to see me as happy as I can possibly be...
+Susie: Just let her come here.
+Susie: There's no harm in trying, at least.
+Susie: The Prophecy doesn't say anything about this, right?
+Ralsei: ...
+Ralsei: Can I speak now?
+Susie: Oh, yeah. Sorry, man.
+Ralsei: No, the Prophecy doesn't say anything about her coming.
+Susie: That's another point, then.
+Ralsei: That doesn't mean...
+Susie: Doesn't mean what?
+Ralsei: It just doesn't feel...
+Ralsei: ...
+Ralsei: Well, regardless, your reasons do make sense.
+Susie: Right.
+Susie: So yeah, that's why we need to bring Noelle over here.
+Susie: For the sake of... y'know.
+Ralsei: I think it's wonderful you want to bring her here, Susie.
+Ralsei: Even if the reason is, well...
+Susie: ...
+Susie: Weird?
+Ralsei: No, not that...
+Ralsei: Moreso that
+(Jevil and Spamton descend from heaven)
 */
 
 		/*array_push(obj_cutscenehandler_midfightattacks.after_textbox_queue, {
