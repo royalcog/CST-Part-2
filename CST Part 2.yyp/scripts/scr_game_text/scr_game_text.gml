@@ -43,6 +43,7 @@ function scr_game_text(_text_id)
 		
 		case "self_4":
 			scr_char_move_after_textbox(obj_susie, spr_susie_walk_up, true, 0, -6, .5, 50);
+			scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_walk_up, false, 50);
 		break;
 		
 		case "self_5":

@@ -23,7 +23,7 @@
   ],
   "name":"spr_ralsei_surprisedhands",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"Ralsei",
     "path":"folders/Sprites/Characters/Ralsei.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":10,
-    "yorigin":20,
+    "yorigin":40,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

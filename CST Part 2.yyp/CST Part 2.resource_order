@@ -204,7 +204,7 @@
     {"name":"obj_ralsei_bedroom","order":12,"path":"objects/obj_ralsei_bedroom/obj_ralsei_bedroom.yy",},
     {"name":"obj_ralsei","order":1,"path":"objects/obj_ralsei/obj_ralsei.yy",},
     {"name":"obj_ralseicastle_basketball","order":11,"path":"objects/obj_ralseicastle_basketball/obj_ralseicastle_basketball.yy",},
-    {"name":"obj_ralseicastle","order":5,"path":"objects/obj_ralseicastle/obj_ralseicastle.yy",},
+    {"name":"obj_ralseicastle_courtyard","order":5,"path":"objects/obj_ralseicastle_courtyard/obj_ralseicastle_courtyard.yy",},
     {"name":"obj_rps_hand","order":1,"path":"objects/obj_rps_hand/obj_rps_hand.yy",},
     {"name":"obj_rps_squeeze_hand","order":2,"path":"objects/obj_rps_squeeze_hand/obj_rps_squeeze_hand.yy",},
     {"name":"obj_shadow","order":5,"path":"objects/obj_shadow/obj_shadow.yy",},

@@ -262,7 +262,7 @@
     {"id":{"name":"obj_ralsei_bedroom","path":"objects/obj_ralsei_bedroom/obj_ralsei_bedroom.yy",},},
     {"id":{"name":"obj_ralsei","path":"objects/obj_ralsei/obj_ralsei.yy",},},
     {"id":{"name":"obj_ralseicastle_basketball","path":"objects/obj_ralseicastle_basketball/obj_ralseicastle_basketball.yy",},},
-    {"id":{"name":"obj_ralseicastle","path":"objects/obj_ralseicastle/obj_ralseicastle.yy",},},
+    {"id":{"name":"obj_ralseicastle_courtyard","path":"objects/obj_ralseicastle_courtyard/obj_ralseicastle_courtyard.yy",},},
     {"id":{"name":"obj_rotate_hand","path":"objects/obj_rotate_hand/obj_rotate_hand.yy",},},
     {"id":{"name":"obj_rps_hand","path":"objects/obj_rps_hand/obj_rps_hand.yy",},},
     {"id":{"name":"obj_rps_squeeze_hand","path":"objects/obj_rps_squeeze_hand/obj_rps_squeeze_hand.yy",},},
