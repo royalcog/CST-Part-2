@@ -292,12 +292,16 @@ if (processing_queue)
 		{
 		    villains_descending = true; // Lock the block so it only fires once
 
+		    var _drop_height = 140; // how far above the landing spot they start
+
+		    var _jevil_target_x = 460;
+		    var _jevil_target_y = 340;
+
 		    if (!instance_exists(obj_jevil))
 		    {
 		        audio_play_sound(snd_sparklegem, 1, false);
-		        var _jevil = instance_create_layer(450, 140, "Instances", obj_jevil);
-        
-		        // Apply everything directly to the newly spawned Jevil
+		        var _jevil = instance_create_layer(_jevil_target_x, _jevil_target_y - _drop_height, "Instances", obj_jevil);
+
 		        with (_jevil) {
 		            in_cutscene = true; 
 		            image_alpha = 0;
@@ -305,23 +309,29 @@ if (processing_queue)
 		            image_index = 0;
 		            image_speed = 1;
 		            anim_loop = true;
+		            target_x = _jevil_target_x;
+		            target_y = _jevil_target_y;
 		        }
 		    }
-    
+
+		    var _spamton_target_x = 380;
+		    var _spamton_target_y = 340;
+
 		    if (!instance_exists(obj_spamton))
 		    {
-		        var _spamton = instance_create_layer(300, 167, "Instances", obj_spamton);
-        
-		        // Apply everything directly to the newly spawned Spamton
+		        var _spamton = instance_create_layer(_spamton_target_x, _spamton_target_y - _drop_height, "Instances", obj_spamton);
+
 		        with (_spamton) {
 		            image_alpha = 0;
 		            sprite_index = spr_dealmaker;
 		            image_index = 0;
 		            image_speed = 1;
 		            anim_loop = true;
+		            target_x = _spamton_target_x;
+		            target_y = _spamton_target_y;
 		        }
 		    }
-}
+		}
         else if _entry.type == "fade_out_to_black"
 		{
 		    if (!instance_exists(obj_cutscenefade))
@@ -814,21 +824,19 @@ if (villains_descending)
 
     // --- Handle Jevil ---
     if (instance_exists(obj_jevil))
-	{
-	    // 1. Move until we reach the target height AND alpha is full
-	    // We use a small buffer (e.g., 1 pixel) to account for floating/bobbing
-	    if (obj_jevil.y < 280 || obj_jevil.image_alpha < 1)
-	    {
-	        obj_jevil.y += 0.5;
-	        obj_jevil.image_alpha += 0.01;
-	        _all_done = false;
-	    }
-	    else
-	    {
-	        // 2. We've arrived! Just hand back control
-	        with (obj_jevil)
+    {
+        if (obj_jevil.y < obj_jevil.target_y || obj_jevil.image_alpha < 1)
+        {
+            obj_jevil.y += 0.5;
+            obj_jevil.image_alpha += 0.01;
+            _all_done = false;
+        }
+        else
+        {
+            with (obj_jevil)
             {
-				y = 280;
+                y = target_y;
+                x = target_x;
                 in_cutscene = false;
                 start_y = y;
                 image_alpha = 1;
@@ -836,22 +844,22 @@ if (villains_descending)
                 image_speed = 0; 
                 image_index = 0; 
             }
-		}
-	}
+        }
+    }
 
     // --- Handle Spamton ---
     if (instance_exists(obj_spamton))
     {
-        if (obj_spamton.y < 220)
+        if (obj_spamton.y < obj_spamton.target_y)
         {
             obj_spamton.y += 0.5;
             obj_spamton.image_alpha += 0.01;
-            _all_done = false;            // Still animating
+            _all_done = false;
         }
         else
         {
-            obj_spamton.y = 220;
-			obj_spamton.x = 300;
+            obj_spamton.y = obj_spamton.target_y;
+            obj_spamton.x = obj_spamton.target_x;
             obj_spamton.image_alpha = 1;
             obj_spamton.sprite_index = spr_spamton_left;
             obj_spamton.image_speed = 0;

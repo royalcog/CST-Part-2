@@ -3,11 +3,11 @@ display_set_gui_size(camera_get_view_width(view_camera[0]), camera_get_view_heig
 // 1. Initialize Globals FIRST before using them anywhere
 
 // Testing Globals
-/*if (!variable_global_exists("dialogue_self"))
+if (!variable_global_exists("dialogue_self"))
 {
-    variable_global_set("dialogue_self", 28);
+    variable_global_set("dialogue_self", 7);
 }
-
+/*
 if (!variable_global_exists("king_moved_x"))
 {
     global.king_moved_x = 610;

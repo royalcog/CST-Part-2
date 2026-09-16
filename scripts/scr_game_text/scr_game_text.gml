@@ -130,6 +130,7 @@ function scr_game_text(_text_id)
 			scr_text("* No, not that...", "ralsei", 4);
 			scr_text("* Moreso that", "ralsei", 5);
 				scr_text_cutoff(13);
+				scr_villains_descend_after_textbox();
 		break;
 /*
 Susie: Right.
