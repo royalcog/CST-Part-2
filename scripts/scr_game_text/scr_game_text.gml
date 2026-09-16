@@ -189,24 +189,33 @@ function scr_game_text(_text_id)
 		case "self_10":
 			scr_fade_warp_with_music(rm_three, 240, sng_empty);
 		break;
+		
+		case "self_11":
+			scr_text("* ...", "susie", 12);
+			scr_text("* I thought those guys lived inside Kris' inventory?", "susie", 20);
+			scr_text("* Well, you had the Devilsknife equipped, and I had the Dealmaker, so...", "ralsei", 33);
+			scr_text("* Interesting.", "susie", 11);
+			scr_text("* Anyways.", "susie", 3);
+			scr_text("* Listen, Susie.", "ralsei", 8);
+			scr_text("* I know you really want her here.|* I do too.", "ralsei", 26);
+			scr_text("* But do you really want to subject her to all the struggles we go through?", "ralsei", 38);
+			scr_text("* It's not enough that we put her through that madness with Queen a few days ago?", "ralsei", 37);
+			scr_text("* I'm just...", "ralsei", 41);
+			scr_text("* Dude, you're allowed to have an opinion.|* It's okay.", "susie", 13);
+			scr_text("* If you don't want her here, she doesn't need to be", "susie", 23);
+				scr_text_cutoff_skip(52);
+			scr_text("* It's fine, Susie.|* Really.|* She can come.", "ralsei", 36);
+			scr_text("* Oh, sick!|* That's great!", "susie", 7);
+			scr_text("* Thanks, man.", "susie", 8);
+			scr_text("* Of course, Susie.", "ralsei", 40);
+			scr_text("* I", "ralsei", 36);
+				scr_text_cutoff_skip(3);
+				scr_obj_sprite_after_textbox(obj_susie, spr_susie_shocked, false);
+				scr_obj_sprite_after_textbox(obj_ralsei, spr_ralsei_shocked, false);
+				scr_obj_spawn_after_textbox(obj_queen, 660, 300, "Instances");
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, 1, 15);
+		break;
 /*
-(Inside the castle)
-Susie: I thought those guys lived inside Kris' inventory?
-Susie: Well, you had the Devilsknife equipped, and I had the Dealmaker, so I guess they were with us.
-Susie: Interesting.
-Susie: Anyways.
-Ralsei: Listen, Susie.
-Ralsei: I know you really want her here. I do too.
-Ralsei: But do you really want to subject her to all the struggles we go through?
-Ralsei: It's not enough that we put her through that madness with Queen a few days ago?
-Ralsei: I'm just...
-Susie: Dude, you're allowed to have an opinion. It's okay.
-Susie: If you don't want her here, she doesn't need to be
-Ralsei: It's fine, Susie. Really. She can come.
-Susie: Oh, sick! That's great!
-Susie: Thanks man.
-Ralsei: Of course, Susie.
-Ralsei: I
 (Queen walks out of the dungeon)
 */
 
