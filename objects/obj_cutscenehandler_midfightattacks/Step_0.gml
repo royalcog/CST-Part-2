@@ -840,7 +840,7 @@ if (villains_descending)
                 in_cutscene = false;
                 start_y = y;
                 image_alpha = 1;
-                sprite_index = spr_jevil_right;
+                sprite_index = spr_jevil_left;
                 image_speed = 0; 
                 image_index = 0; 
             }

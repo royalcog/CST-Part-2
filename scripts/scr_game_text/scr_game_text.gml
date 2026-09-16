@@ -88,19 +88,27 @@ function scr_game_text(_text_id)
 			scr_text("* I'm gonna lay all the facts out on the table, and when I'm done, you can go.", "susie", 9);
 			scr_text("* Then you can say whatever you want, and it'll be kind of a back and forth thing?", "susie", 6);
 			scr_text("* Very civilized, Susie.", "ralsei", 2);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_smile, false);
 			scr_text("* Yeah, well...", "susie", 22);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting, false);
 			scr_text("* Maybe Noelle's rubbing off on me.", "susie", 50);
 			scr_text("* ...", "ralsei", 0);
 			scr_text("* Okay so first thing's first:", "susie", 7);
 			scr_text("* We're about to get into some serious $#&*.", "susie", 3);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting_flick, false);
 			scr_text("* Noelle is really smart, and we could use someone with her brains on our team.", "susie", 2);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting, false);
 			scr_text("* She's also really brave, and I know she'll stand with us regardless of any danger.", "susie", 21);
 			scr_text("* And uh...", "susie", 25);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting_neutral, false);
 			scr_text("* Kris knows her... really well.|* So that could help too.", "susie", 28);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting, false);
 			scr_text("* Second (or third) point, she could really bring a lot to Castle Town.", "susie", 10);
 			scr_text("* She's a very friendly person. I bet she'd love to be friends with everyone.", "susie", 56);
 			scr_text("* ...As far as I'm concerned.", "susie", 53);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting_neutral, false);
 			scr_text("* I mean, even you got a taste of how nice she is a few days ago.", "susie", 57);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting, false);
 			scr_text("* That should definitely help push the decision.", "susie", 56);
 			scr_text("* Anyways, final point for now:", "susie", 2);
 			scr_text("* I really, really like her.", "susie", 59);
@@ -111,38 +119,95 @@ function scr_game_text(_text_id)
 			scr_text("* There's no harm in a trial attempt, at least.", "susie", 47);
 			scr_text("* Plus, the Prophecy doesn't say anything about this, right?", "susie", 20);
 			scr_text("* ...", "ralsei", 4);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_neutral, false);
 			scr_text("* Can I speak now?", "ralsei", 5);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting, false);
 			scr_text("* Oh, yeah.|* Sorry, man.", "susie", 3);
 			scr_text("* No, the Prophecy doesn't say anything about her coming.", "ralsei", 18);
 			scr_text("* That's another point, then.", "susie", 7);
 			scr_text("* That doesn't mean...", "ralsei", 36);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_neutral, false);
 			scr_text("* Doesn't mean what?", "susie", 12);
 			scr_text("* It just doesn't feel...", "ralsei", 37);
 			scr_text("* ...", "ralsei", 38);
 			scr_text("* Well, regardless, your reasons do make sense.", "ralsei", 40);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_smile, false);
 			scr_text("* ...Right.", "susie", 13);
 			scr_text("* So yeah, that's why we need to bring Noelle over here.", "susie", 2);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting, false);
 			scr_text("* For the sake of... y'know.", "susie", 3);
 			scr_text("* I think it's wonderful you want to bring her here, Susie.", "ralsei", 2);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_smile, false);
 			scr_text("* Even if the reason is, well...", "ralsei", 5);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting, false);
 			scr_text("* ...", "susie", 27);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting_neutral, false);
 			scr_text("* Weird?", "susie", 20);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting, false);
 			scr_text("* No, not that...", "ralsei", 4);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_neutral, false);
 			scr_text("* Moreso that", "ralsei", 5);
 				scr_text_cutoff(13);
+				scr_obj_sprite_after_textbox_delayed(obj_ralsei, spr_ralsei_sitting_look_away, false, 30);
+				scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_sitting_neutral, false, 30);
 				scr_villains_descend_after_textbox();
 		break;
+		
+		case "self_9":
+			scr_text("* ...", "susie", 11);
+			scr_text("* Can we help you?", "susie", 12);
+				scr_obj_sprite_on_page(obj_spamton, spr_spamtonhands_right, false);
+			scr_text("* D0 WE LOOK LIKE [1 Million Kromer Donated To Your Charity]?", "spamton");
+			scr_text("* WE ARE BACK FROM OUR DUTIES!|* ALAS, NOT MUCH WAS GAINED, GAINED.", "jevil");
+			scr_text("* ...", "susie", 0);
+			scr_text("* Didn't realize you guys left.", "susie", 3);
+			scr_text("* WE'RE n0t 0N A [Buy your glooby leash today]!!!", "spamton");
+				scr_obj_sprite_on_page(obj_spamton, spr_spamton_armsout_right, false);
+			scr_text("* [I CAN DO ANYTHING]!", "spamton");
+				scr_obj_sprite_on_page(obj_spamton, spr_spamton_armsout_left, false);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting_flick, true);
+			scr_text("* UEE HEE HEE! SPOKEN LIKE TRUE FREEDOM, FREEDOM!", "jevil");
+				scr_snd_on_page(snd_jevillaugh, 1);
+				scr_obj_sprite_on_page(obj_jevil, spr_jevil_left, true);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_surprised, false);
+			scr_text("* Uh...", "ralsei", 22);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_look_away, false);
+			scr_text("* Susie, do you want to continue this conversation inside?", "ralsei", 20);
+				scr_obj_sprite_on_page(obj_spamton, spr_spamton_left, false);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_sitting_smile, false);
+			scr_text("* ...Sure, dude.", "susie", 3);
+				scr_obj_sprite_on_page(obj_jevil, spr_jevil_right, false);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_sitting, false);
+				scr_char_move_after_textbox(obj_ralsei, spr_ralsei_walk_up, true, 0, -4, .9, 20);
+				scr_char_move_after_textbox(obj_ralsei, spr_ralsei_walk_right, true, 5, 0, .9, 15);
+				scr_char_move_after_textbox(obj_ralsei, spr_ralsei_walk_up, true, 0, -4, .9, 80);
+				scr_char_move_after_textbox(obj_susie, spr_susie_walk_up, true, 0, -4, .9, 20);
+				scr_char_move_after_textbox(obj_susie, spr_susie_walk_left, true, -5, 0, .9, 20);
+				scr_char_move_after_textbox(obj_susie, spr_susie_walk_up, true, 0, -4, .9, 80);
+		break;
+		
+		case "self_10":
+			scr_fade_warp_with_music(rm_three, 240, sng_empty);
+		break;
 /*
-Susie: Right.
-Susie: So yeah, that's why we need to bring Noelle over here.
-Susie: For the sake of... y'know.
-Ralsei: I think it's wonderful you want to bring her here, Susie.
-Ralsei: Even if the reason is, well...
-Susie: ...
-Susie: Weird?
-Ralsei: No, not that...
-Ralsei: Moreso that
-(Jevil and Spamton descend from heaven)
+(Inside the castle)
+Susie: I thought those guys lived inside Kris' inventory?
+Susie: Well, you had the Devilsknife equipped, and I had the Dealmaker, so I guess they were with us.
+Susie: Interesting.
+Susie: Anyways.
+Ralsei: Listen, Susie.
+Ralsei: I know you really want her here. I do too.
+Ralsei: But do you really want to subject her to all the struggles we go through?
+Ralsei: It's not enough that we put her through that madness with Queen a few days ago?
+Ralsei: I'm just...
+Susie: Dude, you're allowed to have an opinion. It's okay.
+Susie: If you don't want her here, she doesn't need to be
+Ralsei: It's fine, Susie. Really. She can come.
+Susie: Oh, sick! That's great!
+Susie: Thanks man.
+Ralsei: Of course, Susie.
+Ralsei: I
+(Queen walks out of the dungeon)
 */
 
 		/*array_push(obj_cutscenehandler_midfightattacks.after_textbox_queue, {
