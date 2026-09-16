@@ -42,8 +42,8 @@ function scr_game_text(_text_id)
 		break;
 		
 		case "self_4":
-			scr_char_move_after_textbox(obj_susie, spr_susie_walk_up, true, 0, -6, .5, 50);
-			scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_walk_up, false, 50);
+			scr_char_move_after_textbox(obj_susie, spr_susie_walk_up, true, 0, -6, .5, 70);
+			scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_walk_up, false, 70);
 		break;
 		
 		case "self_5":
@@ -71,7 +71,7 @@ function scr_game_text(_text_id)
 			scr_text("* ...Okay, Susie.|* If you insist.", "ralsei", 0);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_walk_down, false);
 			scr_text("* Alright.", "susie", 2);
-				scr_char_move_after_textbox(obj_susie, spr_susie_walk_down, true, 0, 6, .5, 50);
+				scr_char_move_after_textbox(obj_susie, spr_susie_walk_down, true, 0, 6, .5, 70);
 		break;
 		
 		case "self_6":
@@ -210,13 +210,53 @@ function scr_game_text(_text_id)
 			scr_text("* Of course, Susie.", "ralsei", 40);
 			scr_text("* I", "ralsei", 36);
 				scr_text_cutoff_skip(3);
-				scr_obj_sprite_after_textbox(obj_susie, spr_susie_shocked, false);
-				scr_obj_sprite_after_textbox(obj_ralsei, spr_ralsei_shocked, false);
+				scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_shocked, false, 70);
+				scr_obj_sprite_after_textbox_delayed(obj_ralsei, spr_ralsei_shocked, false, 70);
 				scr_obj_spawn_after_textbox(obj_queen, 660, 300, "Instances");
-				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, 1, 15);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, 1, 30);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_left, true, -4, 0, .8, 90);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_left, false, 0, 0, 0, 120);
+		break;
+		
+		case "self_12":
+			scr_text("* You Children Need To Hear This", "queen");
+				scr_obj_sprite_on_page(obj_susie, spr_susie_surprised, false);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_surprised, false);
+			scr_text("* ...", "susie");
+			scr_text("* Where did Lancer go?", "susie");
+			scr_text("* Bathroom", "queen");
+				scr_text_secondary("* Of course he did.", "susie");
+			scr_text("* Anyways Bouncy Boy Let His Dad Out Of The Cell", "queen");
+			scr_text("* He... He what???", "ralsei");
+			scr_text("* And He Made A Phone Call", "queen");
+			scr_text("* I Don't Know To Who", "queen");
+			scr_text("* Can't you like... check records or something???", "susie");
+			scr_text("* Nope", "queen");
+				scr_text_secondary("* I Mean Yeah But Who Cares", "queen");
+			scr_text("* We need to put him back in his cell.", "ralsei");
+			scr_text("* We don't know what he's capable of if he's not", "ralsei");
+			scr_text("* Not what, Prince?", "king", , , , true);
+			scr_text("* N-No...", "ralsei");
+				scr_text_shake(1, 999);
 		break;
 /*
-(Queen walks out of the dungeon)
+Queen: You Children Need To Hear This
+Susie: ...
+Susie: Where did Lancer go?
+Queen: Bathroom
+	Susie: Of course he did.
+Queen: Anyways Bouncy Boy Let His Dad Out Of The Cell
+Ralsei: He... He what???
+Queen: And He Made A Phone Call
+Queen: I Don't Know To Who
+Susie: Can't you like... check records or something???
+Queen: Nope
+	Queen: I Mean Yeah But Who Cares
+Ralsei: We need to put him back in his cell.
+Ralsei: We don't know what he's capable of if he's not 
+King: Not what, Prince?
+Ralsei: N-No... (shaky)
+(King is standing outside the dungeon doors)
 */
 
 		/*array_push(obj_cutscenehandler_midfightattacks.after_textbox_queue, {

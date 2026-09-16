@@ -1134,7 +1134,9 @@ function scr_text_hide_face(_bool)
 /// @param [character]
 /// @param [index]
 /// @param [silent]
-function scr_text(_text, _character = noone, _index = noone, _mode = noone, _freeze = false)
+/// @param [freeze]
+/// @param [hide_face] - true hides the portrait for just this line, keeping the character's color/voice sound
+function scr_text(_text, _character = noone, _index = noone, _mode = noone, _freeze = false, _hide_face = false)
 {
 	scr_set_defaults_for_text();
 	text[global.page_number] = _text;
@@ -1282,6 +1284,11 @@ function scr_text(_text, _character = noone, _index = noone, _mode = noone, _fre
 	if argument_count > 4 && argument[4] == true
 	{
 	    freeze_anim_on_finish[global.page_number] = true;
+	}
+	
+	if argument_count > 5 && argument[5] == true
+	{
+	    hide_face[global.page_number] = true;
 	}
 	
 	global.page_number++;

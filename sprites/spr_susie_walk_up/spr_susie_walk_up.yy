@@ -26,7 +26,7 @@
   ],
   "name":"spr_susie_walk_up",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"Susie",
     "path":"folders/Sprites/Characters/Susie.yy",
@@ -88,7 +88,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":13,
-    "yorigin":21,
+    "yorigin":43,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
