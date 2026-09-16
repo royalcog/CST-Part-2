@@ -84,53 +84,54 @@ function scr_game_text(_text_id)
 		break;
 		
 		case "self_8":
-			scr_text("* Okay. Here's how I think this should go.", "susie");
-			scr_text("* I'm gonna lay all the facts out on the table, and when I'm done, you can go.", "susie");
-			scr_text("* Then you can say whatever you want, and it'll be kind of a back and forth thing?", "susie");
-			scr_text("* Very civilized, Susie.", "ralsei");
-			scr_text("* Yeah, well...", "susie");
-			scr_text("* Maybe Noelle's rubbing off on me.", "susie");
-			scr_text("* ...", "ralsei");
-			scr_text("* Okay so first thing's first:", "susie");
-			scr_text("* We're about to get into some serious $#&*.", "susie");
-			scr_text("* Noelle is really smart, and we could use someone with her brains on our team.", "susie");
-			scr_text("* She's also really brave, and I know she'll stand with us regardless of any danger.", "susie");
-			scr_text("* And uh...", "susie");
-			scr_text("* Kris knows her... really well.|* So that could help too.", "susie");
-			scr_text("* Second (or third) point, she could really bring a lot to Castle Town.", "susie");
-			scr_text("* She's a very friendly person. I bet she'd love to be friends with everyone.", "susie");
-			scr_text("* ...As far as I'm concerned.", "susie");
-			scr_text("* I mean, even you got a taste of how nice she is a few days ago!", "susie");
-			scr_text("* That should definitely help push the decision.", "susie");
-			scr_text("* Anyways, final point for now:", "susie");
-			scr_text("* I really, really like her.", "susie");
-			scr_text("* And I really, really want her here.", "susie");
-			scr_text("* If you're really my friend...", "susie");
-			scr_text("* And you want to see me as happy as I can possibly be...", "susie");
-			scr_text("* Just let her come here.", "susie");
-			scr_text("* There's no harm in a trial attempt, at least.", "susie");
-			scr_text("* Plus, the Prophecy doesn't say anything about this, right?", "susie");
+			scr_text("* Okay. Here's how I think we should do this.", "susie", 2);
+			scr_text("* I'm gonna lay all the facts out on the table, and when I'm done, you can go.", "susie", 9);
+			scr_text("* Then you can say whatever you want, and it'll be kind of a back and forth thing?", "susie", 6);
+			scr_text("* Very civilized, Susie.", "ralsei", 2);
+			scr_text("* Yeah, well...", "susie", 22);
+			scr_text("* Maybe Noelle's rubbing off on me.", "susie", 50);
+			scr_text("* ...", "ralsei", 0);
+			scr_text("* Okay so first thing's first:", "susie", 7);
+			scr_text("* We're about to get into some serious $#&*.", "susie", 3);
+			scr_text("* Noelle is really smart, and we could use someone with her brains on our team.", "susie", 2);
+			scr_text("* She's also really brave, and I know she'll stand with us regardless of any danger.", "susie", 21);
+			scr_text("* And uh...", "susie", 25);
+			scr_text("* Kris knows her... really well.|* So that could help too.", "susie", 28);
+			scr_text("* Second (or third) point, she could really bring a lot to Castle Town.", "susie", 10);
+			scr_text("* She's a very friendly person. I bet she'd love to be friends with everyone.", "susie", 56);
+			scr_text("* ...As far as I'm concerned.", "susie", 53);
+			scr_text("* I mean, even you got a taste of how nice she is a few days ago.", "susie", 57);
+			scr_text("* That should definitely help push the decision.", "susie", 56);
+			scr_text("* Anyways, final point for now:", "susie", 2);
+			scr_text("* I really, really like her.", "susie", 59);
+			scr_text("* And I really, really want her here.", "susie", 57);
+			scr_text("* If you're really my friend...", "susie", 56);
+			scr_text("* And you want to see me as happy as I can possibly be...", "susie", 59);
+			scr_text("* Just let her come here.", "susie", 50);
+			scr_text("* There's no harm in a trial attempt, at least.", "susie", 47);
+			scr_text("* Plus, the Prophecy doesn't say anything about this, right?", "susie", 20);
+			scr_text("* ...", "ralsei", 4);
+			scr_text("* Can I speak now?", "ralsei", 5);
+			scr_text("* Oh, yeah.|* Sorry, man.", "susie", 3);
+			scr_text("* No, the Prophecy doesn't say anything about her coming.", "ralsei", 18);
+			scr_text("* That's another point, then.", "susie", 7);
+			scr_text("* That doesn't mean...", "ralsei", 36);
+			scr_text("* Doesn't mean what?", "susie", 12);
+			scr_text("* It just doesn't feel...", "ralsei", 37);
+			scr_text("* ...", "ralsei", 38);
+			scr_text("* Well, regardless, your reasons do make sense.", "ralsei", 40);
+			scr_text("* ...Right.", "susie", 13);
+			scr_text("* So yeah, that's why we need to bring Noelle over here.", "susie", 2);
+			scr_text("* For the sake of... y'know.", "susie", 3);
+			scr_text("* I think it's wonderful you want to bring her here, Susie.", "ralsei", 2);
+			scr_text("* Even if the reason is, well...", "ralsei", 5);
+			scr_text("* ...", "susie", 27);
+			scr_text("* Weird?", "susie", 20);
+			scr_text("* No, not that...", "ralsei", 4);
+			scr_text("* Moreso that", "ralsei", 5);
+				scr_text_cutoff(13);
 		break;
 /*
-Susie: That should definitely help push the decision.
-Susie: Anyways, final point for now:
-Susie: I really, really like her.
-Susie: And I really, really want her here.
-Susie: If you're really my friend...
-Susie: And you want to see me as happy as I can possibly be...
-Susie: Just let her come here.
-Susie: There's no harm in trying, at least.
-Susie: The Prophecy doesn't say anything about this, right?
-Ralsei: ...
-Ralsei: Can I speak now?
-Susie: Oh, yeah. Sorry, man.
-Ralsei: No, the Prophecy doesn't say anything about her coming.
-Susie: That's another point, then.
-Ralsei: That doesn't mean...
-Susie: Doesn't mean what?
-Ralsei: It just doesn't feel...
-Ralsei: ...
-Ralsei: Well, regardless, your reasons do make sense.
 Susie: Right.
 Susie: So yeah, that's why we need to bring Noelle over here.
 Susie: For the sake of... y'know.
