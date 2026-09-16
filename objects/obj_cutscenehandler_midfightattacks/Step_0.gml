@@ -827,8 +827,8 @@ if (villains_descending)
     {
         if (obj_jevil.y < obj_jevil.target_y || obj_jevil.image_alpha < 1)
         {
-            obj_jevil.y += 0.5;
-            obj_jevil.image_alpha += 0.01;
+            obj_jevil.y += 2;
+            obj_jevil.image_alpha += 0.03;
             _all_done = false;
         }
         else
@@ -840,7 +840,7 @@ if (villains_descending)
                 in_cutscene = false;
                 start_y = y;
                 image_alpha = 1;
-                sprite_index = spr_jevil_left;
+                sprite_index = spr_jevil_right;
                 image_speed = 0; 
                 image_index = 0; 
             }
@@ -852,8 +852,8 @@ if (villains_descending)
     {
         if (obj_spamton.y < obj_spamton.target_y)
         {
-            obj_spamton.y += 0.5;
-            obj_spamton.image_alpha += 0.01;
+            obj_spamton.y += 2;
+            obj_spamton.image_alpha += 0.03;
             _all_done = false;
         }
         else
