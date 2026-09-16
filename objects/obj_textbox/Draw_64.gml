@@ -379,25 +379,25 @@ if secondary_text[page] != ""
 	            var _sec_check_char = string_char_at(secondary_text[page], _sec_new_chars);
 	            if _sec_check_char != "*" && _sec_check_char != " "
 	            {
-	                if secondary_snd_count < secondary_snd_delay
-	                {
-	                    secondary_snd_count++;
-	                }
-		            else
-	                {
-	                    secondary_snd_count = 0;
+	                if secondary_snd_count < secondary_snd_delay[page]
+					{
+					    secondary_snd_count++;
+					}
+					else
+					{
+					    secondary_snd_count = 0;
 
-	                    if secondary_snd[page] == snd_queen
-	                    {
-	                        audio_stop_sound(snd_queen);
-	                        var _sec_q_inst = audio_play_sound(snd_queen, 8, false);
-	                        audio_sound_pitch(_sec_q_inst, 0.9 + random(0.15));
-	                    }
-	                    else
-	                    {
-	                        audio_play_sound(secondary_snd[page], 8, false);
-	                    }
-	                }
+					    if secondary_snd[page] == snd_queen
+					    {
+					        audio_stop_sound(snd_queen);
+					        var _sec_q_inst = audio_play_sound(snd_queen, 8, false);
+					        audio_sound_pitch(_sec_q_inst, 0.9 + random(0.15));
+					    }
+					    else
+					    {
+					        audio_play_sound(secondary_snd[page], 8, false);
+					    }
+					}
 	            }
 	        }
 	    }
@@ -431,9 +431,14 @@ if secondary_text[page] != ""
 	    {
 	        _sec_draw_portrait_scale *= 1.4;
 	        _sec_portrait_y_adjust = -24;
-	        _sec_text_y_adjust = -18;
+	        _sec_text_y_adjust = -4;
 	    }
-
+		else if (secondary_portrait_spr[page] == spr_susie_dialogue)
+	    {
+	        _sec_draw_portrait_scale *= 1.15;
+	        _sec_portrait_y_adjust = -18;
+	        _sec_text_y_adjust = 4;
+	    }
 	    var _sec_h = string_height("Ay") * _sec_scale;
 	    var _sec_anchor_x = textbox_x + textbox_width - 220;
 	    var _sec_y_adjust = -20;

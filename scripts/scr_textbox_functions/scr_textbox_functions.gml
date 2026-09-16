@@ -44,6 +44,7 @@ function scr_set_defaults_for_text()
 	secondary_col[global.page_number] = c_white;
 	secondary_snd[global.page_number] = noone;
 	hide_face[global.page_number] = false;
+	secondary_snd_delay[global.page_number] = 2;
 }
 
 /// @param text - the aside/mini-textbox line (no border, drawn under the main box)
@@ -68,12 +69,14 @@ function scr_text_secondary(_text, _character = noone, _image = 0, _side = 1)
 				secondary_col[_page] = make_colour_rgb(175, 103, 175);
 				secondary_portrait_spr[_page] = spr_susie_dialogue;
 				secondary_snd[_page] = snd_susie;
+				secondary_snd_delay[_page] = .8;
 			break;
 
 			case "ralsei":
 				secondary_col[_page] = make_colour_rgb(77, 204, 142);
 				secondary_portrait_spr[_page] = spr_ralsei_dialogue;
 				secondary_snd[_page] = snd_ralsei;
+				secondary_snd_delay[_page] = .8;
 			break;
 
 			case "noelle":
@@ -99,9 +102,10 @@ function scr_text_secondary(_text, _character = noone, _image = 0, _side = 1)
 			break;
 			
 			case "queen":
-				secondary_col[_page] = make_colour_rgb(111, 209, 255);
-				secondary_portrait_spr[_page] = spr_queen_dialogue;
-				secondary_snd[_page] = snd_queen;
+			    secondary_col[_page] = make_colour_rgb(111, 209, 255);
+			    secondary_portrait_spr[_page] = spr_queen_dialogue;
+			    secondary_snd[_page] = snd_queen;
+			    secondary_snd_delay[_page] = .8;
 			break;
 		}
 	}
