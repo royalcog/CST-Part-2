@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_king",
+  "%Name":"obj_king_cape",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_king",
+  "name":"obj_king_cape",
   "overriddenProperties":[],
   "parent":{
     "name":"King",
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_king_sulk",
-    "path":"sprites/spr_king_sulk/spr_king_sulk.yy",
+    "name":"spr_king_cape",
+    "path":"sprites/spr_king_cape/spr_king_cape.yy",
   },
   "spriteMaskId":null,
   "visible":true,

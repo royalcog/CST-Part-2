@@ -222,7 +222,7 @@ function scr_game_text(_text_id)
 			scr_text("* You Children Need To Hear This", "queen", 1);
 				scr_obj_sprite_on_page(obj_susie, spr_susie_surprised, false);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_surprised, false);
-			scr_text("* ...", "susie");
+			scr_text("* ...", "susie", 14);
 			scr_text("* Where did Lancer go?", "susie", 15);
 			scr_text("* Bathroom", "queen", 9);
 				scr_text_secondary("* Of course he did.", "susie", 3);
@@ -265,8 +265,7 @@ function scr_game_text(_text_id)
 			scr_text("* So be it, woman.", "king", 1);
 			scr_text("* ...And if Lancer returns?", "king", 5);
 			scr_text("* I'll show him where his true faith must lie.", "king", 4);
-				scr_obj_
-				scr_snd_after_textbox_delayed(snd_kinglaugh, 1, 90);
+				scr_obj_spawn_after_textbox(obj_king_cape, 840, 240, layer_get_id("Instances"), snd_wing, 1);
 		break;
 /*
 Susie: What's your plan here?
