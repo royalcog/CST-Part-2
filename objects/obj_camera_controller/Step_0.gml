@@ -2,7 +2,8 @@ if (panning)
 {
     pan_timer++;
     var _t = clamp(pan_timer / pan_duration, 0, 1);
-    cam_x = lerp(pan_start_x, pan_target_x, _t);
+    var _eased_t = _t * _t * (3 - 2 * _t);
+    cam_x = lerp(pan_start_x, pan_target_x, _eased_t);
 
     if (_t >= 1)
     {

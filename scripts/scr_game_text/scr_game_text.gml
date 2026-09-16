@@ -235,9 +235,15 @@ function scr_game_text(_text_id)
 				scr_text_secondary("* I Mean Yeah But Who Cares", "queen");
 			scr_text("* We need to put him back in his cell.", "ralsei");
 			scr_text("* We don't know what he's capable of if he's not", "ralsei");
+				scr_text_cutoff_skip(47);
 			scr_text("* Not what, Prince?", "king", , , , true);
+				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_right, false);
 			scr_text("* N-No...", "ralsei");
 				scr_text_shake(1, 999);
+		break;
+		
+		case "self_13":
+			scr_camera_pan_to(camera_get_view_x(view_camera[0]) + 150, 120);
 		break;
 /*
 Queen: You Children Need To Hear This
