@@ -10,3 +10,7 @@ back_offset_y = 37;
 
 ease_speed = 0.15;
 merge_dist = 4;
+
+depth = -99999; // draw on top of everything so the darken rect covers the whole scene
+
+audio_play_sound(snd_boost, 10, false);
