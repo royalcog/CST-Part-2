@@ -69,14 +69,14 @@ function scr_text_secondary(_text, _character = noone, _image = 0, _side = 1)
 				secondary_col[_page] = make_colour_rgb(175, 103, 175);
 				secondary_portrait_spr[_page] = spr_susie_dialogue;
 				secondary_snd[_page] = snd_susie;
-				secondary_snd_delay[_page] = .8;
+				secondary_snd_delay[_page] = .7;
 			break;
 
 			case "ralsei":
 				secondary_col[_page] = make_colour_rgb(77, 204, 142);
 				secondary_portrait_spr[_page] = spr_ralsei_dialogue;
 				secondary_snd[_page] = snd_ralsei;
-				secondary_snd_delay[_page] = .8;
+				secondary_snd_delay[_page] = .7;
 			break;
 
 			case "noelle":
@@ -105,7 +105,7 @@ function scr_text_secondary(_text, _character = noone, _image = 0, _side = 1)
 			    secondary_col[_page] = make_colour_rgb(111, 209, 255);
 			    secondary_portrait_spr[_page] = spr_queen_dialogue;
 			    secondary_snd[_page] = snd_queen;
-			    secondary_snd_delay[_page] = .8;
+			    secondary_snd_delay[_page] = .7;
 			break;
 		}
 	}

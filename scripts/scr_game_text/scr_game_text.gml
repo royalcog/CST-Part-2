@@ -219,50 +219,74 @@ function scr_game_text(_text_id)
 		break;
 		
 		case "self_12":
-			scr_text("* You Children Need To Hear This", "queen");
+			scr_text("* You Children Need To Hear This", "queen", 1);
 				scr_obj_sprite_on_page(obj_susie, spr_susie_surprised, false);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_surprised, false);
 			scr_text("* ...", "susie");
-			scr_text("* Where did Lancer go?", "susie");
-			scr_text("* Bathroom", "queen");
-				scr_text_secondary("* Of course he did.", "susie");
-			scr_text("* Anyways Bouncy Boy Let His Dad Out Of The Cell", "queen");
-			scr_text("* He... He what???", "ralsei");
-			scr_text("* And He Made A Phone Call", "queen");
-			scr_text("* I Don't Know To Who", "queen");
-			scr_text("* Can't you like... check records or something???", "susie");
-			scr_text("* Nope", "queen");
-				scr_text_secondary("* I Mean Yeah But Who Cares", "queen");
-			scr_text("* We need to put him back in his cell.", "ralsei");
-			scr_text("* We don't know what he's capable of if he's not", "ralsei");
+			scr_text("* Where did Lancer go?", "susie", 15);
+			scr_text("* Bathroom", "queen", 9);
+				scr_text_secondary("* Of course he did.", "susie", 3);
+			scr_text("* Anyways Bouncy Boy Let His Dad Out Of The Cell", "queen", 0);
+			scr_text("* He... He what???", "ralsei", 12);
+			scr_text("* And He Made A Phone Call", "queen", 3);
+			scr_text("* I Don't Know To Who", "queen", 4);
+			scr_text("* Can't you like... check records or something???", "susie", 35);
+			scr_text("* Nope", "queen", 3);
+				scr_text_secondary("* I Mean Yeah But Who Cares", "queen", 0);
+			scr_text("* We need to put him back in his cell.", "ralsei", 34);
+			scr_text("* We don't know what he's capable of if he's not", "ralsei", 35);
 				scr_text_cutoff_skip(47);
 			scr_text("* Not what, Prince?", "king", , , , true);
 				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_right, false);
-			scr_text("* N-No...", "ralsei");
+			scr_text("* N-No...", "ralsei", 34);
 				scr_text_shake(1, 999);
 		break;
 		
 		case "self_13":
 			scr_camera_pan_to(camera_get_view_x(view_camera[0]) + 150, 120);
 		break;
+		
+		case "self_14":
+			scr_text("* What's your plan here?", "susie", 31);
+			scr_text("* You gonna threaten us like you threatened your kid?", "susie", 32);
+			scr_text("* Do not talk ill about my son.", "king", 0);
+			scr_text("* Ill about him?|* This is ill about you!", "susie", 36);
+			scr_text("* ...Even worse.", "king", 5);
+			scr_text("* King, it'll be better for everyone if you just go", "ralsei", 40);
+				scr_text_cutoff_skip(51);
+			scr_text("* I know what is best for me.", "king", 0);
+			scr_text("* I may not have a throne to sit on or a people to rule,", "king", 1);
+			scr_text("* But I still have the power to defeat you.", "king", 4);
+			scr_text("* Yeah, that worked so well last time.", "susie", 33);
+			scr_text("* Oh, do not worry, Lightner.|* Help will arrive soon.", "king", 0);
+			scr_text("* But for now...", "king", 5);
+			scr_text("* I will make sure you pay for what you've done.", "king", 0);
+			scr_text("* Well Screw This I'm Siding With The Children", "queen", 15);
+			scr_text("* So be it, woman.", "king", 1);
+			scr_text("* ...And if Lancer returns?", "king", 5);
+			scr_text("* I'll show him where his true faith must lie.", "king", 4);
+				scr_obj_
+				scr_snd_after_textbox_delayed(snd_kinglaugh, 1, 90);
+		break;
 /*
-Queen: You Children Need To Hear This
-Susie: ...
-Susie: Where did Lancer go?
-Queen: Bathroom
-	Susie: Of course he did.
-Queen: Anyways Bouncy Boy Let His Dad Out Of The Cell
-Ralsei: He... He what???
-Queen: And He Made A Phone Call
-Queen: I Don't Know To Who
-Susie: Can't you like... check records or something???
-Queen: Nope
-	Queen: I Mean Yeah But Who Cares
-Ralsei: We need to put him back in his cell.
-Ralsei: We don't know what he's capable of if he's not 
-King: Not what, Prince?
-Ralsei: N-No... (shaky)
-(King is standing outside the dungeon doors)
+Susie: What's your plan here?
+Susie: You gonna threaten us like you threatened your kid?
+King: Do not talk ill about my son.
+Susie: Ill about him? This is ill about you!
+King: ...Even worse.
+Ralsei: King, it'll be better for everyone if you just go
+King: I know what is best for me.
+King: I may not have a throne to sit on or a people to rule,
+King: But I still have the power to defeat you.
+Susie: Yeah, that worked so well last time.
+King: Oh, do not worry, Lightner. Help will arrive soon.
+King: But for now...
+King: I will make sure you pay for what you've done.
+Queen: Well Screw This I'm Siding With The Children
+King: So be it, woman.
+King: ...And if Lancer returns?
+King: I'll show him where his faith must lie.
+(King laughs and battle begins)
 */
 
 		/*array_push(obj_cutscenehandler_midfightattacks.after_textbox_queue, {
