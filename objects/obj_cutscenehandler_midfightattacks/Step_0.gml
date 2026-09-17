@@ -833,7 +833,7 @@ if sr_battle_intro_state == 3
 	scr_party_init([
     {
         name: "Susie", hp: 100, max_hp: 100,
-        box_offset_x: -5, box_offset_y: -1,
+        box_offset_x: -3, box_offset_y: -1,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
         frame_scale: 43 / 156, divider_y: 156,
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
@@ -1378,7 +1378,7 @@ if (keyboard_check_pressed(vk_f2))
     scr_party_init([
     {
         name: "Susie", hp: 100, max_hp: 100,
-        box_offset_x: -5, box_offset_y: -1,
+        box_offset_x: -3, box_offset_y: -1,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
         frame_scale: 43 / 156, divider_y: 156,
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
