@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"UI Boxes",
-    "path":"folders/Sprites/UI/UI Boxes.yy",
+    "name":"Susie",
+    "path":"folders/Sprites/UI/UI Boxes/Susie.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
