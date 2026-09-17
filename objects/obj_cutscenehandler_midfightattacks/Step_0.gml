@@ -828,6 +828,12 @@ if sr_battle_intro_state == 3
     instance_create_depth(0, 0, -20000, obj_UI);
     start_battle_music();
 
+    scr_party_init([
+        { name: "Susie", hp: 100, max_hp: 100, box_offset_x: 0,   box_offset_y: 0, sprite_frame: spr_susiebox_frame, icon_normal: spr_icon_susie, icon_hurt: spr_icon_susie_hurt, icon_offset_x: 10, icon_offset_y: 8, bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6, hp_text_offset_x: 170, hp_text_offset_y: 4, hurt_flash_time: 20 },
+        { name: "Ralsei", hp: 90,  max_hp: 90,  box_offset_x: 184, box_offset_y: 0, sprite_frame: spr_ralseibox_frame, icon_normal: spr_icon_ralsei, icon_hurt: spr_icon_ralsei_hurt, icon_offset_x: 10, icon_offset_y: 8, bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6, hp_text_offset_x: 170, hp_text_offset_y: 4, hurt_flash_time: 20 },
+        { name: "Queen", hp: 1510, max_hp: 1510, box_offset_x: 368, box_offset_y: 0, sprite_frame: spr_queenbox, icon_normal: spr_queenbox, icon_hurt: spr_queenbox_hurt, icon_offset_x: 10, icon_offset_y: 8, bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6, hp_text_offset_x: 170, hp_text_offset_y: 4, hurt_flash_time: 20 }
+    ]);
+
     global.fight_seq_starting = false;
     sr_battle_intro_state = 0;
 }
@@ -1324,4 +1330,10 @@ with (all)
             fading_in = false;
         }
     }
+}
+
+// Debug Party Damage
+if (keyboard_check_pressed(vk_f1))
+{
+    scr_party_damage(10);
 }
