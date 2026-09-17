@@ -27,6 +27,8 @@ function scr_party_init(_members)
 		_box.hp_max_x         = _m.hp_max_x;
 		_box.hp_text_offset_y = _m.hp_text_offset_y;
 		_box.hurt_flash_time  = _m.hurt_flash_time;
+		_box.box_offset_x     = _m.box_offset_x;
+		_box.box_offset_y     = _m.box_offset_y;
     }
 
     obj_UI.use_party_boxes = true; // tell obj_UI to stop drawing its own sprite and let the boxes handle it

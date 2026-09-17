@@ -1367,7 +1367,8 @@ if (keyboard_check_pressed(vk_f1))
 
 if (keyboard_check_pressed(vk_f2))
 {
-    if (!instance_exists(obj_UI)) instance_create_depth(0, 0, -20000, obj_UI);
+    with (obj_UI) instance_destroy(); // clear any leftover UI (e.g. a real Mewmew/Pink instance) before testing
+    instance_create_depth(0, 0, -20000, obj_UI);
 
     scr_party_init([
         { name: "Susie", hp: 100, max_hp: 100, box_offset_x: 0, box_offset_y: 0, sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty, frame_scale: 80/292, bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36, bar_fill_color: make_color_rgb(255,0,255), hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36, hurt_flash_time: 20 },
