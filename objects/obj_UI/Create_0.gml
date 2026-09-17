@@ -17,4 +17,4 @@ onscreen_x = target_x; // remember the real onscreen position so we can return t
 
 active_box = noone; // which obj_battle_ui_box currently shows its button row
 
-boxes_x_correction = -50; // pulls just the boxes back left, independent of obj_UI's own anchor — tune this, not box_offset_x
+boxes_x_correction = -90; // pulls just the boxes back left, independent of obj_UI's own anchor — tune this, not box_offset_x
