@@ -18,3 +18,5 @@ hurt_flash_time = 20;
 
 hurt_timer = 0;
 hp_display = hp;
+
+divider_y = 156;

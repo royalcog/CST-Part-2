@@ -11,7 +11,8 @@ var _s  = frame_scale; // shorthand
 
 // background frame — swaps whole sprite between normal and hurt while flashing
 var _frame = (hurt_timer > 0) ? hurt_frame : sprite_frame;
-draw_sprite_ext(_frame, 0, _sx, _sy, _scale_x * _s, _scale_y * _s, 0, c_white, 1);
+var _w = sprite_get_width(_frame);
+draw_sprite_part_ext(_frame, 0, 0, 0, _w, divider_y, _sx, _sy, _scale_x * _s, _scale_y * _s, c_white, 1);
 
 // HP bar fill — drawn on top of the baked #4C0000 track, shrinks left-to-right with hp
 var _bx = _sx + bar_offset_x * _scale_x * _s;

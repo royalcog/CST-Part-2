@@ -833,7 +833,7 @@ if sr_battle_intro_state == 3
         name: "Susie", hp: 100, max_hp: 100,
         box_offset_x: 0, box_offset_y: 0,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
-        frame_scale: 80 / 292,
+        frame_scale: 40 / 156, divider_y: 156,
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
@@ -841,9 +841,9 @@ if sr_battle_intro_state == 3
     },
     {
         name: "Ralsei", hp: 90, max_hp: 90,
-        box_offset_x: 236, box_offset_y: 0, // Susie's scaled width (860 * 80/292 ≈ 236)
+        box_offset_x: 225, box_offset_y: 0,
         sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty,
-        frame_scale: 80 / 287,
+        frame_scale: 40 / 153, divider_y: 153,
         bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36,
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
@@ -851,12 +851,12 @@ if sr_battle_intro_state == 3
     },
     {
         name: "Queen", hp: 1510, max_hp: 1510,
-        box_offset_x: 474, box_offset_y: 0, // Ralsei's offset (236) + Ralsei's scaled width (855 * 80/287 ≈ 238)
+        box_offset_x: 452, box_offset_y: 0,
         sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
-        frame_scale: 1,
+        frame_scale: 40 / 47, divider_y: 47,
         bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9,
         bar_fill_color: make_color_rgb(111, 209, 255),
-       hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
+        hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
         hurt_flash_time: 20
     }
 ]);
@@ -1367,12 +1367,39 @@ if (keyboard_check_pressed(vk_f1))
 
 if (keyboard_check_pressed(vk_f2))
 {
-    with (obj_UI) instance_destroy(); // clear any leftover UI (e.g. a real Mewmew/Pink instance) before testing
+    with (obj_UI) instance_destroy(); // clear any leftover UI before testing
     instance_create_depth(0, 0, -20000, obj_UI);
 
     scr_party_init([
-        { name: "Susie", hp: 100, max_hp: 100, box_offset_x: 0, box_offset_y: 0, sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty, frame_scale: 80/292, bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36, bar_fill_color: make_color_rgb(255,0,255), hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36, hurt_flash_time: 20 },
-        { name: "Ralsei", hp: 90, max_hp: 90, box_offset_x: 236, box_offset_y: 0, sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty, frame_scale: 80/287, bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36, bar_fill_color: make_color_rgb(1,255,0), hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33, hurt_flash_time: 20 },
-        { name: "Queen", hp: 1510, max_hp: 1510, box_offset_x: 474, box_offset_y: 0, sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty, frame_scale: 1, bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9, bar_fill_color: make_color_rgb(111,209,255), hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17, hurt_flash_time: 20 }
+        {
+            name: "Susie", hp: 100, max_hp: 100,
+            box_offset_x: 0, box_offset_y: 0,
+            sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
+            frame_scale: 40 / 156, divider_y: 156,
+            bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
+            bar_fill_color: make_color_rgb(255, 0, 255),
+            hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
+            hurt_flash_time: 20
+        },
+        {
+            name: "Ralsei", hp: 90, max_hp: 90,
+            box_offset_x: 225, box_offset_y: 0,
+            sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty,
+            frame_scale: 40 / 153, divider_y: 153,
+            bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36,
+            bar_fill_color: make_color_rgb(1, 255, 0),
+            hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
+            hurt_flash_time: 20
+        },
+        {
+            name: "Queen", hp: 1510, max_hp: 1510,
+            box_offset_x: 452, box_offset_y: 0,
+            sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
+            frame_scale: 40 / 47, divider_y: 47,
+            bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9,
+            bar_fill_color: make_color_rgb(111, 209, 255),
+            hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
+            hurt_flash_time: 20
+        }
     ]);
 }

@@ -354,6 +354,7 @@
     {"id":{"name":"scr_point_segment_distance","path":"scripts/scr_point_segment_distance/scr_point_segment_distance.yy",},},
     {"id":{"name":"scr_queue_movement_group","path":"scripts/scr_queue_movement_group/scr_queue_movement_group.yy",},},
     {"id":{"name":"scr_room_to_gui","path":"scripts/scr_room_to_gui/scr_room_to_gui.yy",},},
+    {"id":{"name":"scr_set_active_character","path":"scripts/scr_set_active_character/scr_set_active_character.yy",},},
     {"id":{"name":"scr_soul_take_hit","path":"scripts/scr_soul_take_hit/scr_soul_take_hit.yy",},},
     {"id":{"name":"scr_spadechunk_show","path":"scripts/scr_spadechunk_show/scr_spadechunk_show.yy",},},
     {"id":{"name":"scr_sparkle_heroes","path":"scripts/scr_sparkle_heroes/scr_sparkle_heroes.yy",},},

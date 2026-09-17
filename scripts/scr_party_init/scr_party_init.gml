@@ -29,7 +29,11 @@ function scr_party_init(_members)
 		_box.hurt_flash_time  = _m.hurt_flash_time;
 		_box.box_offset_x     = _m.box_offset_x;
 		_box.box_offset_y     = _m.box_offset_y;
+		_box.divider_y	      = _m.divider_y;
+		
+		if (i == 0) obj_UI.active_box = _box;
     }
 
     obj_UI.use_party_boxes = true; // tell obj_UI to stop drawing its own sprite and let the boxes handle it
 }
+
