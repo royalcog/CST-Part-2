@@ -805,8 +805,9 @@ if sr_battle_intro_state == 2
 }
 
 if sr_battle_intro_state == 3
-with (obj_UI) instance_destroy();
 {
+	with (obj_UI) instance_destroy();
+	
     if instance_exists(obj_susie)
     {
         obj_susie.sprite_index = spr_susie_battle_idle;
