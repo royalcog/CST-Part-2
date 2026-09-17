@@ -10,8 +10,8 @@
   "name":"obj_battlebox",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Battle System/Objects.yy",
+    "name":"Party",
+    "path":"folders/Battle System/Objects/Party.yy",
   },
   "parentObjectId":null,
   "persistent":false,

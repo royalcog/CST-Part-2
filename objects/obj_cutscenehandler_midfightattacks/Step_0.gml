@@ -832,31 +832,31 @@ if sr_battle_intro_state == 3
     {
         name: "Susie", hp: 100, max_hp: 100,
         box_offset_x: 0, box_offset_y: 0,
-        sprite_frame: spr_susiebox, frame_scale: 80 / 292,
-        icon_normal: spr_susiebox, icon_hurt: spr_susiebox, // swap to real hurt art once it exists
-        icon_offset_x: 10, icon_offset_y: 8,
-        bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6,
-        hp_text_offset_x: 170, hp_text_offset_y: 4,
+        sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
+        frame_scale: 80 / 292,
+        bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
+        bar_fill_color: make_color_rgb(255, 0, 255),
+        hp_text_offset_x: 815, hp_text_offset_y: 36,
         hurt_flash_time: 20
     },
     {
         name: "Ralsei", hp: 90, max_hp: 90,
-        box_offset_x: 240, box_offset_y: 0, // Susie's scaled width (~236) + 4px gap
-        sprite_frame: spr_ralseibox, frame_scale: 80 / 287,
-        icon_normal: spr_ralseibox, icon_hurt: spr_ralseibox,
-        icon_offset_x: 10, icon_offset_y: 8,
-        bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6,
-        hp_text_offset_x: 170, hp_text_offset_y: 4,
+        box_offset_x: 236, box_offset_y: 0, // Susie's scaled width (860 * 80/292 ≈ 236)
+        sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty,
+        frame_scale: 80 / 287,
+        bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36,
+        bar_fill_color: make_color_rgb(1, 255, 0),
+        hp_text_offset_x: 812, hp_text_offset_y: 33,
         hurt_flash_time: 20
     },
     {
         name: "Queen", hp: 1510, max_hp: 1510,
-        box_offset_x: 482, box_offset_y: 0, // Ralsei's offset (240) + Ralsei's scaled width (~238) + 4px gap
-        sprite_frame: spr_queenbox, frame_scale: 1, // already at target size
-        icon_normal: spr_queenbox, icon_hurt: spr_queenbox_hurt,
-        icon_offset_x: 10, icon_offset_y: 8,
-        bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6,
-        hp_text_offset_x: 170, hp_text_offset_y: 4,
+        box_offset_x: 474, box_offset_y: 0, // Ralsei's offset (236) + Ralsei's scaled width (855 * 80/287 ≈ 238)
+        sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
+        frame_scale: 1,
+        bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9,
+        bar_fill_color: make_color_rgb(111, 209, 255),
+        hp_text_offset_x: 214, hp_text_offset_y: 17,
         hurt_flash_time: 20
     }
 ]);
@@ -1363,4 +1363,15 @@ with (all)
 if (keyboard_check_pressed(vk_f1))
 {
     scr_party_damage(10);
+}
+
+if (keyboard_check_pressed(vk_f2))
+{
+    if (!instance_exists(obj_UI)) instance_create_depth(0, 0, -20000, obj_UI);
+
+    scr_party_init([
+        { name: "Susie", hp: 100, max_hp: 100, box_offset_x: 0, box_offset_y: 0, sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty, frame_scale: 80/292, bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36, bar_fill_color: make_color_rgb(255,0,255), hp_text_offset_x: 815, hp_text_offset_y: 36, hurt_flash_time: 20 },
+        { name: "Ralsei", hp: 90, max_hp: 90, box_offset_x: 236, box_offset_y: 0, sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty, frame_scale: 80/287, bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36, bar_fill_color: make_color_rgb(1,255,0), hp_text_offset_x: 812, hp_text_offset_y: 33, hurt_flash_time: 20 },
+        { name: "Queen", hp: 1510, max_hp: 1510, box_offset_x: 474, box_offset_y: 0, sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty, frame_scale: 1, bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9, bar_fill_color: make_color_rgb(111,209,255), hp_text_offset_x: 214, hp_text_offset_y: 17, hurt_flash_time: 20 }
+    ]);
 }

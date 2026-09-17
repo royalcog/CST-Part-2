@@ -151,7 +151,7 @@
     {"name":"obj_barrage_cross_fx","order":9,"path":"objects/obj_barrage_cross_fx/obj_barrage_cross_fx.yy",},
     {"name":"obj_barrage_impact_fx","order":7,"path":"objects/obj_barrage_impact_fx/obj_barrage_impact_fx.yy",},
     {"name":"obj_barrage_spawner","order":1,"path":"objects/obj_barrage_spawner/obj_barrage_spawner.yy",},
-    {"name":"obj_battlebox","order":2,"path":"objects/obj_battlebox/obj_battlebox.yy",},
+    {"name":"obj_battlebox","order":1,"path":"objects/obj_battlebox/obj_battlebox.yy",},
     {"name":"obj_bigdoor","order":16,"path":"objects/obj_bigdoor/obj_bigdoor.yy",},
     {"name":"obj_bootstrap","order":12,"path":"objects/obj_bootstrap/obj_bootstrap.yy",},
     {"name":"obj_bouncy","order":8,"path":"objects/obj_bouncy/obj_bouncy.yy",},
