@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_UI_SCP",
-    "path":"sprites/spr_UI_SCP/spr_UI_SCP.yy",
+    "name":"spr_UI_empty",
+    "path":"sprites/spr_UI_empty/spr_UI_empty.yy",
   },
   "spriteMaskId":null,
   "visible":true,

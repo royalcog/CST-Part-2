@@ -5,7 +5,11 @@ var _camx = camera_get_view_x(view_camera[0]);
 var _camy = camera_get_view_y(view_camera[0]);
 var _camw = camera_get_view_width(view_camera[0]);
 var _camh = camera_get_view_height(view_camera[0]);
-target_x = _camx + _camw / 5.33;
+// total on-screen width of the party panel, once all three boxes are scaled to their target size
+var _party_width = 236 + 238 + 224; // Susie + Ralsei + Queen scaled widths — update if you add/remove characters
+var _margin = 20; // gap from the screen edge
+
+target_x = _camx + _camw - _party_width - _margin; // right-anchor the whole panel with a fixed margin
 x = _camx + _camw + sprite_width * image_xscale; // start off screen right
 y = _camy + _camh - 10;
 
