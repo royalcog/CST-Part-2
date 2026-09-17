@@ -1,4 +1,4 @@
-/*if !anim_loop && image_speed != 0
+if !anim_loop && image_speed != 0
 {
     if image_index >= image_number - 1
     {
@@ -6,6 +6,7 @@
         image_index = image_number - 1;
     }
 }
+/*
 bob_timer++;
 if bob_timer >= bob_speed
 {

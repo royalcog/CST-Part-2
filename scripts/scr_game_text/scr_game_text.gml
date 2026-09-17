@@ -276,8 +276,8 @@ function scr_game_text(_text_id)
 			scr_text("* But for now...", "king", 5);
 			scr_text("* I will make sure you pay for what you've done.", "king", 0);
 			scr_text("* Well Screw This I'm Siding With The Children", "queen", 15);
-				scr_char_move_on_page(obj_queen, spr_queen_walk_left_unhappy, true, -4, 0, .8, 72);
-				scr_obj_sprite_on_page_delayed(obj_queen, spr_queen_walk_right_unhappy, false, 0, 72);
+				scr_char_move_on_page(obj_queen, spr_queen_walk_left_unhappy, true, -4, 0, .8, 81);
+				scr_obj_sprite_on_page_delayed(obj_queen, spr_queen_walk_right_unhappy, false, 0, 81);
 			scr_text("* So be it, woman.", "king", 0);
 			scr_text("* ...And if Lancer returns?", "king", 5);
 			scr_text("* I'll show him where his true faith must lie.", "king", 4);
@@ -285,7 +285,10 @@ function scr_game_text(_text_id)
 		break;
 		
 		case "self_15":
-			
+		    global.fight_seq_starting = true;
+		    array_push(obj_cutscenehandler_midfightattacks.after_textbox_queue, {
+		        type: "sr_battle_intro"
+		    });
 		break;
 /*
 (King laughs and battle begins)

@@ -504,6 +504,10 @@ if (processing_queue)
 		{
 		    scr_sparkle_heroes(_entry.heroes);
 		}
+		else if _entry.type == "sr_battle_intro"
+		{
+		    sr_battle_intro_state = 1;
+		}
     }
 
     if (array_length(after_textbox_queue) == 0 && !instance_exists(obj_cutscenefade) && array_length(move_queue_active) == 0)
@@ -758,6 +762,66 @@ if tenna_battle_intro_state == 3
         obj_tenna.use_battle_ext = true;
     }
     tenna_battle_intro_state = 0;
+}
+// 5b. SUSIE/RALSEI BATTLE INTRO STATE MACHINE (King fight start)
+if sr_battle_intro_state == 1
+{
+    if instance_exists(obj_susie)
+    {
+        obj_susie.sprite_index = spr_susie_battle_intro;
+        obj_susie.image_speed = 1;
+        obj_susie.image_index = 0;
+        obj_susie.anim_loop = false;
+    }
+    if instance_exists(obj_ralsei)
+    {
+        obj_ralsei.sprite_index = spr_ralsei_battle_intro;
+        obj_ralsei.image_speed = 1;
+        obj_ralsei.image_index = 0;
+        obj_ralsei.anim_loop = false;
+    }
+    audio_play_sound(snd_taking_out_sword, 1, false);
+    sr_battle_intro_state = 1.5;
+}
+
+if sr_battle_intro_state == 1.5
+{
+    var _susie_done = !instance_exists(obj_susie) || obj_susie.image_speed == 0;
+    var _ralsei_done = !instance_exists(obj_ralsei) || obj_ralsei.image_speed == 0;
+    if _susie_done && _ralsei_done
+    {
+        sr_battle_intro_delay = 45;
+        sr_battle_intro_state = 2;
+    }
+}
+
+if sr_battle_intro_state == 2
+{
+    sr_battle_intro_delay -= 1;
+    if sr_battle_intro_delay <= 0
+    {
+        sr_battle_intro_state = 3;
+    }
+}
+
+if sr_battle_intro_state == 3
+{
+    if instance_exists(obj_susie)
+    {
+        obj_susie.sprite_index = spr_susie_battle_idle;
+        obj_susie.image_speed = 1;
+        obj_susie.image_index = 0;
+        obj_susie.anim_loop = true;
+    }
+    if instance_exists(obj_ralsei)
+    {
+        obj_ralsei.sprite_index = spr_ralsei_battle_idle;
+        obj_ralsei.image_speed = 1;
+        obj_ralsei.image_index = 0;
+        obj_ralsei.anim_loop = true;
+    }
+    global.fight_seq_starting = false;
+    sr_battle_intro_state = 0;
 }
 
 // 6. IMPACT SEQUENCE STATE MACHINE
