@@ -16,16 +16,3 @@ offscreen_x = x; // <-- remember this starting position so we can send it back l
 onscreen_x = target_x; // remember the real onscreen position so we can return to it later
 
 active_box = noone; // which obj_battle_ui_box currently shows its button row
-
-if room = rm_one
-{
-    sprite_index = spr_UI_SCP;
-}
-if room = rm_two
-{
-    sprite_index = spr_UI_SCP;
-}
-if room = rm_three
-{
-    sprite_index = spr_UI_Pink;	
-}

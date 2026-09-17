@@ -828,7 +828,7 @@ if sr_battle_intro_state == 3
     instance_create_depth(0, 0, -20000, obj_UI);
     start_battle_music();
 
-    scr_party_init([
+	scr_party_init([
     {
         name: "Susie", hp: 100, max_hp: 100,
         box_offset_x: 0, box_offset_y: 0,
@@ -837,7 +837,8 @@ if sr_battle_intro_state == 3
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
-        hurt_flash_time: 20
+        hurt_flash_time: 20,
+        icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 0.8
     },
     {
         name: "Ralsei", hp: 90, max_hp: 90,
@@ -847,17 +848,19 @@ if sr_battle_intro_state == 3
         bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36,
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
-        hurt_flash_time: 20
+        hurt_flash_time: 20,
+        icon_rect_x: 61, icon_rect_y: 37, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.8
     },
     {
         name: "Queen", hp: 1510, max_hp: 1510,
-        box_offset_x: 475, box_offset_y: 0,
+        box_offset_x: 460, box_offset_y: 0,
         sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
         frame_scale: 52 / 47, divider_y: 47,
         bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9,
         bar_fill_color: make_color_rgb(111, 209, 255),
         hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
-        hurt_flash_time: 20
+        hurt_flash_time: 20,
+        icon_rect_x: 19, icon_rect_y: 16, icon_rect_w: 20, icon_rect_h: 23, hurt_icon_scale: 1
     }
 ]);
 
@@ -1371,7 +1374,7 @@ if (keyboard_check_pressed(vk_f2))
     instance_create_depth(0, 0, -20000, obj_UI);
 
     scr_party_init([
-        {
+    {
         name: "Susie", hp: 100, max_hp: 100,
         box_offset_x: 0, box_offset_y: 0,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
@@ -1379,7 +1382,8 @@ if (keyboard_check_pressed(vk_f2))
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
-        hurt_flash_time: 20
+        hurt_flash_time: 20,
+        icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 0.8
     },
     {
         name: "Ralsei", hp: 90, max_hp: 90,
@@ -1389,17 +1393,36 @@ if (keyboard_check_pressed(vk_f2))
         bar_offset_x: 513, bar_offset_y: 85, bar_width: 304, bar_height: 36,
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
-        hurt_flash_time: 20
+        hurt_flash_time: 20,
+        icon_rect_x: 61, icon_rect_y: 37, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.8
     },
     {
         name: "Queen", hp: 1510, max_hp: 1510,
-        box_offset_x: 475, box_offset_y: 0,
+        box_offset_x: 460, box_offset_y: 0,
         sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
         frame_scale: 52 / 47, divider_y: 47,
         bar_offset_x: 139, bar_offset_y: 30, bar_width: 76, bar_height: 9,
         bar_fill_color: make_color_rgb(111, 209, 255),
         hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
-        hurt_flash_time: 20
+        hurt_flash_time: 20,
+        icon_rect_x: 19, icon_rect_y: 16, icon_rect_w: 20, icon_rect_h: 23, hurt_icon_scale: 1
     }
-    ]);
+	]);
+}
+
+if (keyboard_check_pressed(vk_f3))
+{
+    var _members = []; // gather living boxes in party order
+    with (obj_battle_ui_box) array_push(_members, id);
+
+    if (array_length(_members) > 0)
+    {
+        var _current_i = 0;
+        for (var i = 0; i < array_length(_members); i++)
+        {
+            if (_members[i] == obj_UI.active_box) { _current_i = i; break; }
+        }
+        var _next_i = (_current_i + 1) mod array_length(_members);
+        obj_UI.active_box = _members[_next_i];
+    }
 }
