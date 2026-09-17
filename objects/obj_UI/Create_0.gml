@@ -1,3 +1,4 @@
+use_party_boxes = false;
 image_xscale = 1;
 image_yscale = 1;
 var _camx = camera_get_view_x(view_camera[0]);

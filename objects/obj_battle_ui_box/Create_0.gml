@@ -1,0 +1,20 @@
+char_name = "";
+hp = 0;
+max_hp = 1;
+box_offset_x = 0;
+box_offset_y = 0;
+sprite_frame = spr_queenbox;
+icon_normal = noone;
+icon_hurt = noone;
+icon_offset_x = 0;
+icon_offset_y = 0;
+bar_offset_x = 0;
+bar_offset_y = 0;
+bar_width = 80;
+bar_height = 6;
+hp_text_offset_x = 0;
+hp_text_offset_y = 0;
+hurt_flash_time = 20;
+
+hurt_timer = 0;   // frames left showing the hurt icon
+hp_display = hp;  // lerps toward hp so the bar drains smoothly instead of snapping instantly
