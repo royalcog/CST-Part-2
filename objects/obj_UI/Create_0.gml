@@ -7,7 +7,7 @@ var _camw = camera_get_view_width(view_camera[0]);
 var _camh = camera_get_view_height(view_camera[0]);
 // total on-screen width of the party panel, once all three boxes are scaled to their target size
 var _party_width = 231 + 235 + 248 + 8; // ≈ 722, using the new scaled widths above
-var _right_nudge = 90; // shift the whole panel right of dead-center by this many px — adjust to taste
+var _right_nudge = 140; // shift the whole panel right of dead-center by this many px — adjust to taste
 target_x = _camx + (_camw - _party_width) / 2 + _right_nudge;
 x = _camx + _camw + sprite_width * image_xscale; // start off screen right
 y = _camy + _camh - 10;
@@ -16,3 +16,5 @@ offscreen_x = x; // <-- remember this starting position so we can send it back l
 onscreen_x = target_x; // remember the real onscreen position so we can return to it later
 
 active_box = noone; // which obj_battle_ui_box currently shows its button row
+
+boxes_x_correction = -50; // pulls just the boxes back left, independent of obj_UI's own anchor — tune this, not box_offset_x
