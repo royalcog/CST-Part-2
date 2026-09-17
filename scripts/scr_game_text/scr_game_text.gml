@@ -248,13 +248,16 @@ function scr_game_text(_text_id)
 		
 		case "self_14":
 			scr_text("* What's your plan here?", "susie", 31);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_angry, false);
 			scr_text("* You gonna threaten us like you threatened your kid?", "susie", 32);
 			scr_text("* Do not talk ill about my son.", "king", 0);
 			scr_text("* Ill about him?|* This is ill about you!", "susie", 36);
 			scr_text("* ...Even worse.", "king", 5);
 			scr_text("* King, it'll be better for everyone if you just go", "ralsei", 40);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_right, false);
 				scr_text_cutoff_skip(51);
 			scr_text("* I know what is best for me.", "king", 0);
+				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_right_neutral, false);
 			scr_text("* I may not have a throne to sit on or a people to rule,", "king", 1);
 			scr_text("* But I still have the power to defeat you.", "king", 4);
 			scr_text("* Yeah, that worked so well last time.", "susie", 33);
@@ -262,6 +265,8 @@ function scr_game_text(_text_id)
 			scr_text("* But for now...", "king", 5);
 			scr_text("* I will make sure you pay for what you've done.", "king", 0);
 			scr_text("* Well Screw This I'm Siding With The Children", "queen", 15);
+				scr_char_move_on_page(obj_queen, spr_queen_walk_left, true, -4, 0, .8, 60);
+				scr_char_move_on_page(obj_queen, spr_queen_walk_right, false, 0, 0, 0, 0);
 			scr_text("* So be it, woman.", "king", 1);
 			scr_text("* ...And if Lancer returns?", "king", 5);
 			scr_text("* I'll show him where his true faith must lie.", "king", 4);
