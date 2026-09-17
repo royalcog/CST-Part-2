@@ -5,7 +5,7 @@ var _vy = camera_get_view_y(view_camera[0]);
 var _scale_x = display_get_gui_width()  / camera_get_view_width(view_camera[0]);
 var _scale_y = display_get_gui_height() / camera_get_view_height(view_camera[0]);
 
-var _sx = (obj_UI.x + box_offset_x - _vx) * _scale_x;
+var _sx = (obj_UI.x + box_offset_x + obj_UI.boxes_x_correction - _vx) * _scale_x;
 var _is_active = (id == obj_UI.active_box);
 var _rest_y = _is_active ? 0 : inactive_rest_offset;
 var _sy = (obj_UI.y + box_offset_y + _rest_y - _vy) * _scale_y;
