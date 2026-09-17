@@ -864,6 +864,7 @@
     {"id":{"name":"spr_trees_1_dark","path":"sprites/spr_trees_1_dark/spr_trees_1_dark.yy",},},
     {"id":{"name":"spr_trees_1","path":"sprites/spr_trees_1/spr_trees_1.yy",},},
     {"id":{"name":"spr_trees","path":"sprites/spr_trees/spr_trees.yy",},},
+    {"id":{"name":"spr_UI_empty","path":"sprites/spr_UI_empty/spr_UI_empty.yy",},},
     {"id":{"name":"spr_UI_Pink_Defend","path":"sprites/spr_UI_Pink_Defend/spr_UI_Pink_Defend.yy",},},
     {"id":{"name":"spr_UI_Pink","path":"sprites/spr_UI_Pink/spr_UI_Pink.yy",},},
     {"id":{"name":"spr_UI_SCP_1","path":"sprites/spr_UI_SCP_1/spr_UI_SCP_1.yy",},},
