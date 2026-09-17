@@ -790,7 +790,7 @@ if sr_battle_intro_state == 1.5
     var _ralsei_done = !instance_exists(obj_ralsei) || obj_ralsei.image_speed == 0;
     if _susie_done && _ralsei_done
     {
-        sr_battle_intro_delay = 45;
+        sr_battle_intro_delay = 15;
         sr_battle_intro_state = 2;
     }
 }
@@ -820,6 +820,14 @@ if sr_battle_intro_state == 3
         obj_ralsei.image_index = 0;
         obj_ralsei.anim_loop = true;
     }
+	if instance_exists(obj_king) && obj_king.sprite_index == spr_king_laugh
+	{
+		obj_king.sprite_index = spr_king_battle_idle;
+	}
+    // battle start: UI in + music, right as the intro settles
+    instance_create_depth(0, 0, -20000, obj_UI);
+    start_battle_music();
+
     global.fight_seq_starting = false;
     sr_battle_intro_state = 0;
 }

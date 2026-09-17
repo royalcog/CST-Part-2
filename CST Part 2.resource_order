@@ -505,6 +505,7 @@
     {"name":"spr_jevil_tired","order":5,"path":"sprites/spr_jevil_tired/spr_jevil_tired.yy",},
     {"name":"spr_jevilbox","order":3,"path":"sprites/spr_jevilbox/spr_jevilbox.yy",},
     {"name":"spr_K_K","order":2,"path":"sprites/spr_K_K/spr_K_K.yy",},
+    {"name":"spr_king_battle_idle","order":10,"path":"sprites/spr_king_battle_idle/spr_king_battle_idle.yy",},
     {"name":"spr_king_cape","order":9,"path":"sprites/spr_king_cape/spr_king_cape.yy",},
     {"name":"spr_king_dialogue","order":5,"path":"sprites/spr_king_dialogue/spr_king_dialogue.yy",},
     {"name":"spr_king_laugh","order":8,"path":"sprites/spr_king_laugh/spr_king_laugh.yy",},

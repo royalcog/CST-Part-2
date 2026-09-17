@@ -222,12 +222,13 @@ function scr_game_text(_text_id)
 				scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_shocked, false, 70);
 				scr_obj_sprite_after_textbox_delayed(obj_ralsei, spr_ralsei_shocked, false, 70);
 				scr_obj_spawn_after_textbox(obj_queen, 660, 300, "Instances");
-				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, 1, 30);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, 1, 20);
 				scr_char_move_after_textbox(obj_queen, spr_queen_walk_left_unhappy, true, -4, 0, .8, 90);
-				scr_char_move_after_textbox(obj_queen, spr_queen_walk_left_unhappy, false, 0, 0, 0, 120);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_left_unhappy, false, 0, 0, 0, 110);
 		break;
 		
 		case "self_12":
+			scr_text("* Hey", "queen", 0);
 			scr_text("* You Children Need To Hear This", "queen", 2);
 				scr_obj_sprite_on_page(obj_susie, spr_susie_surprised, false);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_surprised, false);

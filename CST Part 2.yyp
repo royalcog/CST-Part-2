@@ -610,6 +610,7 @@
     {"id":{"name":"spr_jevilbox","path":"sprites/spr_jevilbox/spr_jevilbox.yy",},},
     {"id":{"name":"spr_jongler","path":"sprites/spr_jongler/spr_jongler.yy",},},
     {"id":{"name":"spr_K_K","path":"sprites/spr_K_K/spr_K_K.yy",},},
+    {"id":{"name":"spr_king_battle_idle","path":"sprites/spr_king_battle_idle/spr_king_battle_idle.yy",},},
     {"id":{"name":"spr_king_cape","path":"sprites/spr_king_cape/spr_king_cape.yy",},},
     {"id":{"name":"spr_king_dialogue","path":"sprites/spr_king_dialogue/spr_king_dialogue.yy",},},
     {"id":{"name":"spr_king_laugh","path":"sprites/spr_king_laugh/spr_king_laugh.yy",},},
