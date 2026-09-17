@@ -829,10 +829,37 @@ if sr_battle_intro_state == 3
     start_battle_music();
 
     scr_party_init([
-        { name: "Susie", hp: 100, max_hp: 100, box_offset_x: 0,   box_offset_y: 0, sprite_frame: spr_susiebox_frame, icon_normal: spr_icon_susie, icon_hurt: spr_icon_susie_hurt, icon_offset_x: 10, icon_offset_y: 8, bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6, hp_text_offset_x: 170, hp_text_offset_y: 4, hurt_flash_time: 20 },
-        { name: "Ralsei", hp: 90,  max_hp: 90,  box_offset_x: 184, box_offset_y: 0, sprite_frame: spr_ralseibox_frame, icon_normal: spr_icon_ralsei, icon_hurt: spr_icon_ralsei_hurt, icon_offset_x: 10, icon_offset_y: 8, bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6, hp_text_offset_x: 170, hp_text_offset_y: 4, hurt_flash_time: 20 },
-        { name: "Queen", hp: 1510, max_hp: 1510, box_offset_x: 368, box_offset_y: 0, sprite_frame: spr_queenbox, icon_normal: spr_queenbox, icon_hurt: spr_queenbox_hurt, icon_offset_x: 10, icon_offset_y: 8, bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6, hp_text_offset_x: 170, hp_text_offset_y: 4, hurt_flash_time: 20 }
-    ]);
+    {
+        name: "Susie", hp: 100, max_hp: 100,
+        box_offset_x: 0, box_offset_y: 0,
+        sprite_frame: spr_susiebox, frame_scale: 80 / 292,
+        icon_normal: spr_susiebox, icon_hurt: spr_susiebox, // swap to real hurt art once it exists
+        icon_offset_x: 10, icon_offset_y: 8,
+        bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6,
+        hp_text_offset_x: 170, hp_text_offset_y: 4,
+        hurt_flash_time: 20
+    },
+    {
+        name: "Ralsei", hp: 90, max_hp: 90,
+        box_offset_x: 240, box_offset_y: 0, // Susie's scaled width (~236) + 4px gap
+        sprite_frame: spr_ralseibox, frame_scale: 80 / 287,
+        icon_normal: spr_ralseibox, icon_hurt: spr_ralseibox,
+        icon_offset_x: 10, icon_offset_y: 8,
+        bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6,
+        hp_text_offset_x: 170, hp_text_offset_y: 4,
+        hurt_flash_time: 20
+    },
+    {
+        name: "Queen", hp: 1510, max_hp: 1510,
+        box_offset_x: 482, box_offset_y: 0, // Ralsei's offset (240) + Ralsei's scaled width (~238) + 4px gap
+        sprite_frame: spr_queenbox, frame_scale: 1, // already at target size
+        icon_normal: spr_queenbox, icon_hurt: spr_queenbox_hurt,
+        icon_offset_x: 10, icon_offset_y: 8,
+        bar_offset_x: 90, bar_offset_y: 20, bar_width: 80, bar_height: 6,
+        hp_text_offset_x: 170, hp_text_offset_y: 4,
+        hurt_flash_time: 20
+    }
+]);
 
     global.fight_seq_starting = false;
     sr_battle_intro_state = 0;
