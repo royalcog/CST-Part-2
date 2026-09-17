@@ -12,8 +12,9 @@ function scr_party_init(_members)
         _box.char_name        = _m.name;
         _box.hp               = _m.hp;
         _box.max_hp           = _m.max_hp;
-        _box.box_offset_x     = _m.box_offset_x; // position relative to obj_UI, matching the old combined-panel layout
-        _box.box_offset_y     = _m.box_offset_y;
+        _box.hp_current_x     = _m.hp_current_x;
+		_box.hp_max_x         = _m.hp_max_x;
+		_box.hp_text_offset_y = _m.hp_text_offset_y;
         _box.sprite_frame     = _m.sprite_frame;
 		_box.hurt_frame       = _m.hurt_frame;
 		_box.frame_scale      = _m.frame_scale;
@@ -22,7 +23,8 @@ function scr_party_init(_members)
 		_box.bar_width        = _m.bar_width;
 		_box.bar_height       = _m.bar_height;
 		_box.bar_fill_color   = _m.bar_fill_color;
-		_box.hp_text_offset_x = _m.hp_text_offset_x;
+		_box.hp_current_x     = _m.hp_current_x;
+		_box.hp_max_x         = _m.hp_max_x;
 		_box.hp_text_offset_y = _m.hp_text_offset_y;
 		_box.hurt_flash_time  = _m.hurt_flash_time;
     }

@@ -21,10 +21,15 @@ var _bh = bar_height * _scale_y * _s;
 var _pct = clamp(hp_display / max_hp, 0, 1);
 draw_rectangle_color(_bx, _by, _bx + _bw * _pct, _by + _bh, bar_fill_color, bar_fill_color, bar_fill_color, bar_fill_color, false);
 
-// HP number, right-aligned to match the baked layout
-var _tx = _sx + hp_text_offset_x * _scale_x * _s;
-var _ty = _sy + hp_text_offset_y * _scale_y * _s;
+// HP number — current sits right-aligned before the baked slash, max sits left-aligned after it
 draw_set_font(fnt_determination);
+
+var _cy = _sy + hp_text_offset_y * _scale_y * _s;
+
 draw_set_halign(fa_right);
-draw_text(_tx, _ty, string(round(hp_display)) + " / " + string(max_hp));
+draw_text(_sx + hp_current_x * _scale_x * _s, _cy, string(round(hp_display)));
+
+draw_set_halign(fa_left);
+draw_text(_sx + hp_max_x * _scale_x * _s, _cy, string(max_hp));
+
 draw_set_halign(fa_left);

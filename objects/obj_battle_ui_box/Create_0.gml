@@ -11,8 +11,9 @@ bar_offset_y = 0;
 bar_width = 80;
 bar_height = 6;
 bar_fill_color = c_white;
-hp_text_offset_x = 0; // right edge of the number area
-hp_text_offset_y = 0; // top of the number area
+hp_current_x = 0;
+hp_max_x = 0;
+hp_text_offset_y = 0;
 hurt_flash_time = 20;
 
 hurt_timer = 0;
