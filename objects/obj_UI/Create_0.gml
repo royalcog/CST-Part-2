@@ -7,7 +7,7 @@ var _camw = camera_get_view_width(view_camera[0]);
 var _camh = camera_get_view_height(view_camera[0]);
 // total on-screen width of the party panel, once all three boxes are scaled to their target size
 var _party_width = 231 + 235 + 248 + 8; // ≈ 722, using the new scaled widths above
-var _right_nudge = 40; // shift the whole panel right of dead-center by this many px — adjust to taste
+var _right_nudge = 90; // shift the whole panel right of dead-center by this many px — adjust to taste
 target_x = _camx + (_camw - _party_width) / 2 + _right_nudge;
 x = _camx + _camw + sprite_width * image_xscale; // start off screen right
 y = _camy + _camh - 10;
