@@ -10,7 +10,7 @@ if (use_party_boxes)
             var _scale_x = display_get_gui_width()  / camera_get_view_width(view_camera[0]);
             var _scale_y = display_get_gui_height() / camera_get_view_height(view_camera[0]);
             var _sx = (obj_UI.x + box_offset_x + _correction - _vx) * _scale_x;
-            var _sy = (obj_UI.y + box_offset_y - active_raise_offset - _vy) * _scale_y;
+            var _sy = (obj_UI.y + box_offset_y - active_raise_offset + obj_UI.boxes_y_correction - _vy) * _scale_y;
 
             var _frame = (hurt_timer > 0) ? hurt_frame : sprite_frame;
             var _w = sprite_get_width(_frame);
