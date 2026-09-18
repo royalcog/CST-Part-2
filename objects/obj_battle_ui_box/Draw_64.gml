@@ -1,6 +1,3 @@
-draw_text(200, 200, "TEST 123");
-draw_text(200, 220, "obj_UI count: " + string(instance_number(obj_UI)));
-
 if (!instance_exists(obj_UI)) exit;
 
 var _vx = camera_get_view_x(view_camera[0]);
@@ -10,7 +7,7 @@ var _scale_y = display_get_gui_height() / camera_get_view_height(view_camera[0])
 
 var _sx = (obj_UI.x + box_offset_x + obj_UI.boxes_x_correction - _vx) * _scale_x;
 var _is_active = (id == obj_UI.active_box);
-var _rest_y = _is_active ? 0 : inactive_rest_offset;
+var _rest_y = _is_active ? -active_raise_offset : inactive_rest_offset;
 var _sy = (obj_UI.y + box_offset_y + _rest_y - _vy) * _scale_y;
 var _s  = frame_scale; // shorthand
 
@@ -45,14 +42,16 @@ var _pct = clamp(hp_display / max_hp, 0, 1);
 draw_rectangle_color(_bx, _by, _bx + _bw * _pct, _by + _bh, bar_fill_color, bar_fill_color, bar_fill_color, bar_fill_color, false);
 
 // HP number — current sits right-aligned before the baked slash, max sits left-aligned after it
-draw_set_font(fnt_determination);
+draw_set_font(fnt_greaterdetermination);
 
 var _cy = _sy + hp_text_offset_y * _scale_y * _s;
+var _cx = _sx + hp_current_x * _scale_x * _s;
+var _mx = _sx + hp_max_x * _scale_x * _s;
 
 draw_set_halign(fa_right);
-draw_text(_sx + hp_current_x * _scale_x * _s, _cy, string(round(hp_display)));
+draw_text_transformed(_cx, _cy, string(round(hp_display)), hp_font_scale, hp_font_scale, 0);
 
 draw_set_halign(fa_left);
-draw_text(_sx + hp_max_x * _scale_x * _s, _cy, string(max_hp));
+draw_text_transformed(_mx, _cy, string(max_hp), hp_font_scale, hp_font_scale, 0);
 
 draw_set_halign(fa_left);
