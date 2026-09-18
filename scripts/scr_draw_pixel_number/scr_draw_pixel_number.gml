@@ -33,4 +33,17 @@ function scr_draw_pixel_number(_x, _y, _text, _halign, _digit_w, _digit_h, _digi
     var _prev_halign = draw_get_halign();
     draw_set_halign(fa_left);
 
-}    // pixel-art font: force
+    // pixel-art font: force nearest-neighbor sampling so the bitmap scales identically
+    // every time, instead of bilinear-smoothing each digit slightly differently
+    var _prev_filter = gpu_get_texfilter();
+    gpu_set_texfilter(false);
+
+    for (var _i = 1; _i <= _len; _i++)
+    {
+        var _ch = string_char_at(_text, _i);
+        draw_text_transformed(_start_x + (_i - 1) * _pitch, _draw_y, _ch, _scale_x, _scale_y, 0);
+    }
+
+    gpu_set_texfilter(_prev_filter);
+    draw_set_halign(_prev_halign);
+}
