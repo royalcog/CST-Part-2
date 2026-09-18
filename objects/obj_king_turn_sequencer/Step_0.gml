@@ -37,13 +37,30 @@ switch (state)
 
     // Susie's box turns from normal -> attack, then Ralsei's, then Queen's — one at a time.
     // The highlighted pose shows while that box is still active, so it's actually visible.
-    case "select_active":
+        case "select_active":
         timer--;
         if (timer <= 0)
         {
             if (select_index < array_length(members) && members[select_index] != noone)
             {
                 members[select_index].selected_attack = true;
+                audio_play_sound(snd_select, 1, false);
+
+                // hold Susie/Ralsei in their "ready" stance until their attack turn actually comes up
+                if (_round != noone && select_index < array_length(_round.attackers))
+                {
+                    var _picked = _round.attackers[select_index];
+                    if (variable_struct_exists(_picked, "attacker") && variable_struct_exists(_picked, "ready_sprite") && instance_exists(_picked.attacker))
+                    {
+                        with (_picked.attacker)
+                        {
+                            sprite_index = _picked.ready_sprite;
+                            image_index = 0;
+                            image_speed = 1;
+                            anim_loop = true;
+                        }
+                    }
+                }
             }
             timer = select_confirm_frames;
             state = "select_confirm";
@@ -72,7 +89,7 @@ switch (state)
     break;
 
     // attack animations play one at a time, each dealing its own damage to King
-    case "attacking_start":
+        case "attacking_start":
         if (attack_index >= array_length(_round.attackers))
         {
             state = "talk_start";
@@ -80,6 +97,12 @@ switch (state)
         }
 
         var _atk = _round.attackers[attack_index];
+
+        if (variable_struct_exists(_atk, "attack_sound"))
+        {
+            audio_play_sound(_atk.attack_sound, 1, false);
+        }
+
         var _has_anim = variable_struct_exists(_atk, "attacker") && variable_struct_exists(_atk, "attack_sprite")
             && instance_exists(_atk.attacker);
 
