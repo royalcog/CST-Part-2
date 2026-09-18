@@ -840,7 +840,7 @@ if sr_battle_intro_state == 3
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
         hurt_flash_time: 20,
-        icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 0.8
+        icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 1
     },
     {
         name: "Ralsei", hp: 210, max_hp: 210,
@@ -851,7 +851,7 @@ if sr_battle_intro_state == 3
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
         hurt_flash_time: 20,
-        icon_rect_x: 100, icon_rect_y: 27, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
+        icon_rect_x: 36, icon_rect_y: 21, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
     },
     {
         name: "Queen", hp: 1510, max_hp: 1510,
@@ -1385,7 +1385,7 @@ if (keyboard_check_pressed(vk_f2))
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
         hurt_flash_time: 20,
-        icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 0.8
+        icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: .9
     },
     {
         name: "Ralsei", hp: 210, max_hp: 210,
@@ -1396,7 +1396,7 @@ if (keyboard_check_pressed(vk_f2))
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
         hurt_flash_time: 20,
-        icon_rect_x: 100, icon_rect_y: 27, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
+        icon_rect_x: 36, icon_rect_y: 21, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
     },
     {
         name: "Queen", hp: 1510, max_hp: 1510,
