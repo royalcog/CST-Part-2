@@ -12,7 +12,8 @@ if (use_party_boxes)
             var _sx = (obj_UI.x + box_offset_x + _correction - _vx) * _scale_x;
             var _sy = (obj_UI.y + box_offset_y - active_raise_offset + obj_UI.boxes_y_correction - _vy) * _scale_y;
 
-            var _frame = (hurt_timer > 0) ? hurt_frame : sprite_frame;
+            var _bg_frame = selected_attack ? attack_frame : sprite_frame;
+			var _frame = (hurt_timer > 0) ? hurt_frame : _bg_frame;
             var _w = sprite_get_width(_frame);
             var _h = sprite_get_height(_frame);
             var _button_h = _h - divider_y;

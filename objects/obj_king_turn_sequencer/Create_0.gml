@@ -1,23 +1,33 @@
-// each round: { attackers: [ { box_name, damage, color_top, color_bottom }, ... x3 in Susie/Ralsei/Queen order ],
+// each round: { attackers: [ { box_name, damage, color_top, color_bottom,
+//                              attacker (optional), attack_sprite (optional), idle_sprite (optional) }, ... x3 in Susie/Ralsei/Queen order ],
 //               dialogue_batch: [ { speaker, text }, ... ] }  -- dialogue_batch can be [] to skip that beat
 rounds = [];
 round_index = -1;
 
-state = "advance_round";
-timer = 0;
+state = "waiting_ui_settle";
+timer = 60; // ~1 second hold once obj_UI finishes sliding onscreen, before the selection sequence starts
 
 select_index = 0;
 attack_index = 0;
+attack_popup = noone;
 
-// order matches scr_party_init's creation order (Susie, Ralsei, Queen) — grabbed once here
-// since the boxes persist for the whole fight
-members = [];
-with (obj_battle_ui_box)
+// explicit lookup by name (NOT instance/creation order, which isn't guaranteed) so the
+// selection queue is always Susie -> Ralsei -> Queen
+members = array_create(3, noone);
+var _order = ["Susie", "Ralsei", "Queen"];
+for (var i = 0; i < array_length(_order); i++)
 {
-    array_push(other.members, id);
+    with (obj_battle_ui_box)
+    {
+        if (char_name == _order[i])
+        {
+            other.members[i] = id;
+        }
+    }
 }
 
-select_hold_frames          = 30; // how long each box sits "active" before locking into its attack pose
-attack_wind_up_frames       = 20; // beat before damage actually lands
-attack_settle_frames        = 20; // hang time after damage before moving to the next attacker
+select_hold_frames    = 30; // how long a box sits "active" (plain) before locking into its attack pose
+select_confirm_frames = 20; // how long the highlighted attack pose shows, still active, before moving on
+attack_settle_frames  = 20; // small gap after one attacker's turn finishes before the next one starts
+popup_clear_frames    = 30; // fallback wait if a hit's popup never spawned (matches the popup's own life)
 king_attack_placeholder_frames = 60; // stand-in for King's own attack until that's built
