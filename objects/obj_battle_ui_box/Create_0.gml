@@ -18,9 +18,10 @@ hurt_flash_time = 20;
 
 hurt_timer = 0;
 hp_display = hp;
-hp_digit_w = 6;   // each digit's rendered ink width, in native px
-hp_digit_h = 10;  // each digit's rendered ink height, in native px
+hp_digit_w = 8;   // each digit's rendered ink width, in native px
+hp_digit_h = 12;  // each digit's rendered ink height, in native px
 hp_digit_gap = 1; // px of space between one digit and the next
+hp_digit_y_offset = -2; // nudge the whole HP number up/down, in final screen px (independent of each box's frame_scale)
 
 // trying fnt_determination instead of fnt_greaterdetermination for a bit —
 // swap hp_font + hp_font_native_w/h together to switch back
