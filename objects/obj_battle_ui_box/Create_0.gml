@@ -18,8 +18,8 @@ hurt_flash_time = 20;
 
 hurt_timer = 0;
 hp_display = hp;
-hp_digit_w = 8;   // each digit's rendered ink width, in native px
-hp_digit_h = 12;  // each digit's rendered ink height, in native px
+hp_digit_w = 8;   // each digit's rendered ink width, in native px (native fnt_determination size — no scaling)
+hp_digit_h = 12;   // each digit's rendered ink height, in native px (native fnt_determination size — no scaling)
 hp_digit_gap = 1; // px of space between one digit and the next
 hp_digit_y_offset = -3; // nudge the whole HP number up/down, in final screen px (independent of each box's frame_scale)
 
