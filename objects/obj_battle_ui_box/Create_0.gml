@@ -20,7 +20,8 @@ hurt_timer = 0;
 hp_display = hp;
 hp_digit_w = 8;   // each digit's rendered ink width, in native px (native fnt_determination size — no scaling)
 hp_digit_h = 12;   // each digit's rendered ink height, in native px (native fnt_determination size — no scaling)
-hp_digit_gap = 1; // px of space between one digit and the next
+hp_digit_gap = 2; // px of space between one digit and the next
+hp_digit_scale = 1; // integer zoom on spr_hp_digits (1 = native 6x10) — keep this a whole number
 hp_digit_y_offset = -3; // nudge the whole HP number up/down, in final screen px (independent of each box's frame_scale)
 
 // trying fnt_determination instead of fnt_greaterdetermination for a bit —

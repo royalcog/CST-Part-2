@@ -1,49 +1,42 @@
-/// scr_draw_pixel_number(_x, _y, _text, _halign, _digit_w, _digit_h, _digit_gap, _native_w, _native_h)
+/// scr_draw_pixel_number_sprite(_x, _y, _text, _halign, _digit_gap, _scale, _color)
 ///
-/// Draws a string of digits so each character's actual ink is forced to an
-/// exact _digit_w x _digit_h pixel size, with exactly _digit_gap pixels
-/// between one digit's ink and the next's. The font must already be set
-/// with draw_set_font() before calling this.
+/// Draws a string of digits using spr_hp_digits — a hand-authored 6x10px
+/// digit set (frames 0-9, one per digit character), so numbers render
+/// pixel-perfect at native size with no font scaling or interpolation
+/// involved at all. This is what makes it match baked reference art like
+/// the hammerbox mockup exactly, rather than approximating it.
 ///
-/// _native_w/_native_h are the current font's own baked digit ink size
-/// (native px, before any scaling) — the reference size we scale down (or
-/// up) from to hit _digit_w x _digit_h exactly. This differs per font, so
-/// the caller passes whatever's right for whichever font is set.
-///
+/// _digit_gap: px of space between one digit and the next, in final
+/// screen px (same convention as scr_draw_pixel_number's gap).
+/// _scale: integer zoom (1 = native 6x10, 2 = 12x20, etc.). Keep this a
+/// whole number — a fractional scale here reintroduces the same uneven
+/// scaling a stretched font would have.
+/// _color: draw_sprite_ext blend color (c_white for no tint).
 /// _halign: fa_left (anchor _x at the left edge) or fa_right (anchor _x at
-/// the right edge, growing left) — vertical alignment is left to the caller
-/// via _y, same as before.
-function scr_draw_pixel_number(_x, _y, _text, _halign, _digit_w, _digit_h, _digit_gap, _native_w, _native_h)
+/// the right edge, growing left).
+function scr_draw_pixel_number_sprite(_x, _y, _text, _halign, _digit_gap, _scale, _color)
 {
-    var _scale_x = _digit_w / _native_w;
-    var _scale_y = _digit_h / _native_h;
+    var _digit_w = 6 * _scale;
+    var _digit_h = 10 * _scale;
+    var _gap = round(_digit_gap);
 
     var _len = string_length(_text);
-    // snap the cell size to whole pixels so every digit lands on the same pixel grid —
-    // otherwise two instances of the same glyph can round differently depending on
-    // where they fall subpixel-wise, and end up looking like different shapes
-    var _cell_w = round(_digit_w);
-    var _cell_gap = round(_digit_gap);
-    var _pitch = _cell_w + _cell_gap;
-    var _total_w = (_len * _cell_w) + (max(0, _len - 1) * _cell_gap);
+    var _pitch = _digit_w + _gap;
+    var _total_w = (_len * _digit_w) + (max(0, _len - 1) * _gap);
 
     var _start_x = round((_halign == fa_right) ? (_x - _total_w) : _x);
     var _draw_y = round(_y);
 
-    var _prev_halign = draw_get_halign();
-    draw_set_halign(fa_left);
-
-    // pixel-art font: force nearest-neighbor sampling so the bitmap scales identically
-    // every time, instead of bilinear-smoothing each digit slightly differently
     var _prev_filter = gpu_get_texfilter();
     gpu_set_texfilter(false);
 
     for (var _i = 1; _i <= _len; _i++)
     {
         var _ch = string_char_at(_text, _i);
-        draw_text_transformed(_start_x + (_i - 1) * _pitch, _draw_y, _ch, _scale_x, _scale_y, 0);
+        var _frame = real(_ch); // "0".."9" -> 0..9, matching spr_hp_digits' frame order
+
+        draw_sprite_ext(spr_hp_digits, _frame, _start_x + (_i - 1) * _pitch, _draw_y, _scale, _scale, 0, _color, 1);
     }
 
     gpu_set_texfilter(_prev_filter);
-    draw_set_halign(_prev_halign);
 }
