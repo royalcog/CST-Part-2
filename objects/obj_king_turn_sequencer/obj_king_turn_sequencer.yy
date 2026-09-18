@@ -1,17 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_soul",
+  "%Name":"obj_king_turn_sequencer",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_soul",
+  "name":"obj_king_turn_sequencer",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
-    "path":"folders/Battle System/Objects.yy",
+    "path":"folders/Battle System/Objects/Attacks/King/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_soul_red",
-    "path":"sprites/spr_soul_red/spr_soul_red.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

@@ -840,6 +840,7 @@ if sr_battle_intro_state == 3
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
         hurt_flash_time: 20,
+		attack_frame: spr_susiebox_attack_empty,
         icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 1
     },
     {
@@ -851,6 +852,7 @@ if sr_battle_intro_state == 3
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
         hurt_flash_time: 20,
+		attack_frame: spr_ralseibox_attack_empty,
         icon_rect_x: 36, icon_rect_y: 21, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
     },
     {
@@ -862,9 +864,27 @@ if sr_battle_intro_state == 3
         bar_fill_color: make_color_rgb(111, 209, 255),
         hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
         hurt_flash_time: 20,
+		attack_frame: spr_queenbox_attack_empty,
         icon_rect_x: 19, icon_rect_y: 16, icon_rect_w: 20, icon_rect_h: 23, hurt_icon_scale: 1
     }
 ]);
+
+// King's own turn loop — Susie -> Ralsei -> Queen choose attack, attack one at a time,
+// dialogue, then (for now) a placeholder gap standing in for King's attack, then repeat.
+// Damage numbers and the dialogue_batch below are placeholders — fill in real numbers and
+// the next bit of script as it's written.
+with (obj_king_turn_sequencer) instance_destroy(); // clear any leftover from a previous fight
+var _king_seq = instance_create_depth(0, 0, 0, obj_king_turn_sequencer);
+_king_seq.rounds = [
+    {
+        attackers: [
+            { box_name: "Susie",  damage: 40, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255) },
+            { box_name: "Ralsei", damage: 25, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0) },
+            { box_name: "Queen",  damage: 60, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255) }
+        ],
+        dialogue_batch: [] // TODO: e.g. [ { speaker: obj_king, text: "..." } ]
+    }
+];
 
     global.fight_seq_starting = false;
     sr_battle_intro_state = 0;
@@ -1385,6 +1405,7 @@ if (keyboard_check_pressed(vk_f2))
         bar_fill_color: make_color_rgb(255, 0, 255),
         hp_current_x: 642, hp_max_x: 701, hp_text_offset_y: 36,
         hurt_flash_time: 20,
+		attack_frame: spr_susiebox_attack_empty,
         icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: .9
     },
     {
@@ -1396,6 +1417,7 @@ if (keyboard_check_pressed(vk_f2))
         bar_fill_color: make_color_rgb(1, 255, 0),
         hp_current_x: 639, hp_max_x: 698, hp_text_offset_y: 33,
         hurt_flash_time: 20,
+		attack_frame: spr_ralseibox_attack_empty,
         icon_rect_x: 36, icon_rect_y: 21, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
     },
     {
@@ -1407,6 +1429,7 @@ if (keyboard_check_pressed(vk_f2))
         bar_fill_color: make_color_rgb(111, 209, 255),
         hp_current_x: 170, hp_max_x: 185, hp_text_offset_y: 17,
         hurt_flash_time: 20,
+		attack_frame: spr_queenbox_attack_empty,
         icon_rect_x: 19, icon_rect_y: 16, icon_rect_w: 20, icon_rect_h: 23, hurt_icon_scale: 1
     }
 	]);

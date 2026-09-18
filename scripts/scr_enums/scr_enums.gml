@@ -1,16 +1,18 @@
-	enum CharID {
-		Capn,
-		Susie,
-		Ralsei,
-		Noelle,
-		Tenna,
-		Battat,
-		Jongler,
-		Pluey,
-		Pink,
-		Friend,
-		Gerson,
-		Jevil,
-		Spamton
-		//ADD ENTRIES HERE
-	}
+enum CharID {
+    Capn,
+    Susie,
+    Ralsei,
+    Noelle,
+    Tenna,
+    Battat,
+    Jongler,
+    Pluey,
+    Pink,
+    Friend,
+    Gerson,
+    Jevil,
+    Spamton,
+    Queen,
+    King
+    //ADD ENTRIES HERE
+}

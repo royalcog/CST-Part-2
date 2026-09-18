@@ -11,9 +11,11 @@ var _rest_y = _is_active ? -active_raise_offset : inactive_rest_offset;
 var _sy = (obj_UI.y + box_offset_y + _rest_y + obj_UI.boxes_y_correction - _vy) * _scale_y;
 var _s  = frame_scale; // shorthand
 
-// background frame — always the normal art now; the hurt face is overlaid separately below
-var _w = sprite_get_width(sprite_frame);
-draw_sprite_part_ext(sprite_frame, 0, 0, 0, _w, divider_y, _sx, _sy, _scale_x * _s, _scale_y * _s, c_white, 1);
+// background frame — normal art, or the "attack" art once this box has locked in an attack;
+// the hurt face is overlaid separately below either way
+var _bg_frame = selected_attack ? attack_frame : sprite_frame;
+var _w = sprite_get_width(_bg_frame);
+draw_sprite_part_ext(_bg_frame, 0, 0, 0, _w, divider_y, _sx, _sy, _scale_x * _s, _scale_y * _s, c_white, 1);
 
 if (hurt_timer > 0)
 {

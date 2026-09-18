@@ -35,6 +35,7 @@ function scr_party_init(_members)
 		_box.icon_rect_w      = _m.icon_rect_w;
 		_box.icon_rect_h      = _m.icon_rect_h;
 		_box.hurt_icon_scale  = _m.hurt_icon_scale;
+		_box.attack_frame     = variable_struct_exists(_m, "attack_frame") ? _m.attack_frame : _m.sprite_frame;
 		
 		if (i == 0) obj_UI.active_box = _box;
     }
