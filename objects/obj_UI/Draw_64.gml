@@ -1,19 +1,3 @@
-draw_text(10, 10, "use_party_boxes = " + string(use_party_boxes));
-
-if (use_party_boxes)
-{
-    var _debug = "active_box: " + string(active_box);
-    if (instance_exists(active_box))
-    {
-        _debug += " (" + active_box.char_name + ") exists";
-    }
-    else
-    {
-        _debug += " does NOT exist";
-    }
-    draw_text(10, 10, _debug);
-}
-
 if (use_party_boxes)
 {
     if (instance_exists(active_box))
