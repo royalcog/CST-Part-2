@@ -880,12 +880,12 @@ _king_seq.rounds = [
         attackers: [
             { box_name: "Susie",  damage: 40, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
               attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
-              attack_sound: snd_heavyswing },
+              attack_sound: snd_attack },
             { box_name: "Ralsei", damage: 25, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
               attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
-              attack_sound: snd_swing },
+              attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 60, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
-              attack_sound: snd_swing }
+              attack_sound: snd_attack }
             // Queen has no attack/ready anim yet — she just deals damage for now
         ],
         dialogue_batch: [] // TODO: e.g. [ { speaker: obj_king, text: "..." } ]

@@ -10,6 +10,7 @@ timer = 60; // ~1 second hold once obj_UI finishes sliding onscreen, before the 
 select_index = 0;
 attack_index = 0;
 attack_popup = noone;
+attack_sound_played = false; // reset per-attacker; lets attack_sound_frame delay the swing sfx to a specific anim frame
 
 // explicit lookup by name (NOT instance/creation order, which isn't guaranteed) so the
 // selection queue is always Susie -> Ralsei -> Queen

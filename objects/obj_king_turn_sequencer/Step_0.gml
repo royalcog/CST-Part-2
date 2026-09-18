@@ -89,7 +89,7 @@ switch (state)
     break;
 
     // attack animations play one at a time, each dealing its own damage to King
-        case "attacking_start":
+    case "attacking_start":
         if (attack_index >= array_length(_round.attackers))
         {
             state = "talk_start";
@@ -97,11 +97,7 @@ switch (state)
         }
 
         var _atk = _round.attackers[attack_index];
-
-        if (variable_struct_exists(_atk, "attack_sound"))
-        {
-            audio_play_sound(_atk.attack_sound, 1, false);
-        }
+        attack_sound_played = false;
 
         var _has_anim = variable_struct_exists(_atk, "attacker") && variable_struct_exists(_atk, "attack_sprite")
             && instance_exists(_atk.attacker);
@@ -115,16 +111,41 @@ switch (state)
                 image_speed = 1;
                 anim_loop = false;
             }
+
+            // no delay frame set — play right as the swing starts, same as before
+            var _sound_frame = variable_struct_exists(_atk, "attack_sound_frame") ? _atk.attack_sound_frame : 0;
+            if (_sound_frame <= 0 && variable_struct_exists(_atk, "attack_sound"))
+            {
+                audio_play_sound(_atk.attack_sound, 1, false);
+                attack_sound_played = true;
+            }
+
             state = "attacking_anim_wait";
         }
         else
         {
+            if (variable_struct_exists(_atk, "attack_sound"))
+            {
+                audio_play_sound(_atk.attack_sound, 1, false);
+            }
             state = "attacking_hit";
         }
     break;
 
     case "attacking_anim_wait":
         var _atk = _round.attackers[attack_index];
+
+        // fire the swing sound once the animation reaches its configured frame (default: frame 0, already handled above)
+        if (!attack_sound_played && variable_struct_exists(_atk, "attack_sound") && instance_exists(_atk.attacker))
+        {
+            var _sound_frame = variable_struct_exists(_atk, "attack_sound_frame") ? _atk.attack_sound_frame : 0;
+            if (_atk.attacker.image_index >= _sound_frame)
+            {
+                audio_play_sound(_atk.attack_sound, 1, false);
+                attack_sound_played = true;
+            }
+        }
+
         if (!instance_exists(_atk.attacker) || _atk.attacker.image_speed == 0)
         {
             state = "attacking_hit";
