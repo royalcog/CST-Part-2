@@ -23,7 +23,7 @@
   ],
   "name":"spr_king_hurt",
   "nineSlice":null,
-  "origin":0,
+  "origin":9,
   "parent":{
     "name":"King",
     "path":"folders/Sprites/Characters/King.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":7,
     "yorigin":0,
   },
   "swatchColours":null,
