@@ -18,11 +18,18 @@ hurt_flash_time = 20;
 
 hurt_timer = 0;
 hp_display = hp;
-hp_font_scale = 0.4; // shrinks the greaterdetermination font down to fit the box — tune per-character if needed
+hp_digit_w = 6;   // each digit's rendered ink width, in native px
+hp_digit_h = 10;  // each digit's rendered ink height, in native px
+hp_digit_gap = 1; // px of space between one digit and the next
+
+// trying fnt_determination instead of fnt_greaterdetermination for a bit —
+// swap hp_font + hp_font_native_w/h together to switch back
+hp_font = fnt_determination;
+hp_font_native_w = 6; // fnt_determination's own baked digit ink width (native px)
+hp_font_native_h = 9; // fnt_determination's own baked digit ink height (native px)
 
 divider_y = 156;
 inactive_rest_offset = 24;
 icon_rect_x = 0; icon_rect_y = 0; icon_rect_w = 0; icon_rect_h = 0; // where the face sits within the box art (native px)
 hurt_icon_scale = 1; // shrink the hurt face relative to the normal one — 1 = same size, 0.8 = 20% smaller
 active_raise_offset = 8; // how far up the active box lifts compared to resting position
-

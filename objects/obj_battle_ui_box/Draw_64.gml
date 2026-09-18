@@ -42,16 +42,16 @@ var _pct = clamp(hp_display / max_hp, 0, 1);
 draw_rectangle_color(_bx, _by, _bx + _bw * _pct, _by + _bh, bar_fill_color, bar_fill_color, bar_fill_color, bar_fill_color, false);
 
 // HP number — current sits right-aligned before the baked slash, max sits left-aligned after it
-draw_set_font(fnt_greaterdetermination);
+// each digit is forced to hp_digit_w x hp_digit_h px (native), hp_digit_gap px apart
+draw_set_font(hp_font);
 
 var _cy = _sy + hp_text_offset_y * _scale_y * _s;
 var _cx = _sx + hp_current_x * _scale_x * _s;
 var _mx = _sx + hp_max_x * _scale_x * _s;
 
-draw_set_halign(fa_right);
-draw_text_transformed(_cx, _cy, string(round(hp_display)), hp_font_scale, hp_font_scale, 0);
+var _dw   = hp_digit_w   * _scale_x * _s;
+var _dh   = hp_digit_h   * _scale_y * _s;
+var _dgap = hp_digit_gap * _scale_x * _s;
 
-draw_set_halign(fa_left);
-draw_text_transformed(_mx, _cy, string(max_hp), hp_font_scale, hp_font_scale, 0);
-
-draw_set_halign(fa_left);
+scr_draw_pixel_number(_cx, _cy, string(round(hp_display)), fa_right, _dw, _dh, _dgap, hp_font_native_w, hp_font_native_h);
+scr_draw_pixel_number(_mx, _cy, string(max_hp), fa_left, _dw, _dh, _dgap, hp_font_native_w, hp_font_native_h);
