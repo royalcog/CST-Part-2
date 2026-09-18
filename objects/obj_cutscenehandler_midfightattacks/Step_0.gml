@@ -827,7 +827,7 @@ if sr_battle_intro_state == 3
 		obj_king.sprite_index = spr_king_battle_idle;
 	}
     // battle start: UI in + music, right as the intro settles
-    instance_create_depth(0, 0, -20000, obj_UI);
+    instance_create_depth(0, 0, -100, obj_UI); // was -20000
     start_battle_music();
 
 	scr_party_init([
@@ -1373,7 +1373,7 @@ if (keyboard_check_pressed(vk_f1))
 if (keyboard_check_pressed(vk_f2))
 {
     with (obj_UI) instance_destroy(); // clear any leftover UI before testing
-    instance_create_depth(0, 0, -20000, obj_UI);
+    instance_create_depth(0, 0, -100, obj_UI);
 
     scr_party_init([
     {

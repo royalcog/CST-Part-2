@@ -1,4 +1,5 @@
 draw_text(200, 200, "TEST 123");
+draw_text(200, 220, "obj_UI count: " + string(instance_number(obj_UI)));
 
 if (!instance_exists(obj_UI)) exit;
 
