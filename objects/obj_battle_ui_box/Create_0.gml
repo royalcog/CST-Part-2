@@ -30,7 +30,7 @@ hp_font_native_w = 6; // fnt_determination's own baked digit ink width (native p
 hp_font_native_h = 9; // fnt_determination's own baked digit ink height (native px)
 
 divider_y = 156;
-inactive_rest_offset = 24;
+inactive_rest_offset = 25;
 icon_rect_x = 0; icon_rect_y = 0; icon_rect_w = 0; icon_rect_h = 0; // where the face sits within the box art (native px)
 hurt_icon_scale = 1; // shrink the hurt face relative to the normal one — 1 = same size, 0.8 = 20% smaller
 active_raise_offset = 8; // how far up the active box lifts compared to resting position
