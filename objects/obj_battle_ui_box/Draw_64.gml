@@ -49,9 +49,9 @@ var _cy = _sy + hp_text_offset_y * _scale_y * _s;
 var _cx = _sx + hp_current_x * _scale_x * _s;
 var _mx = _sx + hp_max_x * _scale_x * _s;
 
-var _dw   = hp_digit_w   * _scale_x * _s;
-var _dh   = hp_digit_h   * _scale_y * _s;
-var _dgap = hp_digit_gap * _scale_x * _s;
+var _dw   = hp_digit_w   * _scale_x;
+var _dh   = hp_digit_h   * _scale_y;
+var _dgap = hp_digit_gap * _scale_x;
 
 scr_draw_pixel_number(_cx, _cy, string(round(hp_display)), fa_right, _dw, _dh, _dgap, hp_font_native_w, hp_font_native_h);
 scr_draw_pixel_number(_mx, _cy, string(max_hp), fa_left, _dw, _dh, _dgap, hp_font_native_w, hp_font_native_h);
