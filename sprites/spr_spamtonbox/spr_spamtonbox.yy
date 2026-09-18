@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"UI Boxes",
-    "path":"folders/Sprites/UI/UI Boxes.yy",
+    "name":"Spamton",
+    "path":"folders/Sprites/UI/UI Boxes/Spamton.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

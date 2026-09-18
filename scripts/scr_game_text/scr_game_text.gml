@@ -216,9 +216,8 @@ function scr_game_text(_text_id)
 			scr_text("* Thanks, man.", "susie", 8);
 			scr_text("* Of course, Susie.", "ralsei", 40);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_smile_right, false);
-			scr_text("* I", "ralsei", 36);
+			scr_text("* I...", "ralsei", 36);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_right, false);
-				scr_text_cutoff_skip(3);
 				scr_obj_sprite_after_textbox_delayed(obj_susie, spr_susie_shocked, false, 70);
 				scr_obj_sprite_after_textbox_delayed(obj_ralsei, spr_ralsei_shocked, false, 70);
 				scr_obj_spawn_after_textbox(obj_queen, 660, 300, "Instances");

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"UI Boxes",
-    "path":"folders/Sprites/UI/UI Boxes.yy",
+    "name":"Jevil",
+    "path":"folders/Sprites/UI/UI Boxes/Jevil.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
