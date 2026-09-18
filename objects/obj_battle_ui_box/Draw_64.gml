@@ -1,3 +1,5 @@
+draw_text(200, 200, "TEST 123");
+
 if (!instance_exists(obj_UI)) exit;
 
 var _vx = camera_get_view_x(view_camera[0]);
