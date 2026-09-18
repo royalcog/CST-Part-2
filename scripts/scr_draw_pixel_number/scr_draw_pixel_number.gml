@@ -33,4 +33,4 @@ function scr_draw_pixel_number(_x, _y, _text, _halign, _digit_w, _digit_h, _digi
     var _prev_halign = draw_get_halign();
     draw_set_halign(fa_left);
 
-    // pixel-art font: force
+}    // pixel-art font: force
