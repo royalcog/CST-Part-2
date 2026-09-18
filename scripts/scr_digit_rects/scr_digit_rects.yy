@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_draw_pixel_number",
+  "%Name":"scr_digit_rects",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_draw_pixel_number",
+  "name":"scr_digit_rects",
   "parent":{
     "name":"Party",
     "path":"folders/Battle System/Scripts/Party.yy",

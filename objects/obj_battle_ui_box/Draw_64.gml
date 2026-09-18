@@ -50,5 +50,5 @@ var _mx = _sx + hp_max_x * _scale_x * _s;
 
 var _dgap = hp_digit_gap * _scale_x;
 
-scr_draw_pixel_number_sprite(_cx, _cy, string(round(hp_display)), fa_right, _dgap, hp_digit_scale, c_white);
-scr_draw_pixel_number_sprite(_mx, _cy, string(max_hp), fa_left, _dgap, hp_digit_scale, c_white);
+scr_draw_pixel_number_rects(_cx, _cy, string(round(hp_display)), fa_right, _dgap, hp_digit_scale, c_white);
+scr_draw_pixel_number_rects(_mx, _cy, string(max_hp), fa_left, _dgap, hp_digit_scale, c_white);
