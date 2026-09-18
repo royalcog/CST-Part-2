@@ -1,3 +1,5 @@
+draw_text(10, 10, "use_party_boxes = " + string(use_party_boxes));
+
 if (use_party_boxes)
 {
     var _debug = "active_box: " + string(active_box);
