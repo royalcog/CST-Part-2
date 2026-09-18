@@ -42,13 +42,16 @@ var _pct = clamp(hp_display / max_hp, 0, 1);
 draw_rectangle_color(_bx, _by, _bx + _bw * _pct, _by + _bh, bar_fill_color, bar_fill_color, bar_fill_color, bar_fill_color, false);
 
 // HP number — current sits right-aligned before the baked slash, max sits left-aligned after it
-// drawn from spr_hp_digits (a hand-authored 6x10 digit set matching the reference box art),
-// so it's pixel-perfect at any hp_digit_scale with no font scaling/interpolation involved
+// each digit is forced to hp_digit_w x hp_digit_h px (native), hp_digit_gap px apart
+draw_set_font(hp_font);
+
 var _cy = _sy + hp_text_offset_y * _scale_y * _s + hp_digit_y_offset * _scale_y;
 var _cx = _sx + hp_current_x * _scale_x * _s;
 var _mx = _sx + hp_max_x * _scale_x * _s;
 
+var _dw   = hp_digit_w   * _scale_x;
+var _dh   = hp_digit_h   * _scale_y;
 var _dgap = hp_digit_gap * _scale_x;
 
-scr_draw_pixel_number_rects(_cx, _cy, string(round(hp_display)), fa_right, _dgap, hp_digit_scale, c_white);
-scr_draw_pixel_number_rects(_mx, _cy, string(max_hp), fa_left, _dgap, hp_digit_scale, c_white);
+scr_draw_pixel_number(_cx, _cy, string(round(hp_display)), fa_right, _dw, _dh, _dgap, hp_font_native_w, hp_font_native_h);
+scr_draw_pixel_number(_mx, _cy, string(max_hp), fa_left, _dw, _dh, _dgap, hp_font_native_w, hp_font_native_h);
