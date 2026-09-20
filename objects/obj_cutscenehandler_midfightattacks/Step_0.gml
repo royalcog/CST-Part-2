@@ -897,8 +897,10 @@ _king_seq.rounds = [
             { speaker: obj_king,  text: "Oh, I'm sorry. I do not recall addressing you, woman." },
             { speaker: obj_queen, text: "That's Queen To You" },
             { speaker: obj_king,  text: "Then respect your king." }
-        ],
-		attackers: [
+        ]
+    },
+    {
+        attackers: [
             { box_name: "Susie",  damage: 40, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
               attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
               attack_sound: snd_attack },
@@ -908,28 +910,14 @@ _king_seq.rounds = [
             { box_name: "Queen",  damage: 60, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attack_sound: snd_attack }
         ],
-		dialogue_batch: [
+        dialogue_batch: [
             { speaker: obj_susie, text: "How'd you even get to be king?" },
             { speaker: obj_susie, text: "With that whole takeover, I'm surprised anyone originally even wanted to be part of your kingdom." },
             { speaker: obj_king,  text: "My people were loyal, Lightner. And they still would be, had you not poisoned their minds." },
-            { speaker: obj_susie,  text: "That was Lancer, dude. People like him a lot more than they like your sorry leadership." },
-        ],
-		attackers: [
-            { box_name: "Susie",  damage: 40, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
-              attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
-              attack_sound: snd_attack },
-            { box_name: "Ralsei", damage: 25, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
-              attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
-              attack_sound: snd_attack, attack_sound_frame: 4 },
-            { box_name: "Queen",  damage: 60, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
-              attack_sound: snd_attack }
-        ],
-		dialogue_batch: [
-            { speaker: obj_susie, text: "How'd you even get to be king?" },
-            { speaker: obj_susie, text: "With that whole takeover, I'm surprised anyone originally even wanted to be part of your kingdom." },
-            { speaker: obj_king,  text: "My people were loyal, Lightner. And they still would be, had you not poisoned their minds." },
-            { speaker: obj_susie,  text: "That was Lancer, dude. People like him a lot more than they like your sorry leadership." },
-        ],
+            { speaker: obj_susie, text: "That was Lancer, dude. People like him a lot more than they like your sorry leadership." }
+        ]
+    }
+];
 		
 		/*
 		Susie: How'd you even get to be king?
@@ -937,8 +925,6 @@ _king_seq.rounds = [
 		King: My people were loyal, Lightner. And they still would be, had you not poisoned their minds.
 		Susie: That was Lancer, dude. People like him a lot more than they like your sorry leadership.
 		*/
-    }
-];
 
     global.fight_seq_starting = false;
     sr_battle_intro_state = 0;
