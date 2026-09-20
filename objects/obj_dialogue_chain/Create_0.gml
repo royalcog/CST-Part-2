@@ -32,7 +32,7 @@ offy[CharID.Jevil] = -8;
 offx[CharID.Friend] = -49;
 offy[CharID.Friend] = 35;
 offx[CharID.Queen] = 60; // placeholder — tune to taste
-offy[CharID.Queen] = -10;
+offy[CharID.Queen] = -40;
 offx[CharID.King] = 40; // placeholder — tune to taste
 offy[CharID.King] = 80;
 

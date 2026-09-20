@@ -1,4 +1,4 @@
-function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _keep_speaker_animating = false, _dim_alpha = -1, _animate = true)
+function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _keep_speaker_animating = true, _dim_alpha = -1, _animate = true)
 {
     var inst = instance_create_layer(0, 0, "UI", obj_talkbox);
     with (inst) {

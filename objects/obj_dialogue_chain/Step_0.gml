@@ -34,7 +34,7 @@ if (dim_phase == 2) // run dialogue
                 var oy  = offy[cid];
                 var fp  = flip[cid];
                 var cps = default_cps;
-                var _keep_anim = variable_struct_exists(e, "keep_animating") && e.keep_animating;
+                var _keep_anim = !(variable_struct_exists(e, "keep_animating") && !e.keep_animating);
                 var _dim = variable_struct_exists(e, "dim") ? e.dim : -1;
                 var _animate = !(variable_struct_exists(e, "no_animate") && e.no_animate);
                 curr_box = scr_talkbox_show(sp, txt, ww, ox, oy, fp, cps, _keep_anim, _dim, _animate);
