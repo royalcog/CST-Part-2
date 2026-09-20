@@ -290,6 +290,10 @@ function scr_game_text(_text_id)
 		        type: "sr_battle_intro"
 		    });
 		break;
+		
+		case "self_16":
+			scr_text("* ...", "lancer", 5);
+		break;
 /*
 (King laughs and battle begins)
 */

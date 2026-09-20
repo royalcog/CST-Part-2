@@ -1013,7 +1013,13 @@ _king_seq.rounds = [
             { speaker: obj_ralsei, text: "You're not gonna get away with it, King. We won't let it happen." },
             { speaker: obj_queen, text: "I'm So Lost" },
             { speaker: obj_susie, text: "What are we talking about???" },
+			{ run: function() {
+		        obj_susie.sprite_index = spr_susie_battle_idle_lookback;
+		    } },
             { speaker: obj_ralsei, text: "King's planning on", instant_cutoff: true },
+			{ run: function() {
+		        obj_susie.sprite_index = spr_susie_battle_idle;
+		    } },
             { speaker: obj_king, text: "Silence, boy." },
             { speaker: obj_king, text: "Wait your turn to spoil the fun." },
             { speaker: obj_ralsei, text: "..." }
