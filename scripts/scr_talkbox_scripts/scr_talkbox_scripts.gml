@@ -30,3 +30,21 @@ function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _ke
     }
     return inst;
 }
+
+/// scr_dialogue_chain_interrupt()
+/// Force-stops whatever battle dialogue is currently playing, instantly — mid-typing,
+/// mid-hold, doesn't matter. Use this when something needs to cut a line off before it
+/// finishes naturally (e.g. Lancer walking in on King mid-sentence). Destroys the current
+/// obj_talkbox (if any) and the obj_dialogue_chain driving it, so nothing tries to continue
+/// on to the next queued line afterward.
+function scr_dialogue_chain_interrupt()
+{
+    if (instance_exists(obj_talkbox))
+    {
+        with (obj_talkbox) instance_destroy();
+    }
+    if (instance_exists(obj_dialogue_chain))
+    {
+        with (obj_dialogue_chain) instance_destroy();
+    }
+}

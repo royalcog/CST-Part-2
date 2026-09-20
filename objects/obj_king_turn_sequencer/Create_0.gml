@@ -32,3 +32,10 @@ select_confirm_frames = 20; // how long the highlighted attack pose shows, still
 attack_settle_frames  = 20; // small gap after one attacker's turn finishes before the next one starts
 popup_clear_frames    = 30; // fallback wait if a hit's popup never spawned (matches the popup's own life)
 king_attack_placeholder_frames = 60; // stand-in for King's own attack until that's built
+
+// --- final round: King's cut-off line + Lancer walking in to end the battle ---
+lancer_inst = noone;
+lancer_interrupt_delay_frames = 90; // how far into King's last line before Lancer cuts him off — tune to taste (~1.5s)
+lancer_spawn_x  = 900; lancer_spawn_y  = 350; // placeholder — off the right edge of rm_six (853 wide); tune to the actual doorway
+lancer_target_x = 700; lancer_target_y = 350; // placeholder — where he stops once "in"; tune to taste
+lancer_walk_speed = 3;

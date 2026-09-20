@@ -885,9 +885,9 @@ _king_seq.rounds = [
               attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
-			  attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-			  idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true,
-			  attack_sound: snd_attack, attack_sound_frame: 2 }
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
             { speaker: obj_susie, text: "Lancer didn't deserve anything you did to him." },
@@ -909,10 +909,10 @@ _king_seq.rounds = [
             { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
               attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
               attack_sound: snd_attack, attack_sound_frame: 4 },
-			{ box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
-			  attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-			  idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true,
-			  attack_sound: snd_attack, attack_sound_frame: 2 }
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
             { speaker: obj_susie, text: "How'd you even get to be king?" },
@@ -920,8 +920,130 @@ _king_seq.rounds = [
             { speaker: obj_king,  text: "My people were loyal, Lightner. And they still would be, had you not poisoned their minds." },
             { speaker: obj_susie, text: "That was Lancer, dude. People like him a lot more than they like your sorry leadership." }
         ]
+    },
+    {
+        attackers: [
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+              attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
+              attack_sound: snd_attack },
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+              attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
+              attack_sound: snd_attack, attack_sound_frame: 4 },
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
+        ],
+        dialogue_batch: [
+            { speaker: obj_king, text: "If you think my leadership was sorry, you should visit the 'other' kings." },
+            { speaker: obj_king, text: "They were placed in jail for a reason." },
+            { speaker: obj_queen, text: "Yeah Because You're A Corrupt Tyrant" },
+            { speaker: obj_king, text: "Save the insults, please. You weren't much better than I was, plugging people into your twisted network of slavery." },
+            { speaker: obj_queen, text: "Ok Buddy" },
+            { speaker: obj_queen, text: "Just Remember Who Threatened A Child" },
+            { speaker: obj_king, text: "..." }
+        ]
+    },
+    {
+        attackers: [
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+              attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
+              attack_sound: snd_attack },
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+              attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
+              attack_sound: snd_attack, attack_sound_frame: 4 },
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
+        ],
+        dialogue_batch: [
+            { speaker: obj_king, text: "Suffice to say, none of you stand a chance at what's coming." },
+            { speaker: obj_susie, text: "Which is..." },
+            { speaker: obj_king, text: "Patience, Lightner. Your demise will soon be forgotten." },
+            { speaker: obj_susie, text: "Haven't killed me yet, asshole." },
+            { speaker: obj_queen, text: "You Get Him Girl" }
+        ]
+    },
+    {
+        attackers: [
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+              attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
+              attack_sound: snd_attack },
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+              attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
+              attack_sound: snd_attack, attack_sound_frame: 4 },
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
+        ],
+        dialogue_batch: [
+            { speaker: obj_king, text: "If you all care so deeply for Lancer, why not embrace my ruling?" },
+            { speaker: obj_ralsei, text: "Your ruling has nothing to do with Lancer, and we all know that." },
+            { speaker: obj_queen, text: "Although My Calibrations Are Set To: Take Over The World, You Are Not The Right Person To Work With" },
+            { speaker: obj_king, text: "Right, because using children to further your gain is so much better than the alternative." },
+            { speaker: obj_queen, text: "Holy Hypocrisy Bro" }
+        ]
+    },
+    {
+        attackers: [
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+              attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
+              attack_sound: snd_attack },
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+              attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
+              attack_sound: snd_attack, attack_sound_frame: 4 },
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
+        ],
+        dialogue_batch: [
+            { speaker: obj_king, text: "You seem awfully quiet, Prince." },
+            { speaker: obj_king, text: "Cat got your tongue? Or is there something more discreet we should know about?" },
+            { speaker: obj_ralsei, text: "You're not gonna get away with it, King. We won't let it happen." },
+            { speaker: obj_queen, text: "I'm So Lost" },
+            { speaker: obj_susie, text: "What are we talking about???" },
+            { speaker: obj_ralsei, text: "King's planning on" },
+            { speaker: obj_king, text: "Silence, boy." },
+            { speaker: obj_king, text: "Wait your turn to spoil the fun." },
+            { speaker: obj_ralsei, text: "..." }
+        ]
+    },
+    {
+        attackers: [
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+              attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
+              attack_sound: snd_attack },
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+              attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
+              attack_sound: snd_attack, attack_sound_frame: 4 },
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+              attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              attack_sound: snd_attack, attack_sound_frame: 2 }
+        ],
+        dialogue_batch: [
+            { speaker: obj_susie, text: "This is stupid. You need to get back in your cell." },
+            { speaker: obj_king, text: "What, is your impatience getting the better of you, Lightner?" },
+            { speaker: obj_king, text: "Enjoy this for what it is." },
+            { speaker: obj_susie, text: "And that would be?" },
+            { speaker: obj_king, text: "The calm before the storm." }
+        ]
+    },
+    {
+        attackers: [],
+        dialogue_batch: [
+            { speaker: obj_king, text: "Now, to finally meet your" }
+        ],
+        is_final: true
     }
 ];
+
+    global.fight_seq_starting = false;
+    sr_battle_intro_state = 0;
+}
 		
 		/*
 		Susie: How'd you even get to be king?
@@ -929,10 +1051,6 @@ _king_seq.rounds = [
 		King: My people were loyal, Lightner. And they still would be, had you not poisoned their minds.
 		Susie: That was Lancer, dude. People like him a lot more than they like your sorry leadership.
 		*/
-
-    global.fight_seq_starting = false;
-    sr_battle_intro_state = 0;
-}
 
 // 6. IMPACT SEQUENCE STATE MACHINE
 if impact_seq_state == 1

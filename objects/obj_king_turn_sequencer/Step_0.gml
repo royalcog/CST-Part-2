@@ -51,18 +51,18 @@ switch (state)
                 {
                     var _picked = _round.attackers[select_index];
                     if (variable_struct_exists(_picked, "attacker") && variable_struct_exists(_picked, "ready_sprite") && instance_exists(_picked.attacker))
-					{
-					    // ready_hold: true means hold still on frame 0 of the sprite instead of looping it
-					    // (e.g. Queen's ready pose is just the first frame of her attack anim)
-					    var _hold = variable_struct_exists(_picked, "ready_hold") && _picked.ready_hold;
-					    with (_picked.attacker)
-					    {
-					        sprite_index = _picked.ready_sprite;
-					        image_index = 0;
-					        image_speed = _hold ? 0 : 1;
-					        anim_loop = true;
-					    }
-					}
+                    {
+                        // ready_hold: true means hold still on frame 0 of the sprite instead of looping it
+                        // (e.g. Queen's ready pose is just the first frame of her attack anim)
+                        var _hold = variable_struct_exists(_picked, "ready_hold") && _picked.ready_hold;
+                        with (_picked.attacker)
+                        {
+                            sprite_index = _picked.ready_sprite;
+                            image_index = 0;
+                            image_speed = _hold ? 0 : 1;
+                            anim_loop = true;
+                        }
+                    }
                 }
             }
             timer = select_confirm_frames;
@@ -95,7 +95,8 @@ switch (state)
     case "attacking_start":
         if (attack_index >= array_length(_round.attackers))
         {
-            state = "talk_start";
+            state = (_round != noone && variable_struct_exists(_round, "is_final") && _round.is_final)
+                ? "final_dialogue_start" : "talk_start";
             break;
         }
 
@@ -165,55 +166,55 @@ switch (state)
     break;
 
     // hold until the damage number over King has fully faded before this character stands down
-	case "attacking_popup_wait":
-	    var _atk = _round.attackers[attack_index];
-	    if (attack_popup != noone)
-	    {
-	        if (!instance_exists(attack_popup))
-	        {
-	            timer = variable_struct_exists(_atk, "post_attack_hold_frames") ? _atk.post_attack_hold_frames : 0;
-	            state = "attacking_post_hold";
-	        }
-	    }
-	    else
-	    {
-	        timer--;
-	        if (timer <= 0)
-	        {
-	            timer = variable_struct_exists(_atk, "post_attack_hold_frames") ? _atk.post_attack_hold_frames : 0;
-	            state = "attacking_post_hold";
-	        }
-	    }
-	break;
+    case "attacking_popup_wait":
+        var _atk = _round.attackers[attack_index];
+        if (attack_popup != noone)
+        {
+            if (!instance_exists(attack_popup))
+            {
+                timer = variable_struct_exists(_atk, "post_attack_hold_frames") ? _atk.post_attack_hold_frames : 0;
+                state = "attacking_post_hold";
+            }
+        }
+        else
+        {
+            timer--;
+            if (timer <= 0)
+            {
+                timer = variable_struct_exists(_atk, "post_attack_hold_frames") ? _atk.post_attack_hold_frames : 0;
+                state = "attacking_post_hold";
+            }
+        }
+    break;
 
-	// optional extra pause on the attacker's last attack frame before reverting to idle
-	// (post_attack_hold_frames on the attacker struct; not set = no extra wait, same as before)
-	case "attacking_post_hold":
-	    timer--;
-	    if (timer <= 0)
-	    {
-	        state = "attacking_revert";
-	    }
-	break;
+    // optional extra pause on the attacker's last attack frame before reverting to idle
+    // (post_attack_hold_frames on the attacker struct; not set = no extra wait, same as before)
+    case "attacking_post_hold":
+        timer--;
+        if (timer <= 0)
+        {
+            state = "attacking_revert";
+        }
+    break;
 
     case "attacking_revert":
-	    var _atk = _round.attackers[attack_index];
-	    if (variable_struct_exists(_atk, "idle_sprite") && instance_exists(_atk.attacker))
-	    {
-	        var _hold = variable_struct_exists(_atk, "idle_hold") && _atk.idle_hold;
-	        with (_atk.attacker)
-	        {
-	            sprite_index = _atk.idle_sprite;
-	            image_index = 0;
-	            image_speed = _hold ? 0 : 1;
-	            anim_loop = true;
-	        }
-	    }
+        var _atk = _round.attackers[attack_index];
+        if (variable_struct_exists(_atk, "attacker") && variable_struct_exists(_atk, "idle_sprite") && instance_exists(_atk.attacker))
+        {
+            var _hold = variable_struct_exists(_atk, "idle_hold") && _atk.idle_hold;
+            with (_atk.attacker)
+            {
+                sprite_index = _atk.idle_sprite;
+                image_index = 0;
+                image_speed = _hold ? 0 : 1;
+                anim_loop = true;
+            }
+        }
 
-	    attack_index++;
-	    timer = attack_settle_frames;
-	    state = "attacking_between";
-	break;
+        attack_index++;
+        timer = attack_settle_frames;
+        state = "attacking_between";
+    break;
 
     case "attacking_between":
         timer--;
@@ -273,5 +274,53 @@ switch (state)
 	    {
 	        state = "advance_round";
 	    }
+	break;
+
+	// King's cut-off line — plays like normal battle dialogue, but Lancer interrupts partway through
+	case "final_dialogue_start":
+	    var _chain = instance_create_depth(0, 0, 0, obj_dialogue_chain);
+	    _chain.batches = [ _round.dialogue_batch ];
+	    timer = lancer_interrupt_delay_frames;
+	    state = "final_dialogue_wait";
+	break;
+
+	case "final_dialogue_wait":
+	    timer--;
+	    if (timer <= 0)
+	    {
+	        state = "lancer_enter_start";
+	    }
+	break;
+
+	case "lancer_enter_start":
+	    scr_dialogue_chain_interrupt(); // cuts King's line off mid-sentence
+	    lancer_inst = instance_create_depth(lancer_spawn_x, lancer_spawn_y, -2000, obj_lancer);
+	    lancer_inst.sprite_index = spr_lancer_right; // walking-in pose — swap to whatever fits the doorway he enters from
+	    lancer_inst.image_speed = 1;
+	    state = "lancer_enter_wait";
+	break;
+
+	case "lancer_enter_wait":
+	    if (instance_exists(lancer_inst))
+	    {
+	        lancer_inst.x += lancer_walk_speed;
+	        if (lancer_inst.x >= lancer_target_x)
+	        {
+	            lancer_inst.x = lancer_target_x;
+	            lancer_inst.image_index = 0;
+	            lancer_inst.image_speed = 0; // settle on an idle frame once he's "in"
+	            state = "battle_end";
+	        }
+	    }
+	    else
+	    {
+	        state = "battle_end";
+	    }
+	break;
+
+	// hand off to whatever the rest of the cutscene does once Lancer's arrived
+	// (e.g. advance dialogue_self / trigger the next case in scr_game_text) — fill in as that's written
+	case "battle_end":
+	    instance_destroy();
 	break;
 }
