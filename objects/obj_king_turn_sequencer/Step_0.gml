@@ -51,15 +51,18 @@ switch (state)
                 {
                     var _picked = _round.attackers[select_index];
                     if (variable_struct_exists(_picked, "attacker") && variable_struct_exists(_picked, "ready_sprite") && instance_exists(_picked.attacker))
-                    {
-                        with (_picked.attacker)
-                        {
-                            sprite_index = _picked.ready_sprite;
-                            image_index = 0;
-                            image_speed = 1;
-                            anim_loop = true;
-                        }
-                    }
+					{
+					    // ready_hold: true means hold still on frame 0 of the sprite instead of looping it
+					    // (e.g. Queen's ready pose is just the first frame of her attack anim)
+					    var _hold = variable_struct_exists(_picked, "ready_hold") && _picked.ready_hold;
+					    with (_picked.attacker)
+					    {
+					        sprite_index = _picked.ready_sprite;
+					        image_index = 0;
+					        image_speed = _hold ? 0 : 1;
+					        anim_loop = true;
+					    }
+					}
                 }
             }
             timer = select_confirm_frames;
@@ -162,41 +165,55 @@ switch (state)
     break;
 
     // hold until the damage number over King has fully faded before this character stands down
-    case "attacking_popup_wait":
-        if (attack_popup != noone)
-        {
-            if (!instance_exists(attack_popup))
-            {
-                state = "attacking_revert";
-            }
-        }
-        else
-        {
-            timer--;
-            if (timer <= 0)
-            {
-                state = "attacking_revert";
-            }
-        }
-    break;
+	case "attacking_popup_wait":
+	    var _atk = _round.attackers[attack_index];
+	    if (attack_popup != noone)
+	    {
+	        if (!instance_exists(attack_popup))
+	        {
+	            timer = variable_struct_exists(_atk, "post_attack_hold_frames") ? _atk.post_attack_hold_frames : 0;
+	            state = "attacking_post_hold";
+	        }
+	    }
+	    else
+	    {
+	        timer--;
+	        if (timer <= 0)
+	        {
+	            timer = variable_struct_exists(_atk, "post_attack_hold_frames") ? _atk.post_attack_hold_frames : 0;
+	            state = "attacking_post_hold";
+	        }
+	    }
+	break;
+
+	// optional extra pause on the attacker's last attack frame before reverting to idle
+	// (post_attack_hold_frames on the attacker struct; not set = no extra wait, same as before)
+	case "attacking_post_hold":
+	    timer--;
+	    if (timer <= 0)
+	    {
+	        state = "attacking_revert";
+	    }
+	break;
 
     case "attacking_revert":
-        var _atk = _round.attackers[attack_index];
-        if (variable_struct_exists(_atk, "attacker") && variable_struct_exists(_atk, "idle_sprite") && instance_exists(_atk.attacker))
-        {
-            with (_atk.attacker)
-            {
-                sprite_index = _atk.idle_sprite;
-                image_index = 0;
-                image_speed = 1;
-                anim_loop = true;
-            }
-        }
+	    var _atk = _round.attackers[attack_index];
+	    if (variable_struct_exists(_atk, "idle_sprite") && instance_exists(_atk.attacker))
+	    {
+	        var _hold = variable_struct_exists(_atk, "idle_hold") && _atk.idle_hold;
+	        with (_atk.attacker)
+	        {
+	            sprite_index = _atk.idle_sprite;
+	            image_index = 0;
+	            image_speed = _hold ? 0 : 1;
+	            anim_loop = true;
+	        }
+	    }
 
-        attack_index++;
-        timer = attack_settle_frames;
-        state = "attacking_between";
-    break;
+	    attack_index++;
+	    timer = attack_settle_frames;
+	    state = "attacking_between";
+	break;
 
     case "attacking_between":
         timer--;

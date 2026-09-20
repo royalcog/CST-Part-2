@@ -833,7 +833,7 @@ if sr_battle_intro_state == 3
 	scr_party_init([
     {
         name: "Susie", hp: 290, max_hp: 290,
-        box_offset_x: -3, box_offset_y: -1,
+        box_offset_x: -1, box_offset_y: -1,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
         frame_scale: 43 / 156, divider_y: 156,
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
@@ -878,14 +878,16 @@ var _king_seq = instance_create_depth(0, 0, 0, obj_king_turn_sequencer);
 _king_seq.rounds = [
     {
         attackers: [
-            { box_name: "Susie",  damage: 40, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
               attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
               attack_sound: snd_attack },
-            { box_name: "Ralsei", damage: 25, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
               attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
               attack_sound: snd_attack, attack_sound_frame: 4 },
-            { box_name: "Queen",  damage: 60, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
-              attack_sound: snd_attack }
+            { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+			  attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+			  idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true,
+			  attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
             { speaker: obj_susie, text: "Lancer didn't deserve anything you did to him." },
@@ -901,14 +903,16 @@ _king_seq.rounds = [
     },
     {
         attackers: [
-            { box_name: "Susie",  damage: 40, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
+            { box_name: "Susie",  damage: 115, color_top: make_color_rgb(255, 0, 255), color_bottom: make_color_rgb(255, 0, 255),
               attacker: obj_susie, ready_sprite: spr_susie_attack_ready, attack_sprite: spr_susie_battle_intro, idle_sprite: spr_susie_battle_idle,
               attack_sound: snd_attack },
-            { box_name: "Ralsei", damage: 25, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
+            { box_name: "Ralsei", damage: 80, color_top: make_color_rgb(1, 255, 0),   color_bottom: make_color_rgb(1, 255, 0),
               attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, attack_sprite: spr_ralsei_attack, idle_sprite: spr_ralsei_battle_idle,
               attack_sound: snd_attack, attack_sound_frame: 4 },
-            { box_name: "Queen",  damage: 60, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
-              attack_sound: snd_attack }
+			{ box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
+			  attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
+			  idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true,
+			  attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
             { speaker: obj_susie, text: "How'd you even get to be king?" },
@@ -1438,7 +1442,7 @@ if (keyboard_check_pressed(vk_f2))
     scr_party_init([
     {
         name: "Susie", hp: 290, max_hp: 290, 
-        box_offset_x: -3, box_offset_y: -1,
+        box_offset_x: -1, box_offset_y: -1,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
         frame_scale: 43 / 156, divider_y: 156,
         bar_offset_x: 516, bar_offset_y: 88, bar_width: 304, bar_height: 36,
