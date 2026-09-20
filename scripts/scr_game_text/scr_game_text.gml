@@ -292,7 +292,8 @@ function scr_game_text(_text_id)
 		break;
 		
 		case "self_16":
-			scr_text("* ...", "lancer", 5);
+		    scr_ui_hide(); // battle's over — send the party UI back offscreen
+		    scr_text("* ...", "lancer", 5);
 		break;
 /*
 (King laughs and battle begins)

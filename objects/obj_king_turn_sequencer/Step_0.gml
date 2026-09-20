@@ -46,24 +46,29 @@ switch (state)
                 members[select_index].selected_attack = true;
                 audio_play_sound(snd_select, 1, false);
 
-                // hold Susie/Ralsei in their "ready" stance until their attack turn actually comes up
-                if (_round != noone && select_index < array_length(_round.attackers))
-                {
-                    var _picked = _round.attackers[select_index];
-                    if (variable_struct_exists(_picked, "attacker") && variable_struct_exists(_picked, "ready_sprite") && instance_exists(_picked.attacker))
-                    {
-                        // ready_hold: true means hold still on frame 0 of the sprite instead of looping it
-                        // (e.g. Queen's ready pose is just the first frame of her attack anim)
-                        var _hold = variable_struct_exists(_picked, "ready_hold") && _picked.ready_hold;
-                        with (_picked.attacker)
-                        {
-                            sprite_index = _picked.ready_sprite;
-                            image_index = 0;
-                            image_speed = _hold ? 0 : 1;
-                            anim_loop = true;
-                        }
-                    }
-                }
+                  // hold Susie/Ralsei in their "ready" stance until their attack turn actually comes up.
+				   // normally this data comes from _round.attackers, but a round with no real attacks
+				   // (e.g. the final round, cut off by Lancer) can supply ready_poses instead so the
+				   // party still visibly readies up even though nothing actually attacks.
+				   var _pose_list = (_round != noone && variable_struct_exists(_round, "ready_poses"))
+				       ? _round.ready_poses
+				       : (_round != noone ? _round.attackers : []);
+
+				   if (select_index < array_length(_pose_list))
+				   {
+				       var _picked = _pose_list[select_index];
+				       if (variable_struct_exists(_picked, "attacker") && variable_struct_exists(_picked, "ready_sprite") && instance_exists(_picked.attacker))
+				       {
+				           var _hold = variable_struct_exists(_picked, "ready_hold") && _picked.ready_hold;
+				           with (_picked.attacker)
+				           {
+				               sprite_index = _picked.ready_sprite;
+				               image_index = 0;
+				               image_speed = _hold ? 0 : 1;
+				               anim_loop = true;
+				           }
+				       }
+				   }
             }
             timer = select_confirm_frames;
             state = "select_confirm";
@@ -299,55 +304,55 @@ switch (state)
 	    }
 	break;
 
-	case "lancer_enter_start":
-	    scr_dialogue_chain_interrupt(); // cuts King's line off mid-sentence
+	   case "lancer_enter_start":
+       scr_dialogue_chain_interrupt(); // cuts King's line off mid-sentence
 
-	    // music cuts out the moment Lancer appears
-	    audio_stop_sound(global.music);
-	    global.song = noone;
+       // music cuts out the moment Lancer appears
+       audio_stop_sound(global.music);
+       global.song = noone;
 
-	    // drop every party box back to inactive/normal the moment he shows up
-	    if (instance_exists(obj_UI)) obj_UI.active_box = noone;
-	    with (obj_battle_ui_box) selected_attack = false;
+       // drop every party box back to inactive/normal the moment he shows up
+       if (instance_exists(obj_UI)) obj_UI.active_box = noone;
+       with (obj_battle_ui_box) selected_attack = false;
 
-	    lancer_inst = instance_create_depth(lancer_spawn_x, lancer_spawn_y, -2000, obj_lancer);
-	    lancer_inst.sprite_index = spr_lancer_up; // walking-up pose
-	    lancer_inst.image_speed = 1;
-	    lancer_inst.depth = 1; // behind obj_UI/obj_battle_ui_box (both sit at depth 0)
-	    state = "lancer_enter_wait";
-	break;
+       // party members are left on their battle-ready pose here on purpose — not reverted
+       // to idle automatically. Do that manually from whichever scr_game_text case needs it.
 
-	// walks straight up from his spawn point to his stopping point
-	case "lancer_enter_wait":
-	    if (instance_exists(lancer_inst))
-	    {
-	        lancer_inst.y -= lancer_walk_speed;
-	        if (lancer_inst.y <= lancer_target_y)
-	        {
-	            lancer_inst.y = lancer_target_y;
-	            state = "lancer_turn";
-	        }
-	    }
-	    else
-	    {
-	        state = "battle_end";
-	    }
-	break;
+       lancer_inst = instance_create_depth(lancer_spawn_x, lancer_spawn_y, -2000, obj_lancer);
+       lancer_inst.sprite_index = spr_lancer_up; // walking-up pose
+       lancer_inst.image_speed = 1;
+       lancer_inst.depth = 1; // behind obj_UI/obj_battle_ui_box
+       state = "lancer_enter_wait";
+   break;
 
-	// he's arrived — turn to face right, sad
-	case "lancer_turn":
-	    if (instance_exists(lancer_inst))
-	    {
-	        lancer_inst.sprite_index = spr_lancer_right_sad;
-	        lancer_inst.image_index = 0;
-	        lancer_inst.image_speed = 0; // settle on the pose, don't loop
-	    }
-	    state = "battle_end";
-	break;
+   case "lancer_enter_wait":
+       if (instance_exists(lancer_inst))
+       {
+           lancer_inst.y -= lancer_walk_speed;
+           if (lancer_inst.y <= lancer_target_y)
+           {
+               lancer_inst.y = lancer_target_y;
+               state = "lancer_turn";
+           }
+       }
+       else
+       {
+           state = "battle_end";
+       }
+   break;
 
-	// hand off to whatever the rest of the cutscene does once Lancer's arrived
-	// (e.g. advance dialogue_self / trigger the next case in scr_game_text) — fill in as that's written
-	case "battle_end":
-	    instance_destroy();
-	break;
+   // he's arrived — turn to face left, sad
+   case "lancer_turn":
+       if (instance_exists(lancer_inst))
+       {
+           lancer_inst.sprite_index = spr_lancer_left_sad;
+           lancer_inst.image_index = 0;
+           lancer_inst.image_speed = 0;
+       }
+       state = "battle_end";
+   break;
+
+   case "battle_end":
+       instance_destroy();
+   break;
 }

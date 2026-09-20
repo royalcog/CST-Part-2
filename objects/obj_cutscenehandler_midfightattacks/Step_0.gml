@@ -1047,11 +1047,21 @@ _king_seq.rounds = [
         ]
     },
     {
-        attackers: [],
-        dialogue_batch: [
-            { speaker: obj_king, text: "Now, to finally meet your" }
-        ],
-        is_final: true
+	    attackers: [],
+	    // no real attack this round (King cuts himself off) — but the party should still
+	    // raise into their battle-ready poses like every other round; scr_king_turn_sequencer
+	    // falls back to this list for select-stage poses when attackers is empty, then puts
+	    // everyone back to idle the moment Lancer arrives
+	    ready_poses: [
+	        { attacker: obj_susie,  ready_sprite: spr_susie_attack_ready, idle_sprite: spr_susie_battle_idle },
+	        { attacker: obj_ralsei, ready_sprite: spr_ralsei_attack_ready, idle_sprite: spr_ralsei_battle_idle },
+	        { attacker: obj_queen,  ready_sprite: spr_queen_pie_throw, ready_hold: true,
+	          idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true }
+	    ],
+	    dialogue_batch: [
+	        { speaker: obj_king, text: "Now, to finally meet your" }
+	    ],
+	    is_final: true
     }
 ];
 
