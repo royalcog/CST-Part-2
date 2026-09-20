@@ -198,23 +198,30 @@ switch (state)
     break;
 
     case "attacking_revert":
-        var _atk = _round.attackers[attack_index];
-        if (variable_struct_exists(_atk, "attacker") && variable_struct_exists(_atk, "idle_sprite") && instance_exists(_atk.attacker))
-        {
-            var _hold = variable_struct_exists(_atk, "idle_hold") && _atk.idle_hold;
-            with (_atk.attacker)
-            {
-                sprite_index = _atk.idle_sprite;
-                image_index = 0;
-                image_speed = _hold ? 0 : 1;
-                anim_loop = true;
-            }
-        }
+	    var _atk = _round.attackers[attack_index];
+	    if (variable_struct_exists(_atk, "attacker") && variable_struct_exists(_atk, "idle_sprite") && instance_exists(_atk.attacker))
+	    {
+	        var _hold = variable_struct_exists(_atk, "idle_hold") && _atk.idle_hold;
+	        with (_atk.attacker)
+	        {
+	            sprite_index = _atk.idle_sprite;
+	            image_index = 0;
+	            image_speed = _hold ? 0 : 1;
+	            anim_loop = true;
+	        }
+	    }
 
-        attack_index++;
-        timer = attack_settle_frames;
-        state = "attacking_between";
-    break;
+	    // this character's own attack is done — drop their box back to inactive
+	    // (lowered, normal art) instead of staying raised for the rest of the round
+	    if (attack_index < array_length(members) && members[attack_index] != noone)
+	    {
+	        members[attack_index].selected_attack = false;
+	    }
+
+	    attack_index++;
+	    timer = attack_settle_frames;
+	    state = "attacking_between";
+	break;
 
     case "attacking_between":
         timer--;
