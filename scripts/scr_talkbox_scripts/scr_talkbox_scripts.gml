@@ -1,4 +1,4 @@
-function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _keep_speaker_animating = true, _dim_alpha = -1, _animate = true)
+function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _keep_speaker_animating = true, _dim_alpha = -1, _animate = true, _instant_cutoff = false)
 {
     var inst = instance_create_layer(0, 0, "UI", obj_talkbox);
     with (inst) {
@@ -12,6 +12,7 @@ function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _ke
         keep_speaker_animating = _keep_speaker_animating;
         dim_alpha = (_dim_alpha >= 0) ? _dim_alpha : global.default_talkbox_dim;
         animate_while_talking = _animate;
+        instant_cutoff = _instant_cutoff;
         base_animating = (instance_exists(_speaker) && _speaker.image_speed > 0);
         switch (_speaker.char_id)
         {

@@ -173,7 +173,8 @@ if char_index >= total_len {
 	if instance_exists(obj_jongler) { obj_jongler.talking = false; }
 	if instance_exists(obj_pluey) { obj_pluey.talking = false; }
     if (alarm[0] == -1) alarm[0] = ceil(end_hold_seconds * game_get_speed(gamespeed_fps));
-    if ready_to_advance || keyboard_check_pressed(ord("Z")) 
+    // instant_cutoff: skip the normal post-typing hold entirely — advance the instant typing finishes
+    if instant_cutoff || ready_to_advance || keyboard_check_pressed(ord("Z")) 
     { 
         if instance_exists(obj_noelle)
         {

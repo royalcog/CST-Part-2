@@ -941,7 +941,7 @@ _king_seq.rounds = [
             { speaker: obj_king, text: "Save the insults, please. You weren't much better than I was, plugging people into your twisted network of slavery." },
             { speaker: obj_queen, text: "Ok Buddy" },
             { speaker: obj_queen, text: "Just Remember Who Threatened A Child" },
-            { speaker: obj_king, text: "..." }
+            { speaker: obj_king, text: "You..." }
         ]
     },
     {
@@ -962,7 +962,15 @@ _king_seq.rounds = [
             { speaker: obj_susie, text: "Which is..." },
             { speaker: obj_king, text: "Patience, Lightner. Your demise will soon be forgotten." },
             { speaker: obj_susie, text: "Haven't killed me yet, asshole." },
-            { speaker: obj_queen, text: "You Get Him Girl" }
+			{ run: function() {
+		        obj_queen.sprite_index = spr_queen_walk_right;
+				obj_queen.image_speed = 0;
+		    } },
+            { speaker: obj_queen, text: "You Get Him Girl" },
+			{ run: function() {
+		        obj_queen.sprite_index = spr_queen_walk_right_unhappy;
+				obj_queen.image_speed = 0;
+		    } }
         ]
     },
     {
@@ -1005,7 +1013,7 @@ _king_seq.rounds = [
             { speaker: obj_ralsei, text: "You're not gonna get away with it, King. We won't let it happen." },
             { speaker: obj_queen, text: "I'm So Lost" },
             { speaker: obj_susie, text: "What are we talking about???" },
-            { speaker: obj_ralsei, text: "King's planning on" },
+            { speaker: obj_ralsei, text: "King's planning on", instant_cutoff: true },
             { speaker: obj_king, text: "Silence, boy." },
             { speaker: obj_king, text: "Wait your turn to spoil the fun." },
             { speaker: obj_ralsei, text: "..." }

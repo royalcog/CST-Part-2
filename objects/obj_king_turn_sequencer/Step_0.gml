@@ -295,7 +295,7 @@ switch (state)
 	    timer--;
 	    if (timer <= 0)
 	    {
-	        state = "lancer_enter_start";
+	        state = "lancer_enter_start"; // this state is what calls scr_dialogue_chain_interrupt()
 	    }
 	break;
 

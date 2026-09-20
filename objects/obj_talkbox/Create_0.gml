@@ -56,6 +56,8 @@ keep_speaker_animating = false;
 
 dim_alpha = 0;
 
+instant_cutoff = false; // if true, this box advances the instant its text finishes typing — no hold, no waiting for Z
+
 function _wrap_text_to_width(_s, _max_w) {
 	draw_set_font(txt_font);
 

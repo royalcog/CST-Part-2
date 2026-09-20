@@ -40,21 +40,24 @@ if (dim_phase == 2) // run dialogue
                 }
 
                 var ww = (variable_struct_exists(e, "wrap") ? e.wrap : default_wrap);
-                var cid = sp.char_id;
-                var ox  = offx[cid];
-                var oy  = offy[cid];
-                var fp  = flip[cid];
-                var cps = default_cps;
-                var _keep_anim = !(variable_struct_exists(e, "keep_animating") && !e.keep_animating);
-                var _dim = variable_struct_exists(e, "dim") ? e.dim : -1;
-                var _animate = !(variable_struct_exists(e, "no_animate") && e.no_animate);
-                curr_box = scr_talkbox_show(sp, txt, ww, ox, oy, fp, cps, _keep_anim, _dim, _animate);
-                if (variable_struct_exists(e, "reveal") && e.reveal)
-                {
-                    curr_box.on_destroy_reveal = true;
-                }
-                index += 1;
-                next_delay = 60;
+				var cid = sp.char_id;
+				var ox  = offx[cid];
+				var oy  = offy[cid];
+				var fp  = flip[cid];
+				var cps = default_cps;
+				var _keep_anim = !(variable_struct_exists(e, "keep_animating") && !e.keep_animating);
+				var _dim = variable_struct_exists(e, "dim") ? e.dim : -1;
+				var _animate = !(variable_struct_exists(e, "no_animate") && e.no_animate);
+				// instant_cutoff: this line advances the moment it finishes typing — no hold, and no
+				// pause before the next line starts either (goes "instantly" to the next speaker)
+				var _instant = variable_struct_exists(e, "instant_cutoff") && e.instant_cutoff;
+				curr_box = scr_talkbox_show(sp, txt, ww, ox, oy, fp, cps, _keep_anim, _dim, _animate, _instant);
+				if (variable_struct_exists(e, "reveal") && e.reveal)
+				{
+				    curr_box.on_destroy_reveal = true;
+				}
+				index += 1;
+				next_delay = _instant ? 0 : 60;
             }
         }
         else
