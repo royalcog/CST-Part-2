@@ -33,12 +33,9 @@ function start_battle_music()
         beats: 9999
     };
     
-    global.music = audio_play_sound(global.song.sound, 2, false, 1.3);
-    audio_sound_gain(global.music, 0, 0);
-    audio_sound_gain(global.music, 1, 3000);
+    global.music = audio_play_sound(global.song.sound, 2, true, 1.3);
+    audio_sound_gain(global.music, 1, 0);
     global.song_start = current_time;
-
-    scr_song_loop_track(global.music, 33, 82);
 }
 
 function scr_ui_reverse(_resume_sound, _resume_pitch = 1, _sprite_obj = noone, _sprite = noone, _sprite_loop = false, _sprite_image = 0)
