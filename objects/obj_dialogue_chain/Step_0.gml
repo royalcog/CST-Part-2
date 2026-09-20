@@ -28,6 +28,17 @@ if (dim_phase == 2) // run dialogue
             {
                 var sp  = e.speaker;
                 var txt = e.text;
+
+                // defensive: skip gracefully instead of a hard crash if the speaker
+                // somehow doesn't exist (e.g. destroyed, or not present in this room)
+                if (!instance_exists(sp))
+                {
+                    show_debug_message("obj_dialogue_chain: skipping line, speaker doesn't exist: " + txt);
+                    index += 1;
+                    next_delay = 0;
+                    exit;
+                }
+
                 var ww = (variable_struct_exists(e, "wrap") ? e.wrap : default_wrap);
                 var cid = sp.char_id;
                 var ox  = offx[cid];

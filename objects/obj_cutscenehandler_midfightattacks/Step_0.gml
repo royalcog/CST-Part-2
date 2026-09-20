@@ -886,7 +886,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
@@ -911,7 +911,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
@@ -931,7 +931,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
@@ -954,7 +954,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
@@ -975,7 +975,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
@@ -996,7 +996,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [
@@ -1021,7 +1021,7 @@ _king_seq.rounds = [
               attack_sound: snd_attack, attack_sound_frame: 4 },
             { box_name: "Queen",  damage: 100, color_top: make_color_rgb(111, 209, 255), color_bottom: make_color_rgb(111, 209, 255),
               attacker: obj_queen, ready_sprite: spr_queen_pie_throw, ready_hold: true, attack_sprite: spr_queen_pie_throw,
-              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 60,
+              idle_sprite: spr_queen_walk_right_unhappy, idle_hold: true, post_attack_hold_frames: 30,
               attack_sound: snd_attack, attack_sound_frame: 2 }
         ],
         dialogue_batch: [

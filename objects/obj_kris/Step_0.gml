@@ -40,13 +40,14 @@ if (instance_exists(obj_cutscenehandler_midfightattacks))
 	}
 }
 
-// freeze player during textbox
-if instance_exists(obj_textbox)
+// freeze player during textbox, or during the King battle's own dialogue/attack sequencing
+if instance_exists(obj_textbox) || instance_exists(obj_king_turn_sequencer)
 {
     sprite_index = sprite_override != noone ? sprite_override : sprite[face];
     image_index = 0;
     exit;
 }
+
 // movement keys
 right_key = keyboard_check(vk_right);
 left_key = keyboard_check(vk_left);
