@@ -745,6 +745,7 @@
     {"id":{"name":"spr_pluey","path":"sprites/spr_pluey/spr_pluey.yy",},},
     {"id":{"name":"spr_queen_dialogue","path":"sprites/spr_queen_dialogue/spr_queen_dialogue.yy",},},
     {"id":{"name":"spr_queen_laughing","path":"sprites/spr_queen_laughing/spr_queen_laughing.yy",},},
+    {"id":{"name":"spr_queen_pie_throw","path":"sprites/spr_queen_pie_throw/spr_queen_pie_throw.yy",},},
     {"id":{"name":"spr_queen_printing","path":"sprites/spr_queen_printing/spr_queen_printing.yy",},},
     {"id":{"name":"spr_queen_walk_down","path":"sprites/spr_queen_walk_down/spr_queen_walk_down.yy",},},
     {"id":{"name":"spr_queen_walk_left_unhappy","path":"sprites/spr_queen_walk_left_unhappy/spr_queen_walk_left_unhappy.yy",},},
