@@ -36,6 +36,6 @@ king_attack_placeholder_frames = 60; // stand-in for King's own attack until tha
 // --- final round: King's cut-off line + Lancer walking in to end the battle ---
 lancer_inst = noone;
 lancer_interrupt_delay_frames = 90; // how far into King's last line before Lancer cuts him off — tune to taste (~1.5s)
-lancer_spawn_x  = 900; lancer_spawn_y  = 350; // placeholder — off the right edge of rm_six (853 wide); tune to the actual doorway
-lancer_target_x = 700; lancer_target_y = 350; // placeholder — where he stops once "in"; tune to taste
-lancer_walk_speed = 3;
+lancer_spawn_x  = 380; lancer_spawn_y  = 500; // he walks straight up into place, so x stays fixed
+lancer_target_x = 380; lancer_target_y = 360; // where he stops moving and turns, facing right, sad
+lancer_walk_speed = 1.5; // vertical walk-up speed — keep this gentle, not a fast walk

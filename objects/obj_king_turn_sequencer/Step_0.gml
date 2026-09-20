@@ -301,28 +301,43 @@ switch (state)
 
 	case "lancer_enter_start":
 	    scr_dialogue_chain_interrupt(); // cuts King's line off mid-sentence
+
+	    // music cuts out the moment Lancer appears
+	    audio_stop_sound(global.music);
+	    global.song = noone;
+
 	    lancer_inst = instance_create_depth(lancer_spawn_x, lancer_spawn_y, -2000, obj_lancer);
-	    lancer_inst.sprite_index = spr_lancer_right; // walking-in pose — swap to whatever fits the doorway he enters from
+	    lancer_inst.sprite_index = spr_lancer_up; // walking-up pose
 	    lancer_inst.image_speed = 1;
 	    state = "lancer_enter_wait";
 	break;
 
+	// walks straight up from his spawn point to his stopping point
 	case "lancer_enter_wait":
 	    if (instance_exists(lancer_inst))
 	    {
-	        lancer_inst.x += lancer_walk_speed;
-	        if (lancer_inst.x >= lancer_target_x)
+	        lancer_inst.y -= lancer_walk_speed;
+	        if (lancer_inst.y <= lancer_target_y)
 	        {
-	            lancer_inst.x = lancer_target_x;
-	            lancer_inst.image_index = 0;
-	            lancer_inst.image_speed = 0; // settle on an idle frame once he's "in"
-	            state = "battle_end";
+	            lancer_inst.y = lancer_target_y;
+	            state = "lancer_turn";
 	        }
 	    }
 	    else
 	    {
 	        state = "battle_end";
 	    }
+	break;
+
+	// he's arrived — turn to face right, sad
+	case "lancer_turn":
+	    if (instance_exists(lancer_inst))
+	    {
+	        lancer_inst.sprite_index = spr_lancer_right_sad;
+	        lancer_inst.image_index = 0;
+	        lancer_inst.image_speed = 0; // settle on the pose, don't loop
+	    }
+	    state = "battle_end";
 	break;
 
 	// hand off to whatever the rest of the cutscene does once Lancer's arrived
