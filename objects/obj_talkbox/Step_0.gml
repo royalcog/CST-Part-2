@@ -22,18 +22,28 @@ if (chars_per_s > 0) {
             
             var _cur_char = string_char_at(_layout_text, char_index);
             if _cur_char != " " && _cur_char != "\n" && speak_snd != noone
-            {
-                if snd_count <= 0
-                {
-                    var _snd = audio_play_sound(speak_snd, 8, false);
-                    audio_sound_gain(_snd, speak_vol, 0);
-                    snd_count = snd_delay * adv;
-                }
-                else
-                {
-                    snd_count -= adv;
-                }
-            }
+			{
+			    if snd_count <= 0
+			    {
+			        if speak_snd == snd_queen
+			        {
+			            audio_stop_sound(snd_queen);
+			            var _snd = audio_play_sound(snd_queen, 8, false);
+			            audio_sound_pitch(_snd, 0.9 + random(0.15));
+			            audio_sound_gain(_snd, speak_vol, 0);
+			        }
+			        else
+			        {
+			            var _snd = audio_play_sound(speak_snd, 8, false);
+			            audio_sound_gain(_snd, speak_vol, 0);
+			        }
+			        snd_count = snd_delay * adv;
+			    }
+			    else
+			    {
+			        snd_count -= adv;
+			    }
+			}
             
             if instance_exists(obj_battat) && instance_exists(speaker) && speaker == obj_battat
             {
