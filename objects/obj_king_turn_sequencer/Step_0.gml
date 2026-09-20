@@ -206,36 +206,55 @@ switch (state)
         }
     break;
 
-    // dialogue for whatever part of the script this round represents, via the TALKbox system
     case "talk_start":
-        if (_round != noone && array_length(_round.dialogue_batch) > 0)
-        {
-            var _chain = instance_create_depth(0, 0, 0, obj_dialogue_chain);
-            _chain.batches = [ _round.dialogue_batch ];
-            state = "talk_wait";
-        }
-        else
-        {
-            timer = king_attack_placeholder_frames;
-            state = "king_attack_wait";
-        }
-    break;
+	    if (_round != noone && array_length(_round.dialogue_batch) > 0)
+	    {
+	        var _chain = instance_create_depth(0, 0, 0, obj_dialogue_chain);
+	        _chain.batches = [ _round.dialogue_batch ];
+	        state = "talk_wait";
+	    }
+	    else
+	    {
+	        state = "king_attack_start";
+	    }
+	break;
 
-    case "talk_wait":
-        if (!instance_exists(obj_dialogue_chain))
-        {
-            timer = king_attack_placeholder_frames;
-            state = "king_attack_wait";
-        }
-    break;
+	case "talk_wait":
+	    if (!instance_exists(obj_dialogue_chain))
+	    {
+	        state = "king_attack_start";
+	    }
+	break;
 
-    // placeholder for King's own attack — party boxes stay onscreen (inactive) through this
-    // instead of getting hidden. Real attacks slot in here later.
-    case "king_attack_wait":
-        timer--;
-        if (timer <= 0)
-        {
-            state = "advance_round";
-        }
-    break;
+	// spawns the real barrage if this round has one configured; otherwise
+	// falls back to the old fixed-length placeholder gap
+	case "king_attack_start":
+	    if (_round != noone && variable_struct_exists(_round, "king_attack"))
+	    {
+	        with (obj_barrage_spawner) instance_destroy(); // clear any leftover
+	        var _spawner = instance_create_depth(0, 0, 0, obj_barrage_spawner);
+	        _spawner.data = _round.king_attack;
+	        state = "king_attack_barrage_wait";
+	    }
+	    else
+	    {
+	        timer = king_attack_placeholder_frames;
+	        state = "king_attack_wait";
+	    }
+	break;
+
+	case "king_attack_barrage_wait":
+	    if (!instance_exists(obj_barrage_spawner))
+	    {
+	        state = "advance_round";
+	    }
+	break;
+
+	case "king_attack_wait":
+	    timer--;
+	    if (timer <= 0)
+	    {
+	        state = "advance_round";
+	    }
+	break;
 }

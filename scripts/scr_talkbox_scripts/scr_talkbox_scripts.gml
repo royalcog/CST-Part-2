@@ -19,9 +19,13 @@ function scr_talkbox_show(_speaker, _text, _wrap_w, _offx, _offy, _fp, _cps, _ke
 			case CharID.Gerson: speak_snd = snd_gerson; snd_delay = 0; break;
 			case CharID.Spamton: speak_snd = snd_spamton; snd_delay = 0; break;
 			case CharID.Jevil: speak_snd = snd_jevil; snd_delay = 0; break;
+			case CharID.Susie: speak_snd = snd_susie; snd_delay = 0; break;
+			case CharID.Ralsei: speak_snd = snd_ralsei; snd_delay = 0; break;
+			case CharID.King: speak_snd = snd_king; snd_delay = 0; break;
+			case CharID.Queen: speak_snd = snd_queen; snd_delay = 0; break;
             default:          speak_snd = noone;                     break;
         }
-        speak_vol = 0.8;
+        speak_vol = 0.6;
         _recalc_layout();
     }
     return inst;
