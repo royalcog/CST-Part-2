@@ -306,9 +306,14 @@ switch (state)
 	    audio_stop_sound(global.music);
 	    global.song = noone;
 
+	    // drop every party box back to inactive/normal the moment he shows up
+	    if (instance_exists(obj_UI)) obj_UI.active_box = noone;
+	    with (obj_battle_ui_box) selected_attack = false;
+
 	    lancer_inst = instance_create_depth(lancer_spawn_x, lancer_spawn_y, -2000, obj_lancer);
 	    lancer_inst.sprite_index = spr_lancer_up; // walking-up pose
 	    lancer_inst.image_speed = 1;
+	    lancer_inst.depth = 1; // behind obj_UI/obj_battle_ui_box (both sit at depth 0)
 	    state = "lancer_enter_wait";
 	break;
 
