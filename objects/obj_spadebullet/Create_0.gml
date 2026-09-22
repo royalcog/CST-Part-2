@@ -1,5 +1,7 @@
 // all of these get overwritten by obj_king_spade_attack right after spawning
-dir = 1;          // 1 = moving right, -1 = moving left
+lx = x;           // position in the box's own (unrotated) frame
+ly = y;
+dir = 1;          // 1 = moving right, -1 = moving left (in the box's frame)
 move_speed = 4;
 damage = 36;
 hit_radius = 12;

@@ -1,7 +1,12 @@
 if (!instance_exists(obj_battlebox)) { instance_destroy(); exit; }
 if (obj_battlebox.state == "closing") fading_out = true;
 
-x += dir * move_speed;
+// move in the box's frame, then place in the world at the box's current rotation
+lx += dir * move_speed;
+var _w = scr_box_local_to_world(lx, ly);
+x = _w.x;
+y = _w.y;
+image_angle = obj_battlebox.box_angle;
 
 // quick fade in on spawn, fade out once it's cleared the box
 if (!fading_out)
@@ -25,7 +30,7 @@ if (instance_exists(obj_soul) && !obj_soul.invulnerable
 
 var _in = scr_get_box_interior();
 var _half_w = abs(sprite_width) / 2;
-if (!fading_out && ((dir == 1 && x - _half_w > _in.x2 + travel_out) || (dir == -1 && x + _half_w < _in.x1 - travel_out)))
+if (!fading_out && ((dir == 1 && lx - _half_w > _in.x2 + travel_out) || (dir == -1 && lx + _half_w < _in.x1 - travel_out)))
 {
     fading_out = true;
 }

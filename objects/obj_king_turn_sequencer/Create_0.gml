@@ -43,3 +43,6 @@ lancer_walk_speed = 1.5; // vertical walk-up speed — keep this gentle, not a f
 box_inst = noone;
 king_attack_inst = noone;
 king_attack_end_pause_frames = 30; // short breather after the box closes, before the next party turn
+
+king_box_x_nudge = 42;    // lines the box up with the HP panel (which sits ~42px right of screen center); 0 = true screen center
+king_box_depth   = -5000; // in front of every character (lowest is Queen at -3001), still behind the TALKbox (-9999)

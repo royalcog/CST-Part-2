@@ -263,7 +263,8 @@ switch (state)
 		    {
 		        with (obj_soul) instance_destroy();
 		        with (obj_battlebox) instance_destroy();
-		        box_inst = scr_spawn_battlebox(); // box spawns the soul itself once it finishes rising
+		        box_inst = scr_spawn_battlebox(king_box_x_nudge);
+		        box_inst.depth = king_box_depth; // soul + spades build their depth off this, so they stay in front too
 		        state = "king_box_open_wait";
 		    }
 		    else if (_round != noone && variable_struct_exists(_round, "king_attack"))
