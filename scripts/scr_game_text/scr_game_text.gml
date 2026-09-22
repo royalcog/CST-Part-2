@@ -260,7 +260,7 @@ function scr_game_text(_text_id)
 			scr_text("* What's your plan here?", "susie", 31);
 				scr_obj_sprite_on_page(obj_susie, spr_susie_angry, false);
 			scr_text("* You gonna threaten us like you threatened your kid?", "susie", 32);
-			scr_text("* Do not talk ill about my son.", "king", 0);
+			scr_text("* Do not speak ill about my son.", "king", 0);
 			scr_text("* Ill about him?|* This is ill about you!", "susie", 36);
 			scr_text("* ...Even worse.", "king", 5);
 			scr_text("* King, it'll be better for everyone if you just go", "ralsei", 40);
@@ -356,7 +356,7 @@ function scr_game_text(_text_id)
 			scr_text("* ...", "susie", 12);
 			scr_text("* That's your excuse? ", "king", 6);
 				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
-			scr_text("* Nothing towards the glorious fountain that created you?|* Created all of us?", "king", 5);
+			scr_text("* Nothing towards the glorious fountain that created you?|* That created all of us?", "king", 5);
 			scr_text("* It bestowed your personality, not the 'object' you claim to stem from.", "king", 0);
 			scr_text("* You're LITERALLY a card.", "susie", 32);
 				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
@@ -369,7 +369,7 @@ function scr_game_text(_text_id)
 			scr_text("* Susie.", "ralsei", 4);
 			scr_text("* ...", "susie", 31);
 				scr_obj_sprite_on_page(obj_susie, spr_susie_right_neutral, false);
-			scr_text("* The 'object' you were made from holds no bearing on your personality.", "king", 5);
+			scr_text("* The 'object' you were made from has no bearing on your personality.", "king", 5);
 				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* No one ever expected a card to be the king of a kingdom,", "king", 0);
 			scr_text("* just because it was the King of Spades, correct?", "king", 4);
