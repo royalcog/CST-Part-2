@@ -380,9 +380,9 @@ function scr_game_text(_text_id)
 			scr_text("* Do you forget that not all objects in the Light World turn 'alive' here?", "king", 0);
 			scr_text("* Or at least, not at first.", "king", 5);
 			scr_text("* But the glorious fountains... they are what keeps us all living.", "king", 0);
-			scr_text("* They keep us strong.|* Keep us going.|* Empower us to live our lives.", "king", 0);
+			scr_text("* They keep us strong.|* Keep us going.|* Empower us to live.", "king", 0);
 			scr_text("* You cannot attribute that to your variant of so-called 'personality'.", "king", 4);
-			scr_text("* Just because a fountain exists doesn't mean it warps a personality.", "ralsei", 53);
+			scr_text("* Just because a fountain exists doesn't mean it warps your personality.", "ralsei", 53);
 				scr_obj_sprite_on_page(obj_ralsei, spr_ralsei_right_annoyed_little, false);
 				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* And who said it was preordained?", "king", 5);
@@ -427,8 +427,14 @@ function scr_game_text(_text_id)
 				scr_char_move_after_textbox(obj_king, spr_king_walk_left, true, -4, 0, 0.8, 90);
 				scr_char_move_after_textbox(obj_king, spr_king_walk_left, true, 0, 4, 0.8, 90);
 		break;
+		
+		case "self_16":
+			scr_text("* Where did his...", "susie", 11);
+			scr_text("* ...", "susie", 12);
+			scr_text("* Nevermind.", "susie", 0);
+		break;
 /*
-(King walks out)
+
 */
 
 
