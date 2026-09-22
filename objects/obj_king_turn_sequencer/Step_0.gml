@@ -258,20 +258,52 @@ switch (state)
 
 	// spawns the real barrage if this round has one configured; otherwise
 	// falls back to the old fixed-length placeholder gap
-	case "king_attack_start":
-	    if (_round != noone && variable_struct_exists(_round, "king_attack"))
-	    {
-	        with (obj_barrage_spawner) instance_destroy(); // clear any leftover
-	        var _spawner = instance_create_depth(0, 0, 0, obj_barrage_spawner);
-	        _spawner.data = _round.king_attack;
-	        state = "king_attack_barrage_wait";
-	    }
-	    else
-	    {
-	        timer = king_attack_placeholder_frames;
-	        state = "king_attack_wait";
-	    }
-	break;
+		case "king_attack_start":
+		    if (_round != noone && variable_struct_exists(_round, "king_box_attack"))
+		    {
+		        with (obj_soul) instance_destroy();
+		        with (obj_battlebox) instance_destroy();
+		        box_inst = scr_spawn_battlebox(); // box spawns the soul itself once it finishes rising
+		        state = "king_box_open_wait";
+		    }
+		    else if (_round != noone && variable_struct_exists(_round, "king_attack"))
+		    {
+		        with (obj_barrage_spawner) instance_destroy(); // clear any leftover
+		        var _spawner = instance_create_depth(0, 0, 0, obj_barrage_spawner);
+		        _spawner.data = _round.king_attack;
+		        state = "king_attack_barrage_wait";
+		    }
+		    else
+		    {
+		        timer = king_attack_placeholder_frames;
+		        state = "king_attack_wait";
+		    }
+		break;
+
+		case "king_box_open_wait":
+		    if (instance_exists(box_inst) && box_inst.state == "idle")
+		    {
+		        king_attack_inst = _round.king_box_attack();
+		        state = "king_box_attack_wait";
+		    }
+		break;
+
+		case "king_box_attack_wait":
+		    if (!instance_exists(king_attack_inst))
+		    {
+		        with (obj_soul) instance_destroy();
+		        if (instance_exists(box_inst)) box_inst.state = "closing";
+		        state = "king_box_close_wait";
+		    }
+		break;
+
+		case "king_box_close_wait":
+		    if (!instance_exists(box_inst))
+		    {
+		        timer = king_attack_end_pause_frames;
+		        state = "king_attack_wait"; // existing countdown, then advance_round
+		    }
+		break;
 
 	case "king_attack_barrage_wait":
 	    if (!instance_exists(obj_barrage_spawner))

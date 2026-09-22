@@ -911,7 +911,8 @@ _king_seq.rounds = [
             { speaker: obj_king,  text: "Oh, I'm sorry. I do not recall addressing you, woman." },
             { speaker: obj_queen, text: "That's Queen To You" },
             { speaker: obj_king,  text: "Then respect your king." }
-        ]
+        ],
+        king_box_attack: scr_start_king_attack_spades
     },
     {
         attackers: [

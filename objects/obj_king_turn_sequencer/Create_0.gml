@@ -39,3 +39,7 @@ lancer_interrupt_delay_frames = 90; // how far into King's last line before Lanc
 lancer_spawn_x  = 380; lancer_spawn_y  = 500; // he walks straight up into place, so x stays fixed
 lancer_target_x = 380; lancer_target_y = 360; // where he stops moving and turns, facing right, sad
 lancer_walk_speed = 1.5; // vertical walk-up speed — keep this gentle, not a fast walk
+
+box_inst = noone;
+king_attack_inst = noone;
+king_attack_end_pause_frames = 30; // short breather after the box closes, before the next party turn

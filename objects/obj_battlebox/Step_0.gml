@@ -23,7 +23,7 @@ switch (state)
 	        if (!on_open_callback_done)
 	        {
 	            on_open_callback_done = true;
-	            var _soul = instance_create_depth(x + raw_width/2, y + raw_height/2, depth - 1, obj_soul);
+	            var _soul = instance_create_depth(x + raw_width/2, y + raw_height/2, depth - 2, obj_soul);
 	        }
 	    }
 	break;
