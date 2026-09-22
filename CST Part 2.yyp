@@ -849,6 +849,7 @@
     {"id":{"name":"spr_susie_battle_intro","path":"sprites/spr_susie_battle_intro/spr_susie_battle_intro.yy",},},
     {"id":{"name":"spr_susie_dialogue","path":"sprites/spr_susie_dialogue/spr_susie_dialogue.yy",},},
     {"id":{"name":"spr_susie_hand_out_left","path":"sprites/spr_susie_hand_out_left/spr_susie_hand_out_left.yy",},},
+    {"id":{"name":"spr_susie_hurt","path":"sprites/spr_susie_hurt/spr_susie_hurt.yy",},},
     {"id":{"name":"spr_susie_left_neutral","path":"sprites/spr_susie_left_neutral/spr_susie_left_neutral.yy",},},
     {"id":{"name":"spr_susie_pointright","path":"sprites/spr_susie_pointright/spr_susie_pointright.yy",},},
     {"id":{"name":"spr_susie_right_neutral_lookback","path":"sprites/spr_susie_right_neutral_lookback/spr_susie_right_neutral_lookback.yy",},},
