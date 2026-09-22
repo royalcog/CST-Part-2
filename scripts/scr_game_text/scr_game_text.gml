@@ -432,9 +432,29 @@ function scr_game_text(_text_id)
 			scr_text("* Where did his...", "susie", 11);
 			scr_text("* ...", "susie", 12);
 			scr_text("* Nevermind.", "susie", 0);
+			scr_text("* Anyways...", "susie", 13);
 		break;
 /*
-
+Susie: We gotta stop him.
+Ralsei: It's no use, Susie...
+Susie: We got him in there once, we can do it again.
+Lancer: Susie...
+Susie: ...?
+Lancer: Please... Don't hurt my dad...
+Susie: He just tried to kill us, Lancer.
+Susie: Why are you even still siding with him?
+Susie: Just because it's your dad doesn't mean he isn't also a murderer.
+Susie: Or an attempted one, at least.
+Lancer: But...
+Ralsei: Lancer, we don't know who your dad is bringing here as help, and we need to figure that out.
+Ralsei: As much as I'm not a fan of violence either, your dad needs to at least be put in his place.
+Queen: If You Want Me To Cheer You Up I'll Buy You An Acid Smoothie
+Lancer: ...
+Lancer: Just... Try not to do anything... Too painful?
+Susie: Uh...
+Susie: We'll do our best.
+Lancer: Thanks, Susie.
+(Lancer and Queen leave)
 */
 
 
