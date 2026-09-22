@@ -1,1 +1,1 @@
-with (obj_spade) instance_destroy();
+with (obj_spadebullet) instance_destroy();
