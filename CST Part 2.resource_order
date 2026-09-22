@@ -622,6 +622,7 @@
     {"name":"spr_queen_dialogue","order":6,"path":"sprites/spr_queen_dialogue/spr_queen_dialogue.yy",},
     {"name":"spr_queen_laughing","order":1,"path":"sprites/spr_queen_laughing/spr_queen_laughing.yy",},
     {"name":"spr_queen_pie_throw","order":8,"path":"sprites/spr_queen_pie_throw/spr_queen_pie_throw.yy",},
+    {"name":"spr_queen_walk_down_unhappy","order":9,"path":"sprites/spr_queen_walk_down_unhappy/spr_queen_walk_down_unhappy.yy",},
     {"name":"spr_queen_walk_down","order":3,"path":"sprites/spr_queen_walk_down/spr_queen_walk_down.yy",},
     {"name":"spr_queen_walk_left_unhappy","order":6,"path":"sprites/spr_queen_walk_left_unhappy/spr_queen_walk_left_unhappy.yy",},
     {"name":"spr_queen_walk_left","order":5,"path":"sprites/spr_queen_walk_left/spr_queen_walk_left.yy",},

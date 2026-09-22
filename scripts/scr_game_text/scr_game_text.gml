@@ -428,32 +428,51 @@ function scr_game_text(_text_id)
 				scr_char_move_after_textbox(obj_king, spr_king_walk_left, true, 0, 4, 0.8, 90);
 		break;
 		
-		case "self_16":
+		case "self_17":
 			scr_text("* Where did his...", "susie", 11);
 			scr_text("* ...", "susie", 12);
 			scr_text("* Nevermind.", "susie", 0);
 			scr_text("* Anyways...", "susie", 13);
+			scr_text("* We gotta stop him.", "susie", 4);
+			scr_text("* It's no use, Susie...", "ralsei", 7);
+			scr_text("* We got him in there once, we can do it again.", "susie", 31);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_left_neutral, false);
+			scr_text("* Susie...", "lancer", 6);
+			scr_text("* ...?", "susie", 11);
+				scr_obj_sprite_on_page(obj_susie, spr_susie_right_neutral, false);
+			scr_text("* Please... Don't hurt my dad...", "lancer", 7);
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
+			scr_text("* He just tried to kill us, Lancer.", "susie", 12);
+			scr_text("* Why are you even still siding with him?", "susie", 13);
+			scr_text("* Just because he's your dad doesn't mean he isn't also a murderer.", "susie", 31);
+			scr_text("* Or an attempted one, at least.", "susie", 32);
+			scr_text("* But...", "lancer", 4);
+			scr_text("* Lancer, we need to figure out who your dad is bringing as help.", "ralsei", 4);
+			scr_text("* As much as I dislike violence, he needs to be put in his place.", "ralsei", 27);
+			scr_text("* If You Want Me To Cheer You Up I'll Buy You An Acid Smoothie", "queen", 29);
+				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_right, false);
+			scr_text("* ...", "lancer", 5);
+			scr_text("* Just... Try not to do anything... Too painful?", "lancer", 6);
+			scr_text("* Uh...", "susie", 27);
+			scr_text("* We'll do our best.", "susie", 29);
+			scr_text("* Thanks, Susie.", "lancer", 0);
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left, false);
+				scr_char_move_after_textbox(obj_lancer, spr_lancer_down, false, 0, 4, .8, 120);
+		break;
+		
+		case "self_18":
+			scr_text("* ...", "queen", 4);	
+				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_right_unhappy, false);
+			scr_text("* Kick His Ass", "queen", 0);
+				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_right, false);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_right, true, 4, 0, .8, 81);
+				scr_char_move_after_textbox(obj_queen, spr_queen_walk_down, true, 0, 4, .8, 80);
+		break;
+		
+		case "self_19":
+			scr_fade_warp_with_music(rm_one, 99999999999, sng_empty);
 		break;
 /*
-Susie: We gotta stop him.
-Ralsei: It's no use, Susie...
-Susie: We got him in there once, we can do it again.
-Lancer: Susie...
-Susie: ...?
-Lancer: Please... Don't hurt my dad...
-Susie: He just tried to kill us, Lancer.
-Susie: Why are you even still siding with him?
-Susie: Just because it's your dad doesn't mean he isn't also a murderer.
-Susie: Or an attempted one, at least.
-Lancer: But...
-Ralsei: Lancer, we don't know who your dad is bringing here as help, and we need to figure that out.
-Ralsei: As much as I'm not a fan of violence either, your dad needs to at least be put in his place.
-Queen: If You Want Me To Cheer You Up I'll Buy You An Acid Smoothie
-Lancer: ...
-Lancer: Just... Try not to do anything... Too painful?
-Susie: Uh...
-Susie: We'll do our best.
-Lancer: Thanks, Susie.
 (Lancer and Queen leave)
 */
 
