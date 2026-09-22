@@ -306,64 +306,93 @@ function scr_game_text(_text_id)
 			scr_text("* They started it", "king");
 				scr_text_cutoff_skip(17);
 			scr_text("* Oh COME on!!!", "susie");
+				scr_obj_sprite_on_page(obj_susie, spr_susie_angry, false);
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* Lancer, your dad decided to pick a fight.", "susie");
+				scr_obj_sprite_on_page(obj_susie, spr_susie_right_neutral, false);
 				scr_text_secondary("* This Is Indeed The Truth", "queen")
 			scr_text("* But... why?", "lancer");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* These degenerates deserve all the pain that has been sent their way.", "king");	
 			scr_text("* I trusted you...", "lancer");
 			scr_text("* I trusted you, Dad.|* Why'd you do it?", "lancer");
 			scr_text("* Do not question my authenticity, my son.", "king");
 			scr_text("* As I said, I didn't lift a finger to hurt them.", "king");
+				scr_obj_sprite_on_page(obj_king, spr_king_laugh, true);
 			scr_text("* Wordplay Is Not Your Savior Here", "queen")
+				scr_obj_sprite_on_page(obj_king, spr_king_battle_idle, true);
 			scr_text("* Correct.|* Because help is on its way at any moment.", "king");
 			scr_text("* You Are Still Yet To Explain Exactly Who This Help Is", "queen")
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* Why spoil the", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 				scr_text_cutoff_skip(15);
 			scr_text("* Enough With The 'Spoilers'", "queen")
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* If You Don't Want Us To Know, Stop Saying Things About It", "queen")
 			scr_text("* So be it.", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Dad, you should really go back into your cell.", "lancer");
 			scr_text("* ...", "king");
 			scr_text("* No.", "king");
 			scr_text("* ...", "lancer");
 			scr_text("* King, it's dangerous for you to be out here.", "ralsei");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* Worried that all my inhabitants will fall under their former rule?", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Do not count on it.|* The chances are unlikely.", "king");
 			scr_text("* So why stay out here?", "susie");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* I need to be available when", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 				scr_text_cutoff_skip(29);
-			scr_text("* If You Say Anything About Your Help I Will Dump You In Battery Acid", "queen")
+			scr_text("* If You Say Anything About Your Help I Will Dump You In Battery Acid", "queen");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* ...", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Such a violent spirit.", "king");
-			scr_text("* That's What Happens When People Search Up Dangerous Things On Their Devices", "queen")
-			scr_text("* Oh Yeah BTW Remind Me To Order A Nuke Later", "queen")
+			scr_text("* That's What Happens When People Search Up Dangerous Things On Their Devices", "queen");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
+			scr_text("* Oh Yeah BTW Remind Me To Order A Nuke Later", "queen");
 			scr_text("* ...", "susie");
 			scr_text("* That's your excuse? ", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Nothing towards the glorious fountain that created you?|* Created all of us?", "king");
 			scr_text("* It bestowed your personality, not the 'object' you claim to stem from.", "king");
 			scr_text("* You're LITERALLY a card.", "susie");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* And you're LITERALLY an impatient brat.|* Let the grownups speak.", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* You little", "susie");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 				scr_text_cutoff_skip(12);
 			scr_text("* Susie.", "ralsei");
 			scr_text("* ...", "susie");
 			scr_text("* The 'object' you were made from holds no bearing on your personality.", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* No one ever expected a card to be the king of a kingdom,", "king");
 			scr_text("* just because it was the King of Spades, correct?", "king");
 			scr_text("* Yes But None Of This Would Be Possible Without Physical Input From Lightners.", "queen");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* Is that so?", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Do you forget that not all objects in the Light World turn 'alive' here?", "king");
 			scr_text("* Or at least, not at first.", "king");
 			scr_text("* But the glorious fountains... they are what keeps us all living.", "king");
 			scr_text("* They keep us strong.|* Keep us going.|* Empower us to live our lives.", "king");
 			scr_text("* You cannot attribute that to your variant of so-called 'personality'.", "king");
 			scr_text("* Just because a fountain exists doesn't mean it warps personality.", "ralsei");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* And who said it was preordained?", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Why not just something that we have gained in experience over time?", "king");
 			scr_text("* Because that's not how it works???", "ralsei");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* Who's to say? You?", "king");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* Foolish, Prince, foolish.|* Your opinion does not change the reality of the situation.", "king");
 			scr_text("* Well... what gives you the right to speak, huh?", "ralsei");
+				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* You're just a puppet.|* More than Jevil was, more than Spamton will ever be.", "ralsei");
 			scr_text("* You just THINK the Knight likes you! That's why you keep doing all of this!", "ralsei");
 			scr_text("* You're not a leader, you're a SHEEP.", "ralsei");
