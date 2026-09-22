@@ -27,6 +27,7 @@ function scr_set_defaults_for_text()
 	global.speaker_image[global.page_number] = 0;
 	snd[global.page_number] = noone;
 	facing_change[global.page_number] = noone;
+	facing_spr[global.page_number] = noone;
 	text_cutoff[global.page_number] = noone;
 	text_cutoff_speed[global.page_number] = noone;
 	text_cutoff_threshold[global.page_number] = noone;
@@ -1132,6 +1133,21 @@ function scr_layer_show_after_textbox_delayed(_layer_name, _delay, _snd = noone,
 function scr_text_hide_face(_bool)
 {
     global.hide_face = _bool;
+}
+
+function scr_obj_sprite_once_on_page(_obj, _sprite, _start_image = 0)
+{
+    if !instance_exists(obj_cutscenehandler_midfightattacks) exit;
+
+    array_push(obj_cutscenehandler_midfightattacks.sprite_queue, {
+        obj: _obj,
+        sprite: _sprite,
+        image: _start_image,
+        page: global.page_number - 1,
+        type: "sprite_once",
+        snd: noone,
+        snd_gain: 1
+    });
 }
 
 /// @param text

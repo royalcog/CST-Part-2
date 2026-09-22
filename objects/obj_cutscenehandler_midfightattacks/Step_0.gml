@@ -115,6 +115,18 @@ if instance_exists(obj_textbox)
 			    }
 			    array_delete(sprite_queue, i, 1);
 			}
+			else if _entry.type == "sprite_once" && instance_exists(_entry.obj)
+			{
+			    _entry.obj.sprite_index = _entry.sprite;
+			    _entry.obj.image_index = _entry.image;
+			    _entry.obj.image_speed = 1;
+			    _entry.obj.anim_loop = false;
+			    if _entry.snd != noone
+			    {
+			        audio_play_sound(_entry.snd, 1, false, _entry.snd_gain);
+			    }
+			    array_delete(sprite_queue, i, 1);
+			}
         }
     }
 }

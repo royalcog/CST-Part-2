@@ -845,6 +845,7 @@
     {"id":{"name":"spr_susie_hand_out_left","path":"sprites/spr_susie_hand_out_left/spr_susie_hand_out_left.yy",},},
     {"id":{"name":"spr_susie_left_neutral","path":"sprites/spr_susie_left_neutral/spr_susie_left_neutral.yy",},},
     {"id":{"name":"spr_susie_pointright","path":"sprites/spr_susie_pointright/spr_susie_pointright.yy",},},
+    {"id":{"name":"spr_susie_right_neutral_lookback","path":"sprites/spr_susie_right_neutral_lookback/spr_susie_right_neutral_lookback.yy",},},
     {"id":{"name":"spr_susie_right_neutral","path":"sprites/spr_susie_right_neutral/spr_susie_right_neutral.yy",},},
     {"id":{"name":"spr_susie_right","path":"sprites/spr_susie_right/spr_susie_right.yy",},},
     {"id":{"name":"spr_susie_shocked","path":"sprites/spr_susie_shocked/spr_susie_shocked.yy",},},
