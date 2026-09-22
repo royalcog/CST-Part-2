@@ -932,7 +932,8 @@ _king_seq.rounds = [
             { speaker: obj_susie, text: "With that whole takeover, I'm surprised anyone originally even wanted to be part of your kingdom." },
             { speaker: obj_king,  text: "My people were loyal, Lightner. And they still would be, had you not poisoned their minds." },
             { speaker: obj_susie, text: "That was Lancer, dude. People like him a lot more than they like your sorry leadership." }
-        ]
+        ],
+		king_box_attack: scr_start_king_attack2
     },
     {
         attackers: [
@@ -1081,13 +1082,6 @@ _king_seq.rounds = [
     global.fight_seq_starting = false;
     sr_battle_intro_state = 0;
 }
-		
-		/*
-		Susie: How'd you even get to be king?
-		Susie: With that whole takeover, I'm surprised anyone originally even wanted to be part of your kingdom.
-		King: My people were loyal, Lightner. And they still would be, had you not poisoned their minds.
-		Susie: That was Lancer, dude. People like him a lot more than they like your sorry leadership.
-		*/
 
 // 6. IMPACT SEQUENCE STATE MACHINE
 if impact_seq_state == 1
