@@ -295,6 +295,7 @@
     {"id":{"name":"obj_soul","path":"objects/obj_soul/obj_soul.yy",},},
     {"id":{"name":"obj_sound_of_justice","path":"objects/obj_sound_of_justice/obj_sound_of_justice.yy",},},
     {"id":{"name":"obj_spade","path":"objects/obj_spade/obj_spade.yy",},},
+    {"id":{"name":"obj_spadebullet","path":"objects/obj_spadebullet/obj_spadebullet.yy",},},
     {"id":{"name":"obj_spadechunk","path":"objects/obj_spadechunk/obj_spadechunk.yy",},},
     {"id":{"name":"obj_spades","path":"objects/obj_spades/obj_spades.yy",},},
     {"id":{"name":"obj_spamton","path":"objects/obj_spamton/obj_spamton.yy",},},
