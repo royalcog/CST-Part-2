@@ -844,7 +844,7 @@ if sr_battle_intro_state == 3
 
 	scr_party_init([
     {
-        name: "Susie", hp: 290, max_hp: 290,
+        name: "Susie", hp: 290, max_hp: 290, body: obj_susie, body_hurt_sprite: spr_susie_hurt,
         box_offset_x: -1, box_offset_y: -1,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
         frame_scale: 43 / 156, divider_y: 156,
@@ -856,7 +856,7 @@ if sr_battle_intro_state == 3
         icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: 1
     },
     {
-        name: "Ralsei", hp: 210, max_hp: 210,
+        name: "Ralsei", hp: 210, max_hp: 210, body: obj_ralsei, body_hurt_sprite: spr_ralsei_shocked,
         box_offset_x: 236, box_offset_y: 0,
         sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty,
         frame_scale: 42 / 153, divider_y: 153,
@@ -868,7 +868,7 @@ if sr_battle_intro_state == 3
         icon_rect_x: 36, icon_rect_y: 21, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
     },
     {
-        name: "Queen", hp: 1510, max_hp: 1510,
+        name: "Queen", hp: 1510, max_hp: 1510, body: obj_queen, body_hurt_sprite: spr_queen_shocked,
         box_offset_x: 460, box_offset_y: -10,
         sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
         frame_scale: 52 / 47, divider_y: 47,
@@ -1596,7 +1596,7 @@ if (keyboard_check_pressed(vk_f2))
 
     scr_party_init([
     {
-        name: "Susie", hp: 290, max_hp: 290, 
+        name: "Susie", hp: 290, max_hp: 290, body: obj_susie, body_hurt_sprite: spr_susie_hurt,
         box_offset_x: -1, box_offset_y: -1,
         sprite_frame: spr_susiebox_empty, hurt_frame: spr_susiebox_hurtempty,
         frame_scale: 43 / 156, divider_y: 156,
@@ -1608,7 +1608,7 @@ if (keyboard_check_pressed(vk_f2))
         icon_rect_x: 51, icon_rect_y: 36, icon_rect_w: 147, icon_rect_h: 102, hurt_icon_scale: .9
     },
     {
-        name: "Ralsei", hp: 210, max_hp: 210,
+        name: "Ralsei", hp: 210, max_hp: 210, body: obj_ralsei, body_hurt_sprite: spr_ralsei_shocked,
         box_offset_x: 236, box_offset_y: 0,
         sprite_frame: spr_ralseibox_empty, hurt_frame: spr_ralseibox_hurtempty,
         frame_scale: 42 / 153, divider_y: 153,
@@ -1620,7 +1620,7 @@ if (keyboard_check_pressed(vk_f2))
         icon_rect_x: 36, icon_rect_y: 21, icon_rect_w: 137, icon_rect_h: 101, hurt_icon_scale: 0.95
     },
     {
-        name: "Queen", hp: 1510, max_hp: 1510,
+        name: "Queen", hp: 1510, max_hp: 1510, body: obj_queen, body_hurt_sprite: spr_queen_shocked,
         box_offset_x: 460, box_offset_y: -10,
         sprite_frame: spr_queenbox_empty, hurt_frame: spr_queenbox_hurtempty,
         frame_scale: 52 / 47, divider_y: 47,

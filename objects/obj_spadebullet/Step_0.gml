@@ -2,6 +2,17 @@ if (!instance_exists(obj_battlebox)) { instance_destroy(); exit; }
 
 x += dir * move_speed;
 
+// quick fade in on spawn, fade out once it's cleared the box
+if (!fading_out)
+{
+    image_alpha = min(image_alpha + 1 / fade_frames, 1);
+}
+else
+{
+    image_alpha -= 1 / fade_frames;
+    if (image_alpha <= 0) { instance_destroy(); exit; }
+}
+
 // hit only counts if the soul can actually take it; while it's flashing, spades pass through
 if (instance_exists(obj_soul) && !obj_soul.invulnerable
  && point_distance(x, y, obj_soul.x, obj_soul.y) <= hit_radius)
@@ -11,10 +22,9 @@ if (instance_exists(obj_soul) && !obj_soul.invulnerable
     exit;
 }
 
-// gone once it's fully past the far wall
 var _in = scr_get_box_interior();
 var _half_w = abs(sprite_width) / 2;
-if ((dir == 1 && x - _half_w > _in.x2) || (dir == -1 && x + _half_w < _in.x1))
+if (!fading_out && ((dir == 1 && x - _half_w > _in.x2 + travel_out) || (dir == -1 && x + _half_w < _in.x1 - travel_out)))
 {
-    instance_destroy();
+    fading_out = true;
 }

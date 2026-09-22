@@ -56,7 +56,7 @@
     {"$GMFolder":"","%Name":"Shockwave Attack","folderPath":"folders/Battle System/Objects/Attacks/Sound Of Justice/Shockwave Attack.yy","name":"Shockwave Attack","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Barrage Projectiles","folderPath":"folders/Battle System/Objects/Barrage Projectiles.yy","name":"Barrage Projectiles","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Projectiles","folderPath":"folders/Battle System/Objects/Barrage Projectiles/Projectiles.yy","name":"Projectiles","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Party","folderPath":"folders/Battle System/Objects/Party.yy","name":"Party","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"UI","folderPath":"folders/Battle System/Objects/UI.yy","name":"UI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Battle System/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Party","folderPath":"folders/Battle System/Scripts/Party.yy","name":"Party","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Battle System/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},

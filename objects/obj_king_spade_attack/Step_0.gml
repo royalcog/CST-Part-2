@@ -10,7 +10,7 @@ switch (state)
             var _half_w = sprite_get_width(spr_spade) * spade_scale / 2;
             var _side = choose(-1, 1); // -1 = enters from the left, 1 = enters from the right
 
-            var _sx = (_side == -1) ? (_in.x1 - _half_w) : (_in.x2 + _half_w);
+            var _sx = (_side == -1) ? (_in.x1 - spade_spawn_offset) : (_in.x2 + spade_spawn_offset);
             var _sy = random_range(_in.y1 + 6, _in.y2 - 6);
 
             var _s = instance_create_depth(_sx, _sy, obj_battlebox.depth - 1, obj_spadebullet);
@@ -20,7 +20,7 @@ switch (state)
             _s.hit_radius   = spade_hit_radius;
             _s.image_xscale = spade_scale * _s.dir; // sprite points right, so flip it for right-side spades
             _s.image_yscale = spade_scale;
-
+            _s.travel_out   = spade_spawn_offset;
             spawned++;
             if (spawned >= spade_total) state = "clearing";
             else timer = irandom_range(spawn_gap_min, spawn_gap_max);

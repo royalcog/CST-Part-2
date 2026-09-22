@@ -12,3 +12,5 @@ end_delay        = 30;  // beat after the last spade leaves before the box close
 spawned = 0;
 timer = start_delay;
 state = "spawning";
+
+spade_spawn_offset = 60; // how far outside the box spades appear / keep flying before fading out

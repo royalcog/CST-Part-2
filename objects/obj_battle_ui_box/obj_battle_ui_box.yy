@@ -10,8 +10,8 @@
   "name":"obj_battle_ui_box",
   "overriddenProperties":[],
   "parent":{
-    "name":"Party",
-    "path":"folders/Battle System/Objects/Party.yy",
+    "name":"UI",
+    "path":"folders/Battle System/Objects/UI.yy",
   },
   "parentObjectId":null,
   "persistent":false,
