@@ -1,4 +1,5 @@
 if (!instance_exists(obj_battlebox)) { instance_destroy(); exit; }
+if (obj_battlebox.state == "closing") fading_out = true;
 
 x += dir * move_speed;
 

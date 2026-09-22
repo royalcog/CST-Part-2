@@ -11,9 +11,10 @@ spade_spin_max  = 3;
 spade_damage    = 36;
 spade_hit_radius = 12;
 
-speed_start     = 1.5;   // box speed at the start of the bounce
-speed_max       = 3.5;   // box speed by the end — keep this modest
-bounce_duration = 600;   // frames of bouncing (~10s)
+speed_start       = 1.5;  // box speed at the start of the bounce
+speed_max         = 3.5;  // top speed — same cap as before, it just gets there sooner
+speed_ramp_frames = 420;  // frames to reach top speed (~7s); lower = speeds up quicker
+bounce_duration   = 840;  // frames of bouncing (~14s)
 warmup_frames   = 45;    // spades fade in, box holds still
 angle_jitter    = 10;    // +/- degrees off a perfect 45 so it doesn't feel robotic
 
@@ -23,6 +24,10 @@ wall_l = camera_get_view_x(_cam);
 wall_t = camera_get_view_y(_cam);
 wall_r = wall_l + camera_get_view_width(_cam);
 wall_b = wall_t + camera_get_view_height(_cam) - bottom_reserve;
+
+// where the box sits so it's dead-center of the bounce area (and the spade frame)
+center_base_x = (wall_l + wall_r) / 2 - obj_battlebox.raw_width  / 2;
+center_base_y = (wall_t + wall_b) / 2 - obj_battlebox.raw_height / 2;
 
 // --- state ---
 start_base_x = obj_battlebox.box_base_x;

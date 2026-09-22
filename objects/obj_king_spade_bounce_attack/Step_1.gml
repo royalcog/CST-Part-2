@@ -3,44 +3,61 @@ var _bb = obj_battlebox;
 
 switch (state)
 {
-    case "shrink":
-        if (scr_box_scale_settled())
-        {
-            var _s  = box_scale;
-            var _iw = (_bb.raw_width  - 46) * _s;  // interior width  (15 pad + 8 border per side, same as scr_get_box_interior)
-            var _ih = (_bb.raw_height - 16) * _s;  // interior height (8 border top/bottom)
-            var _in_x = (23 - vis_pad_x) * _s;     // gap between the visible box edge and the interior
-            var _in_y = 8 * _s;
+        case "shrink":
+	        // glide to the middle of the bounce area while shrinking, carrying the soul along
+	        var _old_x = _bb.x;
+	        var _old_y = _bb.y;
 
-            var _lx = wall_l + _in_x + spade_reach * _iw;
-            var _rx = wall_r - _in_x - spade_reach * _iw;
-            var _ty = wall_t + _in_y + spade_reach * _ih;
-            var _by = wall_b - _in_y - spade_reach * _ih;
+	        _bb.box_base_x = lerp(_bb.box_base_x, center_base_x, 0.12);
+	        _bb.box_base_y = lerp(_bb.box_base_y, center_base_y, 0.12);
+	        _bb.x = _bb.box_base_x + (_bb.raw_width  - _bb.raw_width  * _bb.image_xscale) / 2;
+	        _bb.y = _bb.box_base_y + (_bb.raw_height - _bb.raw_height * _bb.image_yscale) / 2;
+	        if (instance_exists(obj_soul))
+	        {
+	            obj_soul.x += _bb.x - _old_x;
+	            obj_soul.y += _bb.y - _old_y;
+	        }
 
-            var _step = spade_size + spade_gap;
+	        if (scr_box_scale_settled() && point_distance(_bb.box_base_x, _bb.box_base_y, center_base_x, center_base_y) < 1)
+	        {
+	            _bb.box_base_x = center_base_x;
+	            _bb.box_base_y = center_base_y;
 
-            // top + bottom rows (these own the corners)
-            var _n = max(1, round((_rx - _lx) / _step));
-            for (var i = 0; i <= _n; i++)
-            {
-                var _x = lerp(_lx, _rx, i / _n);
-                spawn_spade(_x, _ty);
-                spawn_spade(_x, _by);
-            }
+	            var _s  = box_scale;
+	            var _iw = (_bb.raw_width  - 46) * _s;  // interior width  (15 pad + 8 border per side, same as scr_get_box_interior)
+	            var _ih = (_bb.raw_height - 16) * _s;  // interior height (8 border top/bottom)
+	            var _in_x = (23 - vis_pad_x) * _s;     // gap between the visible box edge and the interior
+	            var _in_y = 8 * _s;
 
-            // left + right columns (corners already placed above)
-            _n = max(1, round((_by - _ty) / _step));
-            for (var i = 1; i < _n; i++)
-            {
-                var _y = lerp(_ty, _by, i / _n);
-                spawn_spade(_lx, _y);
-                spawn_spade(_rx, _y);
-            }
+	            var _lx = wall_l + _in_x + spade_reach * _iw;
+	            var _rx = wall_r - _in_x - spade_reach * _iw;
+	            var _ty = wall_t + _in_y + spade_reach * _ih;
+	            var _by = wall_b - _in_y - spade_reach * _ih;
 
-            timer = warmup_frames;
-            state = "warmup";
-        }
-    break;
+	            var _step = spade_size + spade_gap;
+
+	            // top + bottom rows (these own the corners)
+	            var _n = max(1, round((_rx - _lx) / _step));
+	            for (var i = 0; i <= _n; i++)
+	            {
+	                var _x = lerp(_lx, _rx, i / _n);
+	                spawn_spade(_x, _ty);
+	                spawn_spade(_x, _by);
+	            }
+
+	            // left + right columns (corners already placed above)
+	            _n = max(1, round((_by - _ty) / _step));
+	            for (var i = 1; i < _n; i++)
+	            {
+	                var _y = lerp(_ty, _by, i / _n);
+	                spawn_spade(_lx, _y);
+	                spawn_spade(_rx, _y);
+	            }
+
+	            timer = warmup_frames;
+	            state = "warmup";
+	        }
+	    break;
 
     case "warmup":
         timer--;
@@ -53,7 +70,9 @@ switch (state)
 
     case "bounce":
         timer++;
-        move_speed = lerp(speed_start, speed_max, clamp(timer / bounce_duration, 0, 1));
+        var _ramp = clamp(timer / speed_ramp_frames, 0, 1);
+        _ramp = 1 - sqr(1 - _ramp); // ease-out: most of the speed-up happens early, then it levels off
+        move_speed = lerp(speed_start, speed_max, _ramp);
 
         var _old_x = _bb.x;
         var _old_y = _bb.y;
