@@ -1,3 +1,5 @@
+sprite_index = spr_spade;
+
 // overwritten by obj_king_spade_bounce_attack right after spawning
 spin_speed = 1;
 damage = 36;
