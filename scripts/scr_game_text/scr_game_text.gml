@@ -234,7 +234,7 @@ function scr_game_text(_text_id)
 			scr_text("* Where did Lancer go?", "susie", 15);
 			scr_text("* Bathroom", "queen", 9);
 				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_left, false);
-				scr_text_secondary("* Of course he did.", "susie", 3);
+				scr_text_secondary("Of course he did.", "susie", 3);
 			scr_text("* Anyways Bouncy Boy Let His Dad Out Of The Cell", "queen", 0);
 				scr_obj_sprite_on_page(obj_queen, spr_queen_walk_left_unhappy, false);
 			scr_text("* He... He what???", "ralsei", 12);
@@ -242,7 +242,7 @@ function scr_game_text(_text_id)
 			scr_text("* I Don't Know To Who", "queen", 4);
 			scr_text("* Can't you like... check records or something???", "susie", 35);
 			scr_text("* Nope", "queen", 3);
-				scr_text_secondary("* I Mean Yeah But Who Cares", "queen", 0);
+				scr_text_secondary("I Mean Yeah But Who Cares", "queen", 0);
 			scr_text("* We need to put him back in his cell.", "ralsei", 34);
 			scr_text("* We don't know what he's capable of if he's not", "ralsei", 35);
 				scr_text_cutoff_skip(47);
@@ -309,7 +309,7 @@ function scr_game_text(_text_id)
 				scr_obj_sprite_on_page(obj_lancer, spr_lancer_left_sad, false);
 			scr_text("* Lancer, your dad decided to pick a fight.", "susie", 43);
 				scr_obj_sprite_on_page(obj_susie, spr_susie_right_neutral, false);
-				scr_text_secondary("* This Is Indeed The Truth", "queen", 25)
+				scr_text_secondary("This Is Indeed The Truth", "queen", 25)
 			scr_text("* But... why?", "lancer", 5);
 				scr_obj_sprite_on_page(obj_lancer, spr_lancer_right_sad, false);
 			scr_text("* These degenerates deserve all the pain that has been sent their way.", "king", 0);	

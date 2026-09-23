@@ -91,10 +91,13 @@ switch (state)
         var _bottom = _by2 + _bb.raw_height * _sy;
 
         // DVD-logo bounce: push back inside and mirror the direction
-        if (_left < wall_l)        { _bb.box_base_x += wall_l - _left;    move_dir = 180 - move_dir; }
-        else if (_right > wall_r)  { _bb.box_base_x -= _right - wall_r;   move_dir = 180 - move_dir; }
-        if (_top < wall_t)         { _bb.box_base_y += wall_t - _top;     move_dir = -move_dir; }
-        else if (_bottom > wall_b) { _bb.box_base_y -= _bottom - wall_b;  move_dir = -move_dir; }
+        var _bounced = false;
+        if (_left < wall_l)        { _bb.box_base_x += wall_l - _left;    move_dir = 180 - move_dir; _bounced = true; }
+        else if (_right > wall_r)  { _bb.box_base_x -= _right - wall_r;   move_dir = 180 - move_dir; _bounced = true; }
+        if (_top < wall_t)         { _bb.box_base_y += wall_t - _top;     move_dir = -move_dir;      _bounced = true; }
+        else if (_bottom > wall_b) { _bb.box_base_y -= _bottom - wall_b;  move_dir = -move_dir;      _bounced = true; }
+
+        if (_bounced && bounce_sound != -1) audio_play_sound(bounce_sound, 5, false); // corner hits only play once
 
         // apply now (same formula obj_battlebox uses) and carry the soul along with it
         _bb.x = _bb.box_base_x + (_bb.raw_width  - _bb.raw_width  * _sx) / 2;

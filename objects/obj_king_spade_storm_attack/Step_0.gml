@@ -20,6 +20,7 @@ switch (state)
 
     case "storm":
         storm_timer++;
+        apply_sway(1);
 
         // current spin target = last key we've passed
         var _target = spin_keys[0].spin;
@@ -58,13 +59,20 @@ switch (state)
         }
     break;
 
-    // beam keeps turning (slowing down) while it fades; any sniper still flying fades when the box closes
+    // beam keeps turning (slowing down) while it fades, sway shrinks to exactly 0 before the box closes
     case "end_hold":
+        storm_timer++;
+        apply_sway(max(timer - 1, 0) / end_delay);
+
         cur_spin = lerp(cur_spin, 0, 0.08);
         beam_angle += cur_spin;
         update_beam();
 
         timer--;
-        if (timer <= 0) instance_destroy();
+        if (timer <= 0)
+        {
+            obj_battlebox.box_angle = 0;
+            instance_destroy();
+        }
     break;
 }

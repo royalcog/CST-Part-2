@@ -17,6 +17,7 @@ speed_ramp_frames = 420;  // frames to reach top speed (~7s); lower = speeds up 
 bounce_duration   = 840;  // frames of bouncing (~14s)
 warmup_frames   = 45;    // spades fade in, box holds still
 angle_jitter    = 10;    // +/- degrees off a perfect 45 so it doesn't feel robotic
+bounce_sound    = snd_impact; // plays on every wall hit, -1 for none
 
 // --- screen walls ---
 var _cam = view_camera[0];

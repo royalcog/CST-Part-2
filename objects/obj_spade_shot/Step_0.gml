@@ -48,11 +48,12 @@ if (!fading_out && image_alpha >= 1
 }
 
 var _in = scr_get_box_interior();
-if (x >= _in.x1 && x <= _in.x2 && y >= _in.y1 && y <= _in.y2)
+var _l  = scr_world_to_box_local(x, y); // box's own frame, so this still works while the box is tilted
+if (_l.x >= _in.x1 && _l.x <= _in.x2 && _l.y >= _in.y1 && _l.y <= _in.y2)
 {
     entered = true;
 }
-else if (entered && (x < _in.x1 - exit_margin || x > _in.x2 + exit_margin || y < _in.y1 - exit_margin || y > _in.y2 + exit_margin))
+else if (entered && (_l.x < _in.x1 - exit_margin || _l.x > _in.x2 + exit_margin || _l.y < _in.y1 - exit_margin || _l.y > _in.y2 + exit_margin))
 {
     instance_destroy();
     exit;

@@ -6,32 +6,41 @@ beam_hit_radius = 12;
 
 // beam spin (deg/frame) over time — eases toward whichever key it's currently past
 spin_keys = [
-    { at: 0,   spin: 0.6  },
-    { at: 240, spin: 1.0  },
-    { at: 420, spin: -0.8 },   // first reversal
-    { at: 600, spin: -1.3 },
-    { at: 720, spin: 1.1  }    // second reversal, right before the end
+    { at: 0,    spin: 0.6  },
+    { at: 300,  spin: 1.0  },
+    { at: 540,  spin: -0.8 },   // first reversal
+    { at: 780,  spin: -1.3 },
+    { at: 1000, spin: 1.2  },   // second reversal
+    { at: 1180, spin: 1.5  }
 ];
 spin_ease     = 0.03;
-beam_duration = 840;  // frames of storm (~14s)
+beam_duration = 1320; // frames of storm (~22s)
 windup_frames = 60;   // red telegraph line before the beam appears (soul spawns on it)
 telegraph_color = c_red;
 telegraph_width = 3;
 reverse_sound = snd_impact; // -1 for none
 reverse_shake = 3;
 
+// box sway — tilts back and forth while the storm runs
+sway_amount      = 10;   // max tilt in degrees either way
+sway_period      = 240;  // frames for one full sway back and forth
+sway_ramp_frames = 120;  // eases into the full sway at the start
+
 // snipers: single spades that pop up, lock onto the soul, and fire
 sniper_gap_start = 110;  // frames between snipers at the start...
 sniper_gap_end   = 40;   // ...down to this by the end
-sniper_aim       = 45;
-sniper_lock      = 10;
+sniper_aim       = 34;   // wind-up length (was 45) — shorter = shows up and locks on quicker
+sniper_lock      = 10;   // dodge window after it stops tracking — unchanged
+sniper_fade      = 5;    // fade-in frames (was 8)
+sniper_turn      = 0.35; // how fast it swings to face the soul (was 0.25)
+sniper_blink     = 20;   // blinks red for the last N frames of the wind-up
 sniper_min_dist  = 80;   // never spawns closer than this to the soul
 sniper_margin    = 20;   // stays this far inside the box walls
 sniper_damage     = 36;
 sniper_hit_radius = 12;
 sniper_fire_sound = snd_smallswing; // -1 for none
 
-end_delay   = 40;   // beam fades while slowing down, then the box closes
+end_delay   = 40;   // beam fades while slowing down and the sway settles, then the box closes
 start_sound = snd_spear_appear; // -1 for none
 
 // --- state ---
@@ -97,25 +106,35 @@ update_beam = function()
 spawn_sniper = function()
 {
     var _in = scr_get_box_interior();
-    var _x = cx;
-    var _y = cy;
+    var _pos = { x: cx, y: cy };
 
     for (var _try = 0; _try < 12; _try++)
     {
-        _x = random_range(_in.x1 + sniper_margin, _in.x2 - sniper_margin);
-        _y = random_range(_in.y1 + sniper_margin, _in.y2 - sniper_margin);
-        if (!instance_exists(obj_soul) || point_distance(_x, _y, obj_soul.x, obj_soul.y) >= sniper_min_dist) break;
+        // pick a spot in the box's own frame, then place it in the (possibly tilted) world
+        _pos = scr_box_local_to_world(
+            random_range(_in.x1 + sniper_margin, _in.x2 - sniper_margin),
+            random_range(_in.y1 + sniper_margin, _in.y2 - sniper_margin));
+        if (!instance_exists(obj_soul) || point_distance(_pos.x, _pos.y, obj_soul.x, obj_soul.y) >= sniper_min_dist) break;
     }
 
-    var _s = instance_create_depth(_x, _y, obj_battlebox.depth - 1, obj_spade_shot);
-    _s.image_angle = random(360); // swings into its aim during the wind-up
-    _s.aim_frames  = sniper_aim;
-    _s.lock_frames = sniper_lock;
-    _s.move_speed  = 1;
-    _s.accel       = 0.25;
-    _s.max_speed   = 7;
-    _s.damage      = sniper_damage;
-    _s.hit_radius  = sniper_hit_radius;
-    _s.fire_sound  = sniper_fire_sound;
-    _s.entered     = true;
+    var _s = instance_create_depth(_pos.x, _pos.y, obj_battlebox.depth - 1, obj_spade_shot);
+    _s.image_angle  = random(360); // swings into its aim during the wind-up
+    _s.aim_frames   = sniper_aim;
+    _s.lock_frames  = sniper_lock;
+    _s.aim_turn     = sniper_turn;
+    _s.blink_frames = sniper_blink;
+    _s.fade_frames  = sniper_fade;
+    _s.move_speed   = 1;     // same shot speed as before
+    _s.accel        = 0.25;
+    _s.max_speed    = 7;
+    _s.damage       = sniper_damage;
+    _s.hit_radius   = sniper_hit_radius;
+    _s.fire_sound   = sniper_fire_sound;
+    _s.entered      = true;
+};
+
+apply_sway = function(_amp_mult)
+{
+    var _ramp = clamp(storm_timer / sway_ramp_frames, 0, 1);
+    obj_battlebox.box_angle = sway_amount * _ramp * _amp_mult * sin(storm_timer * 2 * pi / sway_period);
 };

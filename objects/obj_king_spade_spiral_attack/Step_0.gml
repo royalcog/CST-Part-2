@@ -29,13 +29,15 @@ switch (state)
         emit_timer--;
         if (emit_timer <= 0)
         {
+            var _sway = _p.wobble * sin(phase_timer * 2 * pi / wobble_period);
             for (var i = 0; i < _p.arms; i++)
             {
-                var _a = base_angle + i * 360 / _p.arms;
+                var _a  = base_angle + i * 360 / _p.arms + _sway;
+                var _sa = _a + random_range(-_p.jitter, _p.jitter);
                 var _s = instance_create_depth(cx + lengthdir_x(spawn_radius, _a), cy + lengthdir_y(spawn_radius, _a),
                     obj_battlebox.depth - 1, obj_spade_shot);
-                _s.move_dir    = _a;
-                _s.image_angle = _a;
+                _s.move_dir    = _sa;
+                _s.image_angle = _sa;
                 _s.move_speed  = _p.speed;
                 _s.max_speed   = _p.speed;
                 _s.damage      = spade_damage;

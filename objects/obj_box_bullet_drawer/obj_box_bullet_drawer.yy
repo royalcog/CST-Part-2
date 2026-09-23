@@ -11,8 +11,8 @@
   "name":"obj_box_bullet_drawer",
   "overriddenProperties":[],
   "parent":{
-    "name":"Attack 3",
-    "path":"folders/Battle System/Objects/Attacks/King/Objects/Attack 3.yy",
+    "name":"Objects",
+    "path":"folders/Battle System/Objects/Attacks/King/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

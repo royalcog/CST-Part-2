@@ -23,17 +23,29 @@ start_delay     = 20;
 end_delay       = 70;  // after the last wall launches, before the box closes (walls still crossing)
 spawn_sound     = snd_spear_appear; // -1 for none
 
+// warning strip along the edge a wall is about to come from — the gap shows as a hole in it
+warn_frames = 45;      // how long the warning shows before the wall launches
+warn_depth  = 10;      // how far into the box the strip reaches
+warn_inset  = 2;       // space between segments
+warn_color  = c_red;
+warn_alpha  = 0.7;
+warn_sound  = snd_select; // -1 for none
+warn_gain   = 0.4;
+
 // --- state ---
+depth = obj_battlebox.depth - 1; // warnings draw over the box, under the soul
 wall_index = 0;
 last_gap_sideways = -1; // walls moving left/right
 last_gap_vertical = -1; // walls moving up/down
+pending = [];           // walls still in their warning phase
 timer = start_delay;
 state = "walls";
 
 with (obj_box_bullet_drawer) instance_destroy(); // clear any leftover
 instance_create_depth(0, 0, obj_battlebox.depth - 1, obj_box_bullet_drawer);
 
-spawn_wall = function(_w)
+// decides the wall (direction + gap) and starts its warning
+plan_wall = function(_w)
 {
     var _in = scr_get_box_interior();
     var _sideways = (_w.from == "left" || _w.from == "right");
@@ -57,28 +69,37 @@ spawn_wall = function(_w)
         case "bottom": _dir = 90;  break;
     }
 
-    for (var k = 0; k < _n; k++)
-    {
-        if (k >= _gap && k < _gap + gap_size) continue;
+    array_push(pending, { from: _w.from, sideways: _sideways, speed: _w.speed, dir: _dir, n: _n, gap: _gap, timer: warn_frames });
+    if (warn_sound != -1) audio_play_sound(warn_sound, 5, false, warn_gain);
+};
 
-        var _t = (k + 0.5) / _n;
+// actually sends the spades in once the warning's done
+launch_wall = function(_p)
+{
+    var _in = scr_get_box_interior();
+
+    for (var k = 0; k < _p.n; k++)
+    {
+        if (k >= _p.gap && k < _p.gap + gap_size) continue;
+
+        var _t = (k + 0.5) / _p.n;
         var _x, _y;
-        if (_sideways)
+        if (_p.sideways)
         {
-            _x = (_w.from == "left") ? _in.x1 - spawn_out : _in.x2 + spawn_out;
+            _x = (_p.from == "left") ? _in.x1 - spawn_out : _in.x2 + spawn_out;
             _y = lerp(_in.y1, _in.y2, _t);
         }
         else
         {
             _x = lerp(_in.x1, _in.x2, _t);
-            _y = (_w.from == "top") ? _in.y1 - spawn_out : _in.y2 + spawn_out;
+            _y = (_p.from == "top") ? _in.y1 - spawn_out : _in.y2 + spawn_out;
         }
 
         var _s = instance_create_depth(_x, _y, obj_battlebox.depth - 1, obj_spade_shot);
-        _s.move_dir    = _dir;
-        _s.image_angle = _dir;
-        _s.move_speed  = _w.speed;
-        _s.max_speed   = _w.speed;
+        _s.move_dir    = _p.dir;
+        _s.image_angle = _p.dir;
+        _s.move_speed  = _p.speed;
+        _s.max_speed   = _p.speed;
         _s.damage      = spade_damage;
         _s.hit_radius  = spade_hit_radius;
     }

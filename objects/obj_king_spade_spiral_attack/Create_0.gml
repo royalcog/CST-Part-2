@@ -1,11 +1,14 @@
 // --- tuning ---
 // phases play in order; spin (deg/frame) eases between phases so each reversal is readable
+// jitter: each spade's direction is randomly off by up to this many degrees
+// wobble: arms sway back and forth by up to this many degrees on top of the spin (0 = off)
 phases = [
-    { frames: 200, arms: 3, spin: 3,    gap: 8, speed: 2   },
-    { frames: 200, arms: 3, spin: -3.5, gap: 8, speed: 2.2 },
-    { frames: 220, arms: 4, spin: 4,    gap: 9, speed: 2.4 },
-    { frames: 220, arms: 4, spin: -5,   gap: 9, speed: 2.6 }
+    { frames: 200, arms: 3, spin: 3,    gap: 8, speed: 2,   jitter: 6,  wobble: 0  },
+    { frames: 200, arms: 3, spin: -3.5, gap: 8, speed: 2.2, jitter: 8,  wobble: 25 },
+    { frames: 220, arms: 4, spin: 4,    gap: 9, speed: 2.4, jitter: 10, wobble: 0  },
+    { frames: 220, arms: 4, spin: -5,   gap: 9, speed: 2.6, jitter: 12, wobble: 35 }
 ];
+wobble_period = 90; // frames for one full sway back and forth
 windup_frames    = 60;   // emitter blinks at the center first — soul starts here, so this is the "move!" warning
 spin_ease        = 0.04;
 spawn_radius     = 12;   // spades come out from the edge of the emitter

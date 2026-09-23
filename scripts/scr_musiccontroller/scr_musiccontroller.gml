@@ -26,10 +26,10 @@ function start_battle_music()
 {
     if (variable_global_exists("song") && global.song != noone && global.song != undefined && is_struct(global.song))
     {
-        if (global.song.sound == sng_cmmm) exit;
+        if (global.song.sound == sng_kingofchaos) exit;
     }
     global.song = {
-        sound: sng_cmmm,
+        sound: sng_kingofchaos,
         beats: 9999
     };
     

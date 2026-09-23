@@ -9,3 +9,4 @@ image_speed = 0;
 fade_speed = 1 / 20;
 fading_out = false;
 image_alpha = 0;
+
