@@ -3,7 +3,7 @@ box_scale       = 0.6;   // box shrinks to this first so it has room to bounce a
 bottom_reserve  = 95;    // bottom wall sits this far above the screen bottom (keeps the box off the HP boxes)
 vis_pad_x       = 16;    // spr_battlebox's transparent side padding (x 0-15 / 316-331) — bounce off the visible edge
 
-spade_reach     = 0.2;   // how far into the box each spade's CENTER sits when the box is against that wall
+spade_reach     = 0.5;   // how far into the box each spade's CENTER sits when the box is against that wall
 spade_size      = 36;    // spr_spade width
 spade_gap       = 8;     // space between neighbouring spades
 spade_spin_min  = 0.5;   // deg/frame, each spade picks its own speed + direction

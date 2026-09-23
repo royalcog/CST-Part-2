@@ -956,7 +956,8 @@ _king_seq.rounds = [
             { speaker: obj_queen, text: "Ok Buddy" },
             { speaker: obj_queen, text: "Just Remember Who Threatened A Child" },
             { speaker: obj_king, text: "You..." }
-        ]
+        ],
+		king_box_attack: scr_start_king_attack3
     },
     {
         attackers: [
