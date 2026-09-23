@@ -912,7 +912,8 @@ _king_seq.rounds = [
             { speaker: obj_queen, text: "That's Queen To You" },
             { speaker: obj_king,  text: "Then respect your king." }
         ],
-        king_box_attack: scr_start_king_attack1
+		// king_box_attack: scr_start_king_attack1
+        king_box_attack: scr_start_king_attack3
     },
     {
         attackers: [
