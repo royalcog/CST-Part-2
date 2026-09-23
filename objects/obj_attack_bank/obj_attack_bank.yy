@@ -8,8 +8,8 @@
   "name":"obj_attack_bank",
   "overriddenProperties":[],
   "parent":{
-    "name":"Attacks",
-    "path":"folders/Battle System/Objects/Attacks.yy",
+    "name":"General",
+    "path":"folders/Battle System/Objects/Attacks/General.yy",
   },
   "parentObjectId":null,
   "persistent":true,

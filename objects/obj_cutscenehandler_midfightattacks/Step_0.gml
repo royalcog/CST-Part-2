@@ -912,8 +912,7 @@ _king_seq.rounds = [
             { speaker: obj_queen, text: "That's Queen To You" },
             { speaker: obj_king,  text: "Then respect your king." }
         ],
-		// king_box_attack: scr_start_king_attack1
-        king_box_attack: scr_start_king_attack3
+		king_box_attack: scr_start_king_attack1
     },
     {
         attackers: [
@@ -987,7 +986,8 @@ _king_seq.rounds = [
 		        obj_queen.sprite_index = spr_queen_walk_right_unhappy;
 				obj_queen.image_speed = 0;
 		    } }
-        ]
+        ],
+		king_box_attack: scr_start_king_attack4
     },
     {
         attackers: [
@@ -1008,7 +1008,8 @@ _king_seq.rounds = [
             { speaker: obj_queen, text: "Although My Calibrations Are Set To: Take Over The World, You Are Not The Right Person To Work With" },
             { speaker: obj_king, text: "Right, because using children to further your gain is so much better than the alternative." },
             { speaker: obj_queen, text: "Holy Hypocrisy Bro" }
-        ]
+        ],
+		king_box_attack: scr_start_king_attack5
     },
     {
         attackers: [
@@ -1039,7 +1040,8 @@ _king_seq.rounds = [
             { speaker: obj_king, text: "Silence, boy." },
             { speaker: obj_king, text: "Wait your turn to spoil the fun." },
             { speaker: obj_ralsei, text: "..." }
-        ]
+        ],
+		king_box_attack: scr_start_king_attack6
     },
     {
         attackers: [
@@ -1060,7 +1062,8 @@ _king_seq.rounds = [
             { speaker: obj_king, text: "Enjoy this for what it is." },
             { speaker: obj_susie, text: "And that would be?" },
             { speaker: obj_king, text: "The calm before the storm." }
-        ]
+        ],
+		king_box_attack: scr_start_king_attack7
     },
     {
 	    attackers: [],

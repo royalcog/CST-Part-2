@@ -1,17 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_damage_number",
+  "%Name":"obj_king_spade_ring_attack",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_damage_number",
+  "name":"obj_king_spade_ring_attack",
   "overriddenProperties":[],
   "parent":{
-    "name":"General",
-    "path":"folders/Battle System/Objects/Attacks/General.yy",
+    "name":"Attack 4",
+    "path":"folders/Battle System/Objects/Attacks/King/Objects/Attack 4.yy",
   },
   "parentObjectId":null,
   "persistent":false,

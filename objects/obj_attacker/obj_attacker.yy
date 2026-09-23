@@ -9,8 +9,8 @@
   "name":"obj_attacker",
   "overriddenProperties":[],
   "parent":{
-    "name":"Attacks",
-    "path":"folders/Battle System/Objects/Attacks.yy",
+    "name":"General",
+    "path":"folders/Battle System/Objects/Attacks/General.yy",
   },
   "parentObjectId":null,
   "persistent":false,
